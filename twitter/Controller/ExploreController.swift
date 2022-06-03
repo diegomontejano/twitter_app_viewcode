@@ -1,10 +1,10 @@
 import UIKit
 
 class ExploreController: UIViewController {
-    // MARK: - Properties
+    // MARK: Properties
     
     
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -12,7 +12,7 @@ class ExploreController: UIViewController {
     }
     
     
-    // MARK: - Methods
+    // MARK: Methods
     
     
 }

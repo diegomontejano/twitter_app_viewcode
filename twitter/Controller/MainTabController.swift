@@ -1,35 +1,43 @@
 import UIKit
 
 class MainTabController: UITabBarController {
-    // MARK: - Properties
+    // MARK: Properties
     
     
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBar.backgroundColor = .white
-        
-        configureViewControllers()
+        showViewControllers()
     }
     
     
-    // MARK: - Methods
-    func configureViewControllers() {
+    // MARK: Methods
+    func showViewControllers() {
+        // instance of ViewController
         let feedController = FeedController()
-        feedController.tabBarItem.image = UIImage(systemName: "house")
+        // embeed ViewController in NavigationController
+        let nav1 = navigationController(iconName: "house", rootViewController: feedController)
         
         let exploreController = ExploreController()
-        exploreController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        let nav2 = navigationController(iconName: "magnifyingglass", rootViewController: exploreController)
         
         let notificationController = NotificationController()
-        notificationController.tabBarItem.image = UIImage(systemName: "suit.heart")
+        let nav3 = navigationController(iconName: "suit.heart", rootViewController: notificationController)
         
-        let conversationsController = ConversationsController()
-        conversationsController.tabBarItem.image = UIImage(systemName: "envelope")
+        let conversationController = ConversationsController()
+        let nav4 = navigationController(iconName: "envelope", rootViewController: conversationController)
         
         // array of UIViewController
-        viewControllers = [feedController, exploreController, notificationController, conversationsController]
+        viewControllers = [nav1, nav2, nav3, nav4]
+    }
+    
+    func navigationController(iconName: String, rootViewController: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: rootViewController)
+        nav.tabBarItem.image = UIImage(systemName: iconName)
+        nav.navigationBar.backgroundColor = .white
+        return nav
     }
 
     
