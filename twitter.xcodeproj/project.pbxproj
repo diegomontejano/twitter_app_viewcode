@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		793A1C4F28429E3400E67585 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A1C4E28429E3400E67585 /* MainTabController.swift */; };
+		7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943C15B284ECF3B006A07C1 /* Extensions.swift */; };
 		7973765C28483F720047B0FA /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765B28483F720047B0FA /* FeedController.swift */; };
 		7973765E284840270047B0FA /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765D284840270047B0FA /* ExploreController.swift */; };
 		79737660284840540047B0FA /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765F284840540047B0FA /* NotificationController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		793A1C4E28429E3400E67585 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		7943C15B284ECF3B006A07C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7973765B28483F720047B0FA /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		7973765D284840270047B0FA /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		7973765F284840540047B0FA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		79E7442B2840547F0029C0E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7943C15B284ECF3B006A07C1 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				79737660284840540047B0FA /* NotificationController.swift in Sources */,
 				79737662284840710047B0FA /* ConversationsController.swift in Sources */,
 				79E744182840541C0029C0E2 /* AppDelegate.swift in Sources */,
+				7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */,
 				7973765E284840270047B0FA /* ExploreController.swift in Sources */,
 				79E7441A2840541C0029C0E2 /* SceneDelegate.swift in Sources */,
 				793A1C4F28429E3400E67585 /* MainTabController.swift in Sources */,

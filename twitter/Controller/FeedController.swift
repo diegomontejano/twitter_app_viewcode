@@ -1,18 +1,24 @@
 import UIKit
 
 class FeedController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
+
     
-    
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        configureUI()
     }
     
     
-    // MARK: Methods
-    
+    // MARK: - Methods
+    func configureUI() {
+        view.backgroundColor = .white
+        
+        let imageView = UIImageView(image: UIImage(named: "twitter-logo-blue"))
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
     
 }

@@ -1,18 +1,21 @@
 import UIKit
 
 class ConversationsController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
     
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .purple
+        configureUI()
     }
     
     
-    // MARK: Methods
-    
+    // MARK: - Methods
+    func configureUI() {
+        view.backgroundColor = .white
+        navigationItem.title = "Messages"
+    }
     
 }
