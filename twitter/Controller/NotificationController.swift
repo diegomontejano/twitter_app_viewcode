@@ -18,4 +18,5 @@ class NotificationController: UIViewController {
         navigationItem.title = "Notifications"
     }
     
+    
 }
