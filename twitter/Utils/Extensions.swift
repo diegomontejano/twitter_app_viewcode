@@ -15,8 +15,8 @@ extension UIView {
         width: CGFloat? = nil,
         height: CGFloat? = nil,
         left: NSLayoutXAxisAnchor? = nil,
-        top: NSLayoutYAxisAnchor? = nil,
         right: NSLayoutXAxisAnchor? = nil,
+        top: NSLayoutYAxisAnchor? = nil,
         bottom: NSLayoutYAxisAnchor? = nil,
         paddingTop: CGFloat = 0,
         paddingRight: CGFloat = 0,
@@ -35,11 +35,11 @@ extension UIView {
         if let left = left {
             leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
-        if let top = top {
-            topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
-        }
         if let right = right {
             rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
+        }
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
         }
         if let bottom = bottom {
             bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
