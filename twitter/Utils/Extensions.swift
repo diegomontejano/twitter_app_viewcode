@@ -18,10 +18,10 @@ extension UIView {
         right: NSLayoutXAxisAnchor? = nil,
         top: NSLayoutYAxisAnchor? = nil,
         bottom: NSLayoutYAxisAnchor? = nil,
-        paddingTop: CGFloat = 0,
+        paddingLeft: CGFloat = 0,
         paddingRight: CGFloat = 0,
-        paddingBottom: CGFloat = 0,
-        paddingLeft: CGFloat = 0
+        paddingTop: CGFloat = 0,
+        paddingBottom: CGFloat = 0
         ) {
         // enable auto layout
         translatesAutoresizingMaskIntoConstraints = false

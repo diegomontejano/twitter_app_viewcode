@@ -4,25 +4,32 @@ import UIKit
 class LoginViewController: UIViewController {
     // MARK: - Properties
      let logoImageView: UIImageView = {
-        let _view = UIImageView()
-        _view.contentMode = .scaleAspectFit
-        _view.clipsToBounds = true
-        _view.image = UIImage(named: "twitter-logo-square")
-        return _view
+        let logoImageView = UIImageView()
+         logoImageView.contentMode = .scaleAspectFit
+         logoImageView.clipsToBounds = true
+         logoImageView.image = UIImage(named: "twitter-logo-square")
+        return logoImageView
     }()
     
-    private lazy var containerEmailView: UIView = {
-        let _view = UIView()
-        _view.setConstraints(height: 50)
-        _view.backgroundColor = .orange
-        return _view
+    private lazy var emailContainerView: UIView = {
+        let emailContainerView = UIView()
+        emailContainerView.setConstraints(height: 50)
+        emailContainerView.backgroundColor = .orange
+        
+        let emailIcon = UIImageView()
+        emailIcon.image = UIImage(systemName: "envelope")
+        emailIcon.setConstraints(width: 40, height: 40, left: view.leftAnchor, bottom: view.bottomAnchor, paddingLeft: 8)
+        
+        
+        
+        return emailContainerView
     }()
     
-    private lazy var containerPasswordView: UIView = {
-        let _view = UIView()
-        _view.setConstraints(height: 50)
-        _view.backgroundColor = .green
-        return _view
+    private lazy var passwordContainerView: UIView = {
+        let passwordContainerView = UIView()
+        passwordContainerView.setConstraints(height: 50)
+        passwordContainerView.backgroundColor = .green
+        return passwordContainerView
     }()
     
 
@@ -46,7 +53,7 @@ class LoginViewController: UIViewController {
         logoImageView.setConstraints(width: 150, height: 150)
         logoImageView.setCenter(view: view, topAnchor: view.topAnchor, paddingTop: 30)
         
-        let vStack = UIStackView(arrangedSubviews: [containerEmailView, containerPasswordView])
+        let vStack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
         vStack.axis = .vertical
         vStack.spacing = 8
         view.addSubview(vStack)

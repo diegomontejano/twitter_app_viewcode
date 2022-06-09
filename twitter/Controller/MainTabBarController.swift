@@ -3,12 +3,12 @@ import UIKit
 class MainTabBarController: UITabBarController {
     // MARK: - Properties
     let tweetButton: UIButton = {
-        let _view = UIButton(type: .system)
-        _view.tintColor = .white
-        _view.backgroundColor = .twitterBlue
-        _view.setImage(UIImage(systemName: "plus"), for: .normal)
-        _view.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        return _view
+        let tweetButton = UIButton(type: .system)
+        tweetButton.tintColor = .white
+        tweetButton.backgroundColor = .twitterBlue
+        tweetButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        tweetButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return tweetButton
     }()
     
     
