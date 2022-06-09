@@ -63,7 +63,7 @@ extension UIView {
         else if leftAnchor != nil {
             centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-            self.leftAnchor.constraint(equalTo: leftAnchor!, constant: -paddingLeft).isActive = true
+            self.leftAnchor.constraint(equalTo: leftAnchor!, constant: paddingLeft).isActive = true
         }
         else {
             centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
