@@ -1,12 +1,13 @@
 import UIKit
 
-class MainTabController: UITabBarController {
+class MainTabBarController: UITabBarController {
     // MARK: - Properties
     let button: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = .twitterBlue
         button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -14,7 +15,6 @@ class MainTabController: UITabBarController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
         navigationController()
     }
@@ -24,11 +24,11 @@ class MainTabController: UITabBarController {
     func configureUI() {
         // add button as subview
         view.addSubview(button)
-        // call anchor method from Extensions.swift
-        button.anchor(width: 56, height: 56, right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingRight: 16, paddingBottom: 64)
+        // call setConstraints method from Extensions.swift
+        button.setConstraints(width: 56, height: 56, right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingRight: 16, paddingBottom: 64)
         button.layer.cornerRadius = 56/2
     }
-    
+
     func navigationController() {
         let nav1 = configureNavigationController(iconName: "house", viewController: FeedController() )
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreController() )
@@ -44,6 +44,10 @@ class MainTabController: UITabBarController {
         nav.tabBarItem.image = UIImage(systemName: iconName)
         nav.navigationBar.backgroundColor = .lightGray
         return nav
+    }
+    
+    @objc func buttonPressed() {
+        print("button pressed")
     }
 
     

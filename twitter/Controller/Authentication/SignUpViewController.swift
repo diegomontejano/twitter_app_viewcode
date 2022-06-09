@@ -1,6 +1,7 @@
+import Foundation
 import UIKit
 
-class ExploreController: UIViewController {
+class SignUpViewController: UIViewController {
     // MARK: - Properties
     
     
@@ -13,8 +14,7 @@ class ExploreController: UIViewController {
     
     // MARK: - Methods
     func configureUI() {
-        view.backgroundColor = .white
-        navigationItem.title = "Explore"
+        view.backgroundColor = .twitterBlue
     }
     
     

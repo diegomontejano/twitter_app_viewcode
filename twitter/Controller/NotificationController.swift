@@ -7,7 +7,6 @@ class NotificationController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
     }
     
