@@ -1,6 +1,6 @@
 # Twitter App (under development)
 
-Twitter app to train fully programmatic UIKit without using storyboards. Technologies and knowledge used:
+My Twitter clone app for training UIKit and View Code skills. Technologies and knowledge used:
 * Swift,
 * UIKit,
 * View Code,
