@@ -3,14 +3,14 @@ import UIKit
 class TabBarViewController: UITabBarController {
     // MARK: - Properties
     let tweetButton: UIButton = {
-        let tweetButton = UIButton(type: .system)
-        tweetButton.translatesAutoresizingMaskIntoConstraints = false
-        tweetButton.tintColor = .white
-        tweetButton.backgroundColor = .twitterBlue
-        tweetButton.setImage(UIImage(systemName: "plus"), for: .normal)
-        tweetButton.layer.cornerRadius = 56/2
-        tweetButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        return tweetButton
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .twitterBlue
+        button.layer.cornerRadius = 56/2
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return button
     }()
     
     

@@ -2,12 +2,12 @@ import UIKit
 
 class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-    let logoImage: UIImageView = {
-        let logoImage = UIImageView()
-        logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: "twitter-logo-blue")
-        logoImage.contentMode = .scaleAspectFit
-        return logoImage
+    let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "twitter-logo-blue")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     
@@ -23,7 +23,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Methods
     func viewSettings() {
         view.backgroundColor = .white
-        navigationItem.titleView = logoImage
+        navigationItem.titleView = logoImageView
     }
     
     func viewHierarchy() {}

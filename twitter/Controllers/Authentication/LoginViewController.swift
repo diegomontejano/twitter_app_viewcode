@@ -3,12 +3,12 @@ import UIKit
 
 class LoginViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-     let logoImage: UIImageView = {
-        let logoImage = UIImageView()
-         logoImage.translatesAutoresizingMaskIntoConstraints = false
-         logoImage.image = UIImage(named: "twitter-logo-square")
-         logoImage.contentMode = .scaleAspectFit
-        return logoImage
+     let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+         imageView.translatesAutoresizingMaskIntoConstraints = false
+         imageView.image = UIImage(named: "twitter-logo-square")
+         imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private lazy var emailInputContainerView = Components().inputContainerView(imageName: "envelope")
@@ -32,19 +32,19 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }
     
     func viewHierarchy() {
-        view.addSubview(logoImage)
+        view.addSubview(logoImageView)
         NSLayoutConstraint.activate([
-            logoImage.widthAnchor.constraint(equalToConstant: 150),
-            logoImage.heightAnchor.constraint(equalToConstant: 150),
-            logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.widthAnchor.constraint(equalToConstant: 150),
+            logoImageView.heightAnchor.constraint(equalToConstant: 150),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
         view.addSubview(emailInputContainerView)
         NSLayoutConstraint.activate([
             emailInputContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             emailInputContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailInputContainerView.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 20)
+            emailInputContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20)
         ])
         
         view.addSubview(passwordInputContainerView)
