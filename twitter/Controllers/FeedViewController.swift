@@ -2,7 +2,10 @@ import UIKit
 
 class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-    private lazy var logoImageView = Components().logoImageView(imageName: "twitter-logo")
+    private lazy var logoImageView: UIView = {
+        let logoImageView = Components().logoImageView(imageName: "twitter-logo")
+        return logoImageView
+    }()
 
     
     // MARK: - Lifecycle

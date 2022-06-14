@@ -8,13 +8,21 @@ class Components {
         logoImageView.contentMode = .scaleAspectFit
         return logoImageView
     }
+        
+    func textField(placeholder: String) -> UITextField {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = placeholder
+        textField.textColor = .gray
+        return textField
+    }
     
-    func inputContainerView(imageName: String) -> UIView {
-        let inputContainerView = UIView()
-        inputContainerView.translatesAutoresizingMaskIntoConstraints = false
-        inputContainerView.backgroundColor = .white
-        inputContainerView.layer.masksToBounds = true
-        inputContainerView.layer.cornerRadius = 15
+    func textFieldContainerView(imageName: String, textField: UITextField) -> UIView {
+        let textFieldContainerView = UIView()
+        textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
+        textFieldContainerView.backgroundColor = .white
+        textFieldContainerView.layer.masksToBounds = true
+        textFieldContainerView.layer.cornerRadius = 15
         
         let iconImageView = UIImageView()
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,17 +30,24 @@ class Components {
         iconImageView.tintColor = .twitterBlue
         
         NSLayoutConstraint.activate([
-            inputContainerView.heightAnchor.constraint(equalToConstant: 50),
+            textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
         ])
-        
-        inputContainerView.addSubview(iconImageView)
+
+        textFieldContainerView.addSubview(iconImageView)
         NSLayoutConstraint.activate([
             iconImageView.widthAnchor.constraint(equalToConstant: 28),
             iconImageView.heightAnchor.constraint(equalToConstant: 28),
-            iconImageView.leadingAnchor.constraint(equalTo: inputContainerView.leadingAnchor, constant: 10),
-            iconImageView.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor)
+            iconImageView.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor, constant: 10),
+            iconImageView.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
         ])
-        return inputContainerView
+        
+        textFieldContainerView.addSubview(textField)
+        NSLayoutConstraint.activate([
+            textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
+            textField.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor, constant: 10),
+            textField.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
+        ])
+        return textFieldContainerView
     }
     
     
@@ -41,13 +56,13 @@ class Components {
 
 //class ComponentAsClass: UIView {
 //    // MARK: - Properties
-//    let inputContainerView: UIView = {
-//        let inputContainerView = UIView()
-//        inputContainerView.translatesAutoresizingMaskIntoConstraints = false
-//        inputContainerView.backgroundColor = .white
-//        inputContainerView.layer.masksToBounds = true
-//        inputContainerView.layer.cornerRadius = 15
-//        return inputContainerView
+//    let textFieldContainerView: UIView = {
+//        let textFieldContainerView = UIView()
+//        textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
+//        textFieldContainerView.backgroundColor = .white
+//        textFieldContainerView.layer.masksToBounds = true
+//        textFieldContainerView.layer.cornerRadius = 15
+//        return textFieldContainerView
 //    }()
 //
 //    let iconImageView: UIImageView = {
@@ -78,20 +93,20 @@ class Components {
 //    }
 //
 //    func viewHierarchy() {
-//        self.addSubview(inputContainerView)
+//        self.addSubview(textFieldContainerView)
 //        NSLayoutConstraint.activate([
-//            inputContainerView.heightAnchor.constraint(equalToConstant: 50),
-//            inputContainerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-//            inputContainerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-//            inputContainerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+//            textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
+//            textFieldContainerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+//            textFieldContainerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+//            textFieldContainerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
 //        ])
 //
-//        inputContainerView.addSubview(iconImageView)
+//        textFieldContainerView.addSubview(iconImageView)
 //        NSLayoutConstraint.activate([
 //            iconImageView.widthAnchor.constraint(equalToConstant: 28),
 //            iconImageView.heightAnchor.constraint(equalToConstant: 28),
-//            iconImageView.leadingAnchor.constraint(equalTo: inputContainerView.leadingAnchor, constant: 10),
-//            iconImageView.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor)
+//            iconImageView.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor, constant: 10),
+//            iconImageView.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
 //        ])
 //    }
 //}
