@@ -2,29 +2,29 @@ import UIKit
 
 class Components {
     func inputContainerView(imageName: String) -> UIView {
-        let containerView = UIView()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .white
-        containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 15
+        let inputContainerView = UIView()
+        inputContainerView.translatesAutoresizingMaskIntoConstraints = false
+        inputContainerView.backgroundColor = .white
+        inputContainerView.layer.masksToBounds = true
+        inputContainerView.layer.cornerRadius = 15
         
-        let iconName = UIImageView()
-        iconName.translatesAutoresizingMaskIntoConstraints = false
-        iconName.tintColor = .twitterBlue
-        iconName.image = UIImage(systemName: imageName)
+        let iconImageView = UIImageView()
+        iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        iconImageView.tintColor = .twitterBlue
+        iconImageView.image = UIImage(systemName: imageName)
         
         NSLayoutConstraint.activate([
-            containerView.heightAnchor.constraint(equalToConstant: 50),
+            inputContainerView.heightAnchor.constraint(equalToConstant: 50),
         ])
         
-        containerView.addSubview(iconName)
+        inputContainerView.addSubview(iconImageView)
         NSLayoutConstraint.activate([
-            iconName.widthAnchor.constraint(equalToConstant: 28),
-            iconName.heightAnchor.constraint(equalToConstant: 28),
-            iconName.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            iconName.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+            iconImageView.widthAnchor.constraint(equalToConstant: 28),
+            iconImageView.heightAnchor.constraint(equalToConstant: 28),
+            iconImageView.leadingAnchor.constraint(equalTo: inputContainerView.leadingAnchor, constant: 10),
+            iconImageView.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor)
         ])
-        return containerView
+        return inputContainerView
     }
     
     
@@ -33,20 +33,20 @@ class Components {
 
 //class ComponentAsClass: UIView {
 //    // MARK: - Properties
-//    let containerView: UIView = {
-//        let containerView = UIView()
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.backgroundColor = .white
-//        containerView.layer.masksToBounds = true
-//        containerView.layer.cornerRadius = 15
-//        return containerView
+//    let inputContainerView: UIView = {
+//        let inputContainerView = UIView()
+//        inputContainerView.translatesAutoresizingMaskIntoConstraints = false
+//        inputContainerView.backgroundColor = .white
+//        inputContainerView.layer.masksToBounds = true
+//        inputContainerView.layer.cornerRadius = 15
+//        return inputContainerView
 //    }()
 //
-//    let iconName: UIImageView = {
-//        let iconName = UIImageView()
-//        iconName.translatesAutoresizingMaskIntoConstraints = false
-//        iconName.tintColor = .twitterBlue
-//        return iconName
+//    let iconImageView: UIImageView = {
+//        let iconImageView = UIImageView()
+//        iconImageView.translatesAutoresizingMaskIntoConstraints = false
+//        iconImageView.tintColor = .twitterBlue
+//        return iconImageView
 //    }()
 //
 //
@@ -65,25 +65,25 @@ class Components {
 //
 //
 //    // MARK: - Methods
-//    func viewSettings(iconName: String) {
-//        self.iconName.image = UIImage(systemName: iconName)
+//    func viewSettings(imageName: String) {
+//        iconImageView.image = UIImage(systemName: imageName)
 //    }
 //
 //    func viewHierarchy() {
-//        self.addSubview(containerView)
+//        self.addSubview(inputContainerView)
 //        NSLayoutConstraint.activate([
-//            containerView.heightAnchor.constraint(equalToConstant: 50),
-//            containerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-//            containerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-//            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+//            inputContainerView.heightAnchor.constraint(equalToConstant: 50),
+//            inputContainerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+//            inputContainerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+//            inputContainerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
 //        ])
 //
-//        containerView.addSubview(iconName)
+//        inputContainerView.addSubview(iconImageView)
 //        NSLayoutConstraint.activate([
-//            iconName.widthAnchor.constraint(equalToConstant: 28),
-//            iconName.heightAnchor.constraint(equalToConstant: 28),
-//            iconName.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-//            iconName.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+//            iconImageView.widthAnchor.constraint(equalToConstant: 28),
+//            iconImageView.heightAnchor.constraint(equalToConstant: 28),
+//            iconImageView.leadingAnchor.constraint(equalTo: inputContainerView.leadingAnchor, constant: 10),
+//            iconImageView.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor)
 //        ])
 //    }
 //}

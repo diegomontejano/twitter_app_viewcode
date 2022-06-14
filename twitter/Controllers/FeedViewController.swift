@@ -3,11 +3,11 @@ import UIKit
 class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "twitter-logo-blue")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+        let logoImageView = UIImageView()
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(named: "twitter-logo-blue")
+        logoImageView.contentMode = .scaleAspectFit
+        return logoImageView
     }()
     
     

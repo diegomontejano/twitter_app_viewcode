@@ -4,11 +4,11 @@ import UIKit
 class LoginViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
      let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-         imageView.translatesAutoresizingMaskIntoConstraints = false
-         imageView.image = UIImage(named: "twitter-logo-square")
-         imageView.contentMode = .scaleAspectFit
-        return imageView
+        let logoImageView = UIImageView()
+         logoImageView.translatesAutoresizingMaskIntoConstraints = false
+         logoImageView.image = UIImage(named: "twitter-logo-square")
+         logoImageView.contentMode = .scaleAspectFit
+        return logoImageView
     }()
     
     private lazy var emailInputContainerView = Components().inputContainerView(imageName: "envelope")
