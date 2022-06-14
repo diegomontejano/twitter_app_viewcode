@@ -1,21 +1,24 @@
 import UIKit
 
-class ExploreController: UIViewController {
+class ExploreController: UIViewController, ConfigureView {
     // MARK: - Properties
     
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        viewSettings()
+        viewHierarchy()
     }
     
     
     // MARK: - Methods
-    func configureView() {
+    func viewSettings() {
         view.backgroundColor = .white
         navigationItem.title = "Explore"
     }
+    
+    func viewHierarchy() {}
     
     
 }

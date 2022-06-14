@@ -4,9 +4,11 @@ class MainTabBarController: UITabBarController {
     // MARK: - Properties
     let tweetButton: UIButton = {
         let tweetButton = UIButton(type: .system)
+        tweetButton.translatesAutoresizingMaskIntoConstraints = false
         tweetButton.tintColor = .white
         tweetButton.backgroundColor = .twitterBlue
         tweetButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        tweetButton.layer.cornerRadius = 56/2
         tweetButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return tweetButton
     }()
@@ -16,7 +18,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController()
-        bodyView()
+        viewHierarchy()
     }
     
     
@@ -38,10 +40,14 @@ class MainTabBarController: UITabBarController {
         return nav
     }
     
-    func bodyView() {
+    func viewHierarchy() {
         view.addSubview(tweetButton)
-        tweetButton.setConstraints(width: 56, height: 56, right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingRight: 16, paddingBottom: 64)
-        tweetButton.layer.cornerRadius = 56/2
+        NSLayoutConstraint.activate([
+            tweetButton.widthAnchor.constraint(equalToConstant: 56),
+            tweetButton.heightAnchor.constraint(equalToConstant: 56),
+            tweetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tweetButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -64),
+        ])
     }
     
     @objc func buttonPressed() {

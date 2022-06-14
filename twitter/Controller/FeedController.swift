@@ -1,27 +1,32 @@
 import UIKit
 
-class FeedController: UIViewController {
+class FeedController: UIViewController, ConfigureView {
     // MARK: - Properties
-    let logoImageView: UIImageView = {
-        let logoImageView = UIImageView()
-        logoImageView.contentMode = .scaleAspectFit
-        logoImageView.image = UIImage(named: "twitter-logo-blue")
-        return logoImageView
+    let logoImage: UIImageView = {
+        let logoImage = UIImageView()
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        logoImage.image = UIImage(named: "twitter-logo-blue")
+        logoImage.contentMode = .scaleAspectFit
+        return logoImage
     }()
     
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        viewSettings()
+        viewHierarchy()
+        
     }
     
     
     // MARK: - Methods
-    func configureView() {
+    func viewSettings() {
         view.backgroundColor = .white
-        navigationItem.titleView = logoImageView
+        navigationItem.titleView = logoImage
     }
     
+    func viewHierarchy() {}
+
     
 }
