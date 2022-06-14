@@ -1,6 +1,6 @@
 import UIKit
 
-class ConversationsController: UIViewController, ConfigureView {
+class NotificationViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     
     
@@ -15,7 +15,7 @@ class ConversationsController: UIViewController, ConfigureView {
     // MARK: - Methods
     func viewSettings() {
         view.backgroundColor = .white
-        navigationItem.title = "Messages"
+        navigationItem.title = "Notifications"
     }
     
     func viewHierarchy() {}

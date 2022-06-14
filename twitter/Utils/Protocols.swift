@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ConfigureView {
+protocol ConfigureViewController {
     func viewSettings()
     func viewHierarchy()
 }

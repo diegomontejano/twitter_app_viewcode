@@ -1,6 +1,6 @@
 import UIKit
 
-class FeedController: UIViewController, ConfigureView {
+class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     let logoImage: UIImageView = {
         let logoImage = UIImageView()

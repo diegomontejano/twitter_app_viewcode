@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-class SignUpViewController: UIViewController, ConfigureView {
+class ExploreViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     
     
@@ -15,10 +14,11 @@ class SignUpViewController: UIViewController, ConfigureView {
     
     // MARK: - Methods
     func viewSettings() {
-        view.backgroundColor = .twitterBlue
+        view.backgroundColor = .white
+        navigationItem.title = "Explore"
     }
     
     func viewHierarchy() {}
-
+    
     
 }

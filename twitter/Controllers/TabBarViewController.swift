@@ -1,6 +1,6 @@
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class TabBarViewController: UITabBarController {
     // MARK: - Properties
     let tweetButton: UIButton = {
         let tweetButton = UIButton(type: .system)
@@ -24,10 +24,10 @@ class MainTabBarController: UITabBarController {
     
     // MARK: - Methods
     func navigationController() {
-        let nav1 = configureNavigationController(iconName: "house", viewController: FeedController())
-        let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreController())
-        let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationController())
-        let nav4 = configureNavigationController(iconName: "envelope", viewController: ConversationsController())
+        let nav1 = configureNavigationController(iconName: "house", viewController: FeedViewController())
+        let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreViewController())
+        let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationViewController())
+        let nav4 = configureNavigationController(iconName: "envelope", viewController: ConversationsViewController())
         viewControllers = [nav1, nav2, nav3, nav4]
     }
     

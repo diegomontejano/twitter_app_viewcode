@@ -1,6 +1,7 @@
+import Foundation
 import UIKit
 
-class NotificationController: UIViewController, ConfigureView {
+class SignUpViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     
     
@@ -14,11 +15,10 @@ class NotificationController: UIViewController, ConfigureView {
     
     // MARK: - Methods
     func viewSettings() {
-        view.backgroundColor = .white
-        navigationItem.title = "Notifications"
+        view.backgroundColor = .twitterBlue
     }
     
     func viewHierarchy() {}
-    
+
     
 }
