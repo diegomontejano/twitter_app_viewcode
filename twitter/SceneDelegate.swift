@@ -8,6 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         window?.makeKeyAndVisible()
+        window?.tintColor = .twitterBlue
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
