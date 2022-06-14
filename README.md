@@ -7,7 +7,6 @@ My Twitter clone app for training UIKit and View Code skills. Technologies and k
 * Clean Code,
 * UX/UI Design,
 * Responsive Layout,
-* MVVM Architectural Pattern,
 * API Rest/Restful Operations,
 * Firebase Authentication,
 * Firebase Cloud Firestore,
