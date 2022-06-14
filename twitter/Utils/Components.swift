@@ -1,6 +1,14 @@
 import UIKit
 
 class Components {
+    func logoImageView(imageName: String) -> UIImageView {
+        let logoImageView = UIImageView()
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(named: imageName)
+        logoImageView.contentMode = .scaleAspectFit
+        return logoImageView
+    }
+    
     func inputContainerView(imageName: String) -> UIView {
         let inputContainerView = UIView()
         inputContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -10,8 +18,8 @@ class Components {
         
         let iconImageView = UIImageView()
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.tintColor = .twitterBlue
         iconImageView.image = UIImage(systemName: imageName)
+        iconImageView.tintColor = .twitterBlue
         
         NSLayoutConstraint.activate([
             inputContainerView.heightAnchor.constraint(equalToConstant: 50),
@@ -25,14 +33,6 @@ class Components {
             iconImageView.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor)
         ])
         return inputContainerView
-    }
-    
-    func logoImageView(imageName: String) -> UIImageView {
-        let logoImageView = UIImageView()
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: imageName)
-        logoImageView.contentMode = .scaleAspectFit
-        return logoImageView
     }
     
     
