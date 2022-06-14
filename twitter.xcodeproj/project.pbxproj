@@ -96,7 +96,7 @@
 				79E744202840541E0029C0E2 /* Assets.xcassets */,
 				79E744172840541C0029C0E2 /* AppDelegate.swift */,
 				79E744192840541C0029C0E2 /* SceneDelegate.swift */,
-				79E7442D284054A80029C0E2 /* Controllers */,
+				79E7442D284054A80029C0E2 /* ViewControllers */,
 				79E7442B2840547F0029C0E2 /* Utils */,
 			);
 			path = twitter;
@@ -113,7 +113,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		79E7442D284054A80029C0E2 /* Controllers */ = {
+		79E7442D284054A80029C0E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				79683BF728512D9100913421 /* Authentication */,
@@ -123,7 +123,7 @@
 				7973765F284840540047B0FA /* NotificationViewController.swift */,
 				79737661284840710047B0FA /* ConversationsViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
