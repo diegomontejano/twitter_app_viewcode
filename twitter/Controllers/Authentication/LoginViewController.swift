@@ -11,27 +11,9 @@ class LoginViewController: UIViewController, ConfigureViewController {
         return logoImage
     }()
     
-//    private lazy var vStack: UIStackView = {
-//        let vStack = UIStackView(arrangedSubviews: [fieldEmailContainer, passwordEmailContainer])
-//        vStack.translatesAutoresizingMaskIntoConstraints = false
-//        vStack.axis = .vertical
-//        vStack.spacing = 8
-//        return vStack
-//    }()
+    private lazy var emailInputContainerView = Components().inputContainerView(imageName: "envelope")
     
-    private lazy var emailLoginContainer: UIView = {
-        let emailLoginContainer = LoginContainer()
-        emailLoginContainer.translatesAutoresizingMaskIntoConstraints = false
-        emailLoginContainer.viewSettings(iconName: "envelope")
-        return emailLoginContainer
-    }()
-    
-    private lazy var passwordLoginContainer: UIView = {
-        let passwordLoginContainer = LoginContainer()
-        passwordLoginContainer.translatesAutoresizingMaskIntoConstraints = false
-        passwordLoginContainer.viewSettings(iconName: "lock")
-        return passwordLoginContainer
-    }()
+    private lazy var passwordInputContainerView = Components().inputContainerView(imageName: "lock")
     
     
     // MARK: - Lifecycle
@@ -58,18 +40,18 @@ class LoginViewController: UIViewController, ConfigureViewController {
             logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
-        view.addSubview(emailLoginContainer)
+        view.addSubview(emailInputContainerView)
         NSLayoutConstraint.activate([
-            emailLoginContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emailLoginContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailLoginContainer.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 20)
+            emailInputContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            emailInputContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            emailInputContainerView.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 20)
         ])
         
-        view.addSubview(passwordLoginContainer)
+        view.addSubview(passwordInputContainerView)
         NSLayoutConstraint.activate([
-            passwordLoginContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            passwordLoginContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            passwordLoginContainer.topAnchor.constraint(equalTo: emailLoginContainer.bottomAnchor, constant: 70)
+            passwordInputContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            passwordInputContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            passwordInputContainerView.topAnchor.constraint(equalTo: emailInputContainerView.bottomAnchor, constant: 20)
         ])
     }
     
