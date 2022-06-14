@@ -2,14 +2,8 @@ import UIKit
 
 class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-    let logoImageView: UIImageView = {
-        let logoImageView = UIImageView()
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "twitter-logo-blue")
-        logoImageView.contentMode = .scaleAspectFit
-        return logoImageView
-    }()
-    
+    private lazy var logoImageView = Components().logoImageView(imageName: "twitter-logo")
+
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

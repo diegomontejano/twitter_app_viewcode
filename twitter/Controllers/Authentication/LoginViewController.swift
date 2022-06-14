@@ -3,16 +3,8 @@ import UIKit
 
 class LoginViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-     let logoImageView: UIImageView = {
-        let logoImageView = UIImageView()
-         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-         logoImageView.image = UIImage(named: "twitter-logo-square")
-         logoImageView.contentMode = .scaleAspectFit
-        return logoImageView
-    }()
-    
+    private lazy var logoImageView = Components().logoImageView(imageName: "twitter-logo-square")
     private lazy var emailInputContainerView = Components().inputContainerView(imageName: "envelope")
-    
     private lazy var passwordInputContainerView = Components().inputContainerView(imageName: "lock")
     
     

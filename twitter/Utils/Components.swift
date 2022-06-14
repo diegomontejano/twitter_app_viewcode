@@ -27,6 +27,14 @@ class Components {
         return inputContainerView
     }
     
+    func logoImageView(imageName: String) -> UIImageView {
+        let logoImageView = UIImageView()
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(named: imageName)
+        logoImageView.contentMode = .scaleAspectFit
+        return logoImageView
+    }
+    
     
 }
 
