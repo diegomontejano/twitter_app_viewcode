@@ -37,7 +37,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
     
     private lazy var dontHaveAccountButton: UIButton = {
         let dontHaveAccountButton = Components().titleButton(normalTitle: "Don't have an account? ", boldTitle: "Sign Up")
-        dontHaveAccountButton.addTarget(self, action: #selector(pressSignUpPage), for: .touchUpInside)
+        dontHaveAccountButton.addTarget(self, action: #selector(pressDontHaveAccountButton), for: .touchUpInside)
         return dontHaveAccountButton
     }()
     
@@ -52,11 +52,11 @@ class LoginViewController: UIViewController, ConfigureViewController {
     
     // MARK: - Methods
     @objc func pressLoginButton() {
-        print("pressLoginButton...")
+        print("pressLoginButton")
     }
     
-    @objc func pressSignUpPage() {
-        print("pressSignUpPage...")
+    @objc func pressDontHaveAccountButton() {
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
     
     func viewSettings() {

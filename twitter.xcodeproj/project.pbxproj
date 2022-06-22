@@ -11,7 +11,7 @@
 		793A1C4F28429E3400E67585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A1C4E28429E3400E67585 /* TabBarViewController.swift */; };
 		7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943C15B284ECF3B006A07C1 /* Extensions.swift */; };
 		79683BF928512DBB00913421 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BF828512DBB00913421 /* LoginViewController.swift */; };
-		79683BFB28512EE900913421 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BFA28512EE900913421 /* SignUpViewController.swift */; };
+		79683BFB28512EE900913421 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BFA28512EE900913421 /* SignupViewController.swift */; };
 		7973765C28483F720047B0FA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765B28483F720047B0FA /* FeedViewController.swift */; };
 		7973765E284840270047B0FA /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765D284840270047B0FA /* ExploreViewController.swift */; };
 		79737660284840540047B0FA /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765F284840540047B0FA /* NotificationViewController.swift */; };
@@ -29,7 +29,7 @@
 		793A1C4E28429E3400E67585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7943C15B284ECF3B006A07C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		79683BF828512DBB00913421 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		79683BFA28512EE900913421 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		79683BFA28512EE900913421 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		7973765B28483F720047B0FA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		7973765D284840270047B0FA /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		7973765F284840540047B0FA /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				79683BF828512DBB00913421 /* LoginViewController.swift */,
-				79683BFA28512EE900913421 /* SignUpViewController.swift */,
+				79683BFA28512EE900913421 /* SignupViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 				79737662284840710047B0FA /* ConversationsViewController.swift in Sources */,
 				79E640802857ED74004F569C /* Protocols.swift in Sources */,
 				79E744182840541C0029C0E2 /* AppDelegate.swift in Sources */,
-				79683BFB28512EE900913421 /* SignUpViewController.swift in Sources */,
+				79683BFB28512EE900913421 /* SignupViewController.swift in Sources */,
 				7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */,
 				7973765E284840270047B0FA /* ExploreViewController.swift in Sources */,
 				79E7441A2840541C0029C0E2 /* SceneDelegate.swift in Sources */,

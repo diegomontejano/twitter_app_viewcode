@@ -51,7 +51,7 @@ class Components {
     }
     
     func roundedButton(title: String) -> UIButton {
-        let roundedButton = UIButton()
+        let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
         roundedButton.setTitle(title, for: .normal)
         roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
