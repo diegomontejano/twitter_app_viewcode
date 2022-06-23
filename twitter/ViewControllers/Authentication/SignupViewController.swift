@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class SignupViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
@@ -85,7 +86,16 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }
     
     @objc func pressSignupButton() {
-        print("pressSignupButton")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            print("Successfully registered user.")
+        }
     }
     
     @objc func pressAlreadyHaveAccountButton() {

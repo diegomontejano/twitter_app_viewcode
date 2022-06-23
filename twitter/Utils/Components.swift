@@ -12,22 +12,28 @@ class Components {
     func textField(placeholder: String) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = placeholder
-        textField.textColor = .gray
+        textField.textColor = .white
+        textField.tintColor = .white
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
         return textField
     }
     
     func textFieldContainerView(iconName: String, textField: UITextField) -> UIView {
         let textFieldContainerView = UIView()
         textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
-        textFieldContainerView.backgroundColor = .white
+        textFieldContainerView.backgroundColor = .clear
+        textFieldContainerView.layer.borderColor = UIColor.white.cgColor
+        textFieldContainerView.layer.borderWidth = 0.8
         textFieldContainerView.layer.masksToBounds = true
         textFieldContainerView.layer.cornerRadius = 15
         
         let iconImageView = UIImageView()
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.image = UIImage(systemName: iconName)
-        iconImageView.tintColor = .twitterBlue
+        iconImageView.tintColor = .white
         
         NSLayoutConstraint.activate([
             textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
