@@ -1,10 +1,12 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignupViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     
     private lazy var profileImageButton: UIButton = {
         let profileImageButton = UIButton(type: .system)
@@ -30,13 +32,13 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var nameContainerView: UIView = {
-        let nameContainerView = Components().textFieldContainerView(iconName: "person", textField: nameTextField)
+        let nameContainerView = Components().textFieldContainerView(iconName: "person", textField: fullNameTextField)
         return nameContainerView
     }()
     
-    private let nameTextField: UITextField = {
-        let nameTextField = Components().textField(placeholder: "Name")
-        return nameTextField
+    private let fullNameTextField: UITextField = {
+        let fullNameTextField = Components().textField(placeholder: "Full Name")
+        return fullNameTextField
     }()
     
     private lazy var emailContainerView: UIView = {
@@ -86,6 +88,12 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }
     
     @objc func pressSignupButton() {
+        guard let profileImage = profileImage else {
+            print("No profile image selected.")
+            return
+        }
+        guard let username = usernameTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
@@ -94,7 +102,14 @@ class SignupViewController: UIViewController, ConfigureViewController {
                 print("Error: \(error.localizedDescription)")
                 return
             }
-            print("Successfully registered user.")
+            
+            guard let uid = result?.user.uid else { return }
+            let values = ["email": email, "username": username, "fullName": fullName]
+            let ref = Database.database().reference().child("users").child(uid)
+            
+            ref.updateChildValues(values) { (error, ref) in
+                print("Successfully update user information.")
+            }
         }
     }
     
@@ -169,6 +184,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
 extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}
+        self.profileImage = profileImage
                 
         profileImageButton.layer.borderColor = UIColor.white.cgColor
         profileImageButton.layer.borderWidth = 3

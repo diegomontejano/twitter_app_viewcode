@@ -6,6 +6,10 @@ target 'twitter' do
   use_frameworks!
 
   # Pods for twitter
+  pod 'FirebaseCore'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseDatabase'
+  pod 'FirebaseStorage'
 	pod 'FirebaseAuth'
-	pod 'FirebaseFirestore'
+	
 end
