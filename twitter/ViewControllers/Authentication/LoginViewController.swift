@@ -98,7 +98,18 @@ class LoginViewController: UIViewController, ConfigureViewController {
     
     // MARK: - Methods
     @objc func pressLoginButton() {
-        print("DEBUG: pressLoginButton.")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.instance.logIn(email: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                return
+            }
+            guard let tabBarViewController = UIApplication.shared.keyWindow?.rootViewController as? TabBarViewController else { return }
+            tabBarViewController.authenticateUser()
+            self.dismiss(animated: true)
+        }
     }
     
     @objc func pressDontHaveAccountButton() {

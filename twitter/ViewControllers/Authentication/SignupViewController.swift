@@ -158,7 +158,13 @@ class SignupViewController: UIViewController, ConfigureViewController {
         guard let password = passwordTextField.text else { return }
         
         AuthService.instance.signUp(profileImage: profileImage, username: username, fullName: fullName, email: email, password: password) { (error, ref) in
-            print("DEBUG: signup successfully.")
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                return
+            }
+            guard let tabBarViewController = UIApplication.shared.keyWindow?.rootViewController as? TabBarViewController else { return }
+            tabBarViewController.authenticateUser()
+            self.dismiss(animated: true)
         }
     }
     

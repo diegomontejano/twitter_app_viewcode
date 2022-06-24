@@ -1,22 +1,18 @@
 import UIKit
 import FirebaseCore
-import FirebaseAuth
-import FirebaseFirestore
-import FirebaseDatabase
-//import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = TabBarViewController() //UINavigationController(rootViewController: SignupViewController())
+        window?.rootViewController = TabBarViewController()
         window?.tintColor = .twitterBlue
         window?.backgroundColor = .white
-        
-        FirebaseApp.configure()
         return true
     }
 }

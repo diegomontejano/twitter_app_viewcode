@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class TabBarViewController: UITabBarController {
     // MARK: - Properties
@@ -17,12 +18,33 @@ class TabBarViewController: UITabBarController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController()
-        viewHierarchy()
+        authenticateUser()
     }
     
     
     // MARK: - Methods
+    func authenticateUser() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let nav = UINavigationController.init(rootViewController: LoginViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            }
+        } else {
+            navigationController()
+            viewHierarchy()
+        }
+    }
+    
+    func logOutUser() {
+        do {
+            try Auth.auth().signOut()
+            print("DEBUG: log out successfully")
+        } catch let error {
+            print("DEBUG: \(error.localizedDescription)")
+        }
+    }
+    
     func navigationController() {
         let nav1 = configureNavigationController(iconName: "house", viewController: FeedViewController())
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreViewController())
@@ -39,7 +61,7 @@ class TabBarViewController: UITabBarController {
         nav.navigationBar.backgroundColor = .lightGray
         return nav
     }
-    
+        
     func viewHierarchy() {
         view.addSubview(tweetButton)
         NSLayoutConstraint.activate([
