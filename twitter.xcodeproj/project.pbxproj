@@ -23,6 +23,7 @@
 		79E744182840541C0029C0E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E744172840541C0029C0E2 /* AppDelegate.swift */; };
 		79E744212840541E0029C0E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E744202840541E0029C0E2 /* Assets.xcassets */; };
 		79E744242840541E0029C0E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E744222840541E0029C0E2 /* LaunchScreen.storyboard */; };
+		79F3F58328660B5400EB7C5D /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F3F58228660B5400EB7C5D /* AuthServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		79E744202840541E0029C0E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79E744232840541E0029C0E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79E744252840541E0029C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79F3F58228660B5400EB7C5D /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		AF98F7976204789E5CE9DCCD /* Pods_twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4EE079D093522EDB49B03E /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 				79E744252840541E0029C0E2 /* Info.plist */,
 				791F718E2863DBCB004BBB66 /* GoogleService-Info.plist */,
 				79E744172840541C0029C0E2 /* AppDelegate.swift */,
+				79F3F58128660B3B00EB7C5D /* Services */,
 				79E7442B2840547F0029C0E2 /* Utils */,
 				79E7442D284054A80029C0E2 /* ViewControllers */,
 			);
@@ -104,10 +107,10 @@
 		79E7442B2840547F0029C0E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				790027E228590B3300D66207 /* Components.swift */,
-				7943C15B284ECF3B006A07C1 /* Extensions.swift */,
-				79E6407F2857ED74004F569C /* Protocols.swift */,
 				79639FF6286534D3007DE191 /* Constants.swift */,
+				79E6407F2857ED74004F569C /* Protocols.swift */,
+				7943C15B284ECF3B006A07C1 /* Extensions.swift */,
+				790027E228590B3300D66207 /* Components.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -123,6 +126,14 @@
 				79737661284840710047B0FA /* ConversationsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		79F3F58128660B3B00EB7C5D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				79F3F58228660B5400EB7C5D /* AuthServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C6062897FECA4115B4F0C1EE /* Pods */ = {
@@ -264,6 +275,7 @@
 				79E640802857ED74004F569C /* Protocols.swift in Sources */,
 				79E744182840541C0029C0E2 /* AppDelegate.swift in Sources */,
 				79683BFB28512EE900913421 /* SignupViewController.swift in Sources */,
+				79F3F58328660B5400EB7C5D /* AuthServices.swift in Sources */,
 				7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */,
 				7973765E284840270047B0FA /* ExploreViewController.swift in Sources */,
 				793A1C4F28429E3400E67585 /* TabBarViewController.swift in Sources */,

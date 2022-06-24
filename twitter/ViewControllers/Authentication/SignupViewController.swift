@@ -1,7 +1,4 @@
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 
 class SignupViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
@@ -82,54 +79,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }
     
     
-    // MARK: - Methods
-    @objc func pressAddProfileImageButton() {
-        present(imagePicker, animated: true)
-    }
-    
-    @objc func pressSignupButton() {
-        guard let profileImage = profileImage else {
-            print("No profile image selected.")
-            return
-        }
-        guard let username = usernameTextField.text else { return }
-        guard let fullName = fullNameTextField.text else { return }
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        guard let profileImageData = profileImage.jpegData(compressionQuality: 0.2) else { return }
-        let storageProfileImagesRef = STORAGE_PROFILE_IMAGES.child( NSUUID().uuidString )
-        
-        storageProfileImagesRef.putData(profileImageData, metadata: nil) { (meta, error) in
-            storageProfileImagesRef.downloadURL { (url, error) in
-                guard let profileImageUrl = url?.absoluteString else { return }
-                
-                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-                    if let error = error {
-                        print("Error: \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    guard let uid = result?.user.uid else { return }
-                    let values = [
-                        "username": username,
-                        "fullName": fullName,
-                        "email": email,
-                        "profileImageUrl": profileImageUrl
-                    ]
-                    
-                    DB_USERS.child(uid).updateChildValues(values) { (error, ref) in
-                        print("Successfully update user information.")
-                    }
-                }
-            }
-        }
-    }
-    
-    @objc func pressAlreadyHaveAccountButton() {
-        navigationController?.popViewController(animated: true)
-    }
-    
+    // MARK: - ConfigureViewController
     func viewSettings() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.isHidden = true
@@ -189,6 +139,31 @@ class SignupViewController: UIViewController, ConfigureViewController {
             alreadyHaveAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             alreadyHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    
+    // MARK: - Methods
+    @objc func pressAddProfileImageButton() {
+        present(imagePicker, animated: true)
+    }
+    
+    @objc func pressSignupButton() {
+        guard let profileImage = profileImage else {
+            print("DEBUG: no profile image selected.")
+            return
+        }
+        guard let username = usernameTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.instance.signUp(profileImage: profileImage, username: username, fullName: fullName, email: email, password: password) { (error, ref) in
+            print("DEBUG: signup successfully.")
+        }
+    }
+    
+    @objc func pressAlreadyHaveAccountButton() {
+        navigationController?.popViewController(animated: true)
     }
     
     

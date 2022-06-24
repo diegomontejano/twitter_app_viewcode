@@ -51,7 +51,7 @@ class TabBarViewController: UITabBarController {
     }
     
     @objc func buttonPressed() {
-        print("button pressed")
+        print("DEBUG: button pressed.")
     }
 
     

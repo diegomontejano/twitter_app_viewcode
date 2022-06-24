@@ -24,9 +24,6 @@ class Components {
     func textFieldContainerView(iconName: String, textField: UITextField) -> UIView {
         let textFieldContainerView = UIView()
         textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
-        textFieldContainerView.backgroundColor = .clear
-        textFieldContainerView.layer.borderColor = UIColor.white.cgColor
-        textFieldContainerView.layer.borderWidth = 0.8
         textFieldContainerView.layer.masksToBounds = true
         textFieldContainerView.layer.cornerRadius = 15
         
@@ -34,6 +31,10 @@ class Components {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.image = UIImage(systemName: iconName)
         iconImageView.tintColor = .white
+        
+        let dividerLine = UIView()
+        dividerLine.translatesAutoresizingMaskIntoConstraints = false
+        dividerLine.backgroundColor = .white
         
         NSLayoutConstraint.activate([
             textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
@@ -43,16 +44,25 @@ class Components {
         NSLayoutConstraint.activate([
             iconImageView.widthAnchor.constraint(equalToConstant: 28),
             iconImageView.heightAnchor.constraint(equalToConstant: 28),
-            iconImageView.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor, constant: 10),
+            iconImageView.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor, constant: 5),
             iconImageView.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
         ])
         
         textFieldContainerView.addSubview(textField)
         NSLayoutConstraint.activate([
             textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
-            textField.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor, constant: 10),
+            textField.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor),
             textField.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
         ])
+        
+        textFieldContainerView.addSubview(dividerLine)
+        NSLayoutConstraint.activate([
+            dividerLine.heightAnchor.constraint(equalToConstant: 1),
+            dividerLine.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor),
+            dividerLine.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor),
+            dividerLine.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 6)
+        ])
+        
         return textFieldContainerView
     }
     
@@ -80,7 +90,6 @@ class Components {
     
     
 }
-
 
 //class ComponentAsClass: UIView {
 //    // MARK: - Properties

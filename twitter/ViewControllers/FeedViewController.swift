@@ -17,7 +17,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
     }
     
     
-    // MARK: - Methods
+    // MARK: - ConfigureViewController
     func viewSettings() {
         view.backgroundColor = .white
         navigationItem.titleView = logoImageView

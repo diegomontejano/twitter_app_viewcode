@@ -12,7 +12,7 @@ class ConversationsViewController: UIViewController, ConfigureViewController {
     }
     
     
-    // MARK: - Methods
+    // MARK: - ConfigureViewController
     func viewSettings() {
         view.backgroundColor = .white
         navigationItem.title = "Messages"

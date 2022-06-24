@@ -49,15 +49,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }
     
     
-    // MARK: - Methods
-    @objc func pressLoginButton() {
-        print("pressLoginButton")
-    }
-    
-    @objc func pressDontHaveAccountButton() {
-        navigationController?.pushViewController(SignupViewController(), animated: true)
-    }
-    
+    // MARK: - ConfigureViewController
     func viewSettings() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black
@@ -101,6 +93,16 @@ class LoginViewController: UIViewController, ConfigureViewController {
             dontHaveAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             dontHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    
+    // MARK: - Methods
+    @objc func pressLoginButton() {
+        print("DEBUG: pressLoginButton.")
+    }
+    
+    @objc func pressDontHaveAccountButton() {
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
     
     
