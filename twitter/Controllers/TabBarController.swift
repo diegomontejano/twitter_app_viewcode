@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseAuth
 
-class TabBarViewController: UITabBarController {
+class TabBarController: UITabBarController {
     // MARK: - Properties
     let tweetButton: UIButton = {
         let tweetButton = UIButton(type: .system)

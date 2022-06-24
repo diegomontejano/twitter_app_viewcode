@@ -106,7 +106,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
                 print("DEBUG: \(error.localizedDescription)")
                 return
             }
-            guard let tabBarViewController = UIApplication.shared.keyWindow?.rootViewController as? TabBarViewController else { return }
+            guard let tabBarViewController = UIApplication.shared.keyWindow?.rootViewController as? TabBarController else { return }
             tabBarViewController.authenticateUser()
             self.dismiss(animated: true)
         }

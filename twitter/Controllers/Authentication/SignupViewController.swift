@@ -162,8 +162,8 @@ class SignupViewController: UIViewController, ConfigureViewController {
                 print("DEBUG: \(error.localizedDescription)")
                 return
             }
-            guard let tabBarViewController = UIApplication.shared.keyWindow?.rootViewController as? TabBarViewController else { return }
-            tabBarViewController.authenticateUser()
+            guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? TabBarController else { return }
+            tabBarController.authenticateUser()
             self.dismiss(animated: true)
         }
     }

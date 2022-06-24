@@ -10,7 +10,7 @@
 		1987D527F1B87646565C46C7 /* Pods_twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF98F7976204789E5CE9DCCD /* Pods_twitter.framework */; };
 		790027E328590B3300D66207 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790027E228590B3300D66207 /* Components.swift */; };
 		791F718F2863DBCB004BBB66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 791F718E2863DBCB004BBB66 /* GoogleService-Info.plist */; };
-		793A1C4F28429E3400E67585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A1C4E28429E3400E67585 /* TabBarViewController.swift */; };
+		793A1C4F28429E3400E67585 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A1C4E28429E3400E67585 /* TabBarController.swift */; };
 		7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943C15B284ECF3B006A07C1 /* Extensions.swift */; };
 		79639FF7286534D3007DE191 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79639FF6286534D3007DE191 /* Constants.swift */; };
 		79683BF928512DBB00913421 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BF828512DBB00913421 /* LoginViewController.swift */; };
@@ -30,7 +30,7 @@
 		738E37B8F90C968D506C9C17 /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
 		790027E228590B3300D66207 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		791F718E2863DBCB004BBB66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		793A1C4E28429E3400E67585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		793A1C4E28429E3400E67585 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7943C15B284ECF3B006A07C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		79639FF6286534D3007DE191 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		79683BF828512DBB00913421 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				79E744172840541C0029C0E2 /* AppDelegate.swift */,
 				79F3F58128660B3B00EB7C5D /* Services */,
 				79E7442B2840547F0029C0E2 /* Utils */,
-				79E7442D284054A80029C0E2 /* ViewControllers */,
+				79E7442D284054A80029C0E2 /* Controllers */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -115,17 +115,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		79E7442D284054A80029C0E2 /* ViewControllers */ = {
+		79E7442D284054A80029C0E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				79683BF728512D9100913421 /* Authentication */,
-				793A1C4E28429E3400E67585 /* TabBarViewController.swift */,
+				793A1C4E28429E3400E67585 /* TabBarController.swift */,
 				7973765B28483F720047B0FA /* FeedViewController.swift */,
 				7973765D284840270047B0FA /* ExploreViewController.swift */,
 				7973765F284840540047B0FA /* NotificationViewController.swift */,
 				79737661284840710047B0FA /* ConversationsViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		79F3F58128660B3B00EB7C5D /* Services */ = {
@@ -278,7 +278,7 @@
 				79F3F58328660B5400EB7C5D /* AuthServices.swift in Sources */,
 				7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */,
 				7973765E284840270047B0FA /* ExploreViewController.swift in Sources */,
-				793A1C4F28429E3400E67585 /* TabBarViewController.swift in Sources */,
+				793A1C4F28429E3400E67585 /* TabBarController.swift in Sources */,
 				7973765C28483F720047B0FA /* FeedViewController.swift in Sources */,
 				79639FF7286534D3007DE191 /* Constants.swift in Sources */,
 			);
