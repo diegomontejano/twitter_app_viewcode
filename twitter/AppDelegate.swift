@@ -3,7 +3,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
-import FirebaseStorage
+//import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,8 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: SignupViewController())
+        window?.rootViewController = TabBarViewController() //UINavigationController(rootViewController: SignupViewController())
         window?.tintColor = .twitterBlue
+        window?.backgroundColor = .white
         
         FirebaseApp.configure()
         return true

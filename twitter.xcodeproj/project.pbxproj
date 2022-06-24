@@ -92,10 +92,10 @@
 		79E744162840541C0029C0E2 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
-				79E744222840541E0029C0E2 /* LaunchScreen.storyboard */,
-				79E744202840541E0029C0E2 /* Assets.xcassets */,
 				79E744252840541E0029C0E2 /* Info.plist */,
 				791F718E2863DBCB004BBB66 /* GoogleService-Info.plist */,
+				79E744202840541E0029C0E2 /* Assets.xcassets */,
+				79E744222840541E0029C0E2 /* LaunchScreen.storyboard */,
 				79E744172840541C0029C0E2 /* AppDelegate.swift */,
 				79F3F58128660B3B00EB7C5D /* Services */,
 				79E7442B2840547F0029C0E2 /* Utils */,

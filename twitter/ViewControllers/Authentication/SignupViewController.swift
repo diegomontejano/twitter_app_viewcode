@@ -14,7 +14,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
         profileImageButton.tintColor = .white
         profileImageButton.layer.cornerRadius = 140 / 2
         profileImageButton.layer.masksToBounds = true
-        profileImageButton.addTarget(self, action: #selector(pressAddProfileImageButton), for: .touchUpInside)
+        profileImageButton.addTarget(self, action: #selector(pressProfileImageButton), for: .touchUpInside)
         return profileImageButton
     }()
     
@@ -143,7 +143,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     
     
     // MARK: - Methods
-    @objc func pressAddProfileImageButton() {
+    @objc func pressProfileImageButton() {
         present(imagePicker, animated: true)
     }
     
