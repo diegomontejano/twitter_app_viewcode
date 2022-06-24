@@ -12,6 +12,7 @@
 		791F718F2863DBCB004BBB66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 791F718E2863DBCB004BBB66 /* GoogleService-Info.plist */; };
 		793A1C4F28429E3400E67585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A1C4E28429E3400E67585 /* TabBarViewController.swift */; };
 		7943C15C284ECF3B006A07C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943C15B284ECF3B006A07C1 /* Extensions.swift */; };
+		79639FF7286534D3007DE191 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79639FF6286534D3007DE191 /* Constants.swift */; };
 		79683BF928512DBB00913421 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BF828512DBB00913421 /* LoginViewController.swift */; };
 		79683BFB28512EE900913421 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BFA28512EE900913421 /* SignupViewController.swift */; };
 		7973765C28483F720047B0FA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765B28483F720047B0FA /* FeedViewController.swift */; };
@@ -30,6 +31,7 @@
 		791F718E2863DBCB004BBB66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		793A1C4E28429E3400E67585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7943C15B284ECF3B006A07C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		79639FF6286534D3007DE191 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		79683BF828512DBB00913421 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79683BFA28512EE900913421 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		7973765B28483F720047B0FA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				790027E228590B3300D66207 /* Components.swift */,
 				7943C15B284ECF3B006A07C1 /* Extensions.swift */,
 				79E6407F2857ED74004F569C /* Protocols.swift */,
+				79639FF6286534D3007DE191 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				7973765E284840270047B0FA /* ExploreViewController.swift in Sources */,
 				793A1C4F28429E3400E67585 /* TabBarViewController.swift in Sources */,
 				7973765C28483F720047B0FA /* FeedViewController.swift in Sources */,
+				79639FF7286534D3007DE191 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

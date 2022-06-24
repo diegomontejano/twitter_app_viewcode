@@ -3,6 +3,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
+import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
