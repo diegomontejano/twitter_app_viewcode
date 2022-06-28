@@ -2,6 +2,8 @@ import UIKit
 
 class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
+    var user: User? 
+    
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().fitImageView(imageName: "twitter-logo")
         return logoImageView

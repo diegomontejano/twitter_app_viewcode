@@ -3,6 +3,14 @@ import FirebaseAuth
 
 class TabBarController: UITabBarController {
     // MARK: - Properties
+    var user: User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers[0] as? FeedViewController else { return }
+            feed.user = user
+        }
+    }
+    
     let tweetButton: UIButton = {
         let tweetButton = UIButton(type: .system)
         tweetButton.translatesAutoresizingMaskIntoConstraints = false
@@ -21,12 +29,7 @@ class TabBarController: UITabBarController {
         authenticateUser()
     }
     
-    
     // MARK: - Methods
-    func fetchUser() {
-        UserService.instance.fetchUser()
-    }
-    
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -40,15 +43,21 @@ class TabBarController: UITabBarController {
             fetchUser()
         }
     }
-    
-    func logOutUser() {
-        do {
-            try Auth.auth().signOut()
-            print("DEBUG: log out successfully")
-        } catch let error {
-            print("DEBUG: \(error.localizedDescription)")
+        
+    func fetchUser() {
+        UserService.instance.fetchUser { user in
+            self.user = user
         }
     }
+    
+//    func logOutUser() {
+//        do {
+//            try Auth.auth().signOut()
+//            print("DEBUG: log out successfully")
+//        } catch let error {
+//            print("DEBUG: \(error.localizedDescription)")
+//        }
+//    }
     
     func navigationController() {
         let nav1 = configureNavigationController(iconName: "house", viewController: FeedViewController())
