@@ -6,6 +6,11 @@ class FeedViewController: UIViewController, ConfigureViewController {
         let logoImageView = Components().fitImageView(imageName: "twitter-logo")
         return logoImageView
     }()
+    
+    private lazy var profileImageView: UIImageView = {
+        let profileImageView = Components().userImageView()
+        return profileImageView
+    }()
 
     
     // MARK: - Lifecycle
@@ -20,6 +25,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - ConfigureViewController
     func viewSettings() {
         navigationItem.titleView = logoImageView
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
     
     func viewHierarchy() {}

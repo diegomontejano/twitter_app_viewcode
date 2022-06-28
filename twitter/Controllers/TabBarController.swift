@@ -23,6 +23,10 @@ class TabBarController: UITabBarController {
     
     
     // MARK: - Methods
+    func fetchUser() {
+        UserService.instance.fetchUser()
+    }
+    
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -33,6 +37,7 @@ class TabBarController: UITabBarController {
         } else {
             navigationController()
             viewHierarchy()
+            fetchUser()
         }
     }
     

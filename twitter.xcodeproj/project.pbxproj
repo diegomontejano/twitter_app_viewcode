@@ -15,6 +15,7 @@
 		79639FF7286534D3007DE191 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79639FF6286534D3007DE191 /* Constants.swift */; };
 		79683BF928512DBB00913421 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BF828512DBB00913421 /* LoginViewController.swift */; };
 		79683BFB28512EE900913421 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79683BFA28512EE900913421 /* SignupViewController.swift */; };
+		796F288F286A72B400F63B47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F288E286A72B400F63B47 /* User.swift */; };
 		7973765C28483F720047B0FA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765B28483F720047B0FA /* FeedViewController.swift */; };
 		7973765E284840270047B0FA /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765D284840270047B0FA /* ExploreViewController.swift */; };
 		79737660284840540047B0FA /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973765F284840540047B0FA /* NotificationViewController.swift */; };
@@ -24,6 +25,7 @@
 		79E744212840541E0029C0E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E744202840541E0029C0E2 /* Assets.xcassets */; };
 		79E744242840541E0029C0E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E744222840541E0029C0E2 /* LaunchScreen.storyboard */; };
 		79F3F58328660B5400EB7C5D /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F3F58228660B5400EB7C5D /* AuthServices.swift */; };
+		79F5AD732867DFB2000CD804 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5AD722867DFB2000CD804 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,7 @@
 		79639FF6286534D3007DE191 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		79683BF828512DBB00913421 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79683BFA28512EE900913421 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		796F288E286A72B400F63B47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7973765B28483F720047B0FA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		7973765D284840270047B0FA /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		7973765F284840540047B0FA /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		79E744232840541E0029C0E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79E744252840541E0029C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79F3F58228660B5400EB7C5D /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		79F5AD722867DFB2000CD804 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		AF98F7976204789E5CE9DCCD /* Pods_twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4EE079D093522EDB49B03E /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		795F7FBB286A724800AC3342 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				796F288E286A72B400F63B47 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		79683BF728512D9100913421 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +109,9 @@
 				79E744202840541E0029C0E2 /* Assets.xcassets */,
 				79E744222840541E0029C0E2 /* LaunchScreen.storyboard */,
 				79E744172840541C0029C0E2 /* AppDelegate.swift */,
-				79F3F58128660B3B00EB7C5D /* Services */,
 				79E7442B2840547F0029C0E2 /* Utils */,
+				79F3F58128660B3B00EB7C5D /* Services */,
+				795F7FBB286A724800AC3342 /* Models */,
 				79E7442D284054A80029C0E2 /* Controllers */,
 			);
 			path = twitter;
@@ -132,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				79F3F58228660B5400EB7C5D /* AuthServices.swift */,
+				79F5AD722867DFB2000CD804 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F5AD732867DFB2000CD804 /* UserService.swift in Sources */,
 				790027E328590B3300D66207 /* Components.swift in Sources */,
 				79683BF928512DBB00913421 /* LoginViewController.swift in Sources */,
 				79737660284840540047B0FA /* NotificationViewController.swift in Sources */,
@@ -280,6 +295,7 @@
 				7973765E284840270047B0FA /* ExploreViewController.swift in Sources */,
 				793A1C4F28429E3400E67585 /* TabBarController.swift in Sources */,
 				7973765C28483F720047B0FA /* FeedViewController.swift in Sources */,
+				796F288F286A72B400F63B47 /* User.swift in Sources */,
 				79639FF7286534D3007DE191 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

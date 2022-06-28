@@ -1,6 +1,18 @@
 import UIKit
 
 class Components {
+    func userImageView() -> UIImageView {
+        let profileImageView = UIImageView()
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.backgroundColor = .twitterBlue
+        profileImageView.layer.cornerRadius = 32 / 2
+        NSLayoutConstraint.activate([
+            profileImageView.widthAnchor.constraint(equalToConstant: 32),
+            profileImageView.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        return profileImageView
+    }
+    
     func fitImageView(imageName: String) -> UIImageView {
         let fitImageView = UIImageView()
         fitImageView.translatesAutoresizingMaskIntoConstraints = false
