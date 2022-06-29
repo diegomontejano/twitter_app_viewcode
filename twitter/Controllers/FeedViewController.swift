@@ -1,36 +1,45 @@
 import UIKit
+import SDWebImage
 
 class FeedViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-    var user: User? 
+    var user: User? {
+        didSet {
+            guard let user = user else { return }
+            
+            var profileImageView = UIImageView()
+            profileImageView.translatesAutoresizingMaskIntoConstraints = false
+            profileImageView.sd_setImage(with: URL(string: user.profileImageURL))
+            profileImageView.layer.masksToBounds =  true
+            profileImageView.layer.cornerRadius = 32 / 2
+            NSLayoutConstraint.activate([
+                profileImageView.widthAnchor.constraint(equalToConstant: 32),
+                profileImageView.heightAnchor.constraint(equalToConstant: 32)
+            ])
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
+        }
+    }
     
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().fitImageView(imageName: "twitter-logo")
         return logoImageView
     }()
     
-    private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().userImageView()
-        return profileImageView
-    }()
-
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
         viewHierarchy()
-        
     }
     
     
     // MARK: - ConfigureViewController
     func viewSettings() {
         navigationItem.titleView = logoImageView
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
     
     func viewHierarchy() {}
-
+    
     
 }

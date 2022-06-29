@@ -16,7 +16,7 @@ struct AuthService {
         
         storageProfileImagesRef.putData(profileImageData, metadata: nil) { (meta, error) in
             storageProfileImagesRef.downloadURL { (url, error) in
-                guard let profileImageUrl = url?.absoluteString else { return }
+                guard let profileImageURL = url?.absoluteString else { return }
                 
                 Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                     if let error = error {
@@ -28,7 +28,7 @@ struct AuthService {
                         "username": username,
                         "fullName": fullName,
                         "email": email,
-                        "profileImageUrl": profileImageUrl
+                        "profileImageURL": profileImageURL
                     ]
                     REF_DB_USERS.child(uid).updateChildValues(userValues, withCompletionBlock: completion)
                 }

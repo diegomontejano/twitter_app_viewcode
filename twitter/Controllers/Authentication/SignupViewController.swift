@@ -83,7 +83,6 @@ class SignupViewController: UIViewController, ConfigureViewController {
     func viewSettings() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.isHidden = true
-        
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
     }
