@@ -3,7 +3,7 @@ import UIKit
 class LoginViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
-        let logoImageView = Components().fitImageView(imageName: "twitter-logo-square")
+        let logoImageView = Components().imageView(imageName: "twitter-logo-square", width: 150, height: 150)
         return logoImageView
     }()
     
@@ -59,8 +59,6 @@ class LoginViewController: UIViewController, ConfigureViewController {
     func viewHierarchy() {
         view.addSubview(logoImageView)
         NSLayoutConstraint.activate([
-            logoImageView.widthAnchor.constraint(equalToConstant: 150),
-            logoImageView.heightAnchor.constraint(equalToConstant: 150),
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])

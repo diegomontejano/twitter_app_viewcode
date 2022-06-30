@@ -7,7 +7,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
         didSet {
             guard let user = user else { return }
             
-            var profileImageView = UIImageView()
+            let profileImageView = UIImageView()
             profileImageView.translatesAutoresizingMaskIntoConstraints = false
             profileImageView.sd_setImage(with: URL(string: user.profileImageURL))
             profileImageView.layer.masksToBounds =  true
@@ -19,12 +19,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         }
     }
-    
-    private lazy var logoImageView: UIView = {
-        let logoImageView = Components().fitImageView(imageName: "twitter-logo")
-        return logoImageView
-    }()
-    
+        
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,6 +31,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
     
     // MARK: - ConfigureViewController
     func viewSettings() {
+        let logoImageView = Components().imageView(imageName: "twitter-logo")
         navigationItem.titleView = logoImageView
     }
     

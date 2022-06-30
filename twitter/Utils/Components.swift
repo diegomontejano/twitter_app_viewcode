@@ -1,12 +1,16 @@
 import UIKit
 
 class Components {
-    func fitImageView(imageName: String) -> UIImageView {
-        let fitImageView = UIImageView()
-        fitImageView.translatesAutoresizingMaskIntoConstraints = false
-        fitImageView.image = UIImage(named: imageName)
-        fitImageView.contentMode = .scaleAspectFit
-        return fitImageView
+    func imageView(imageName: String, width: CGFloat = 44, height: CGFloat = 44) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: imageName)
+        imageView.contentMode = .scaleAspectFit
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: width),
+            imageView.heightAnchor.constraint(equalToConstant: height)
+        ])
+        return imageView
     }
         
     func textField(placeholder: String) -> UITextField {
