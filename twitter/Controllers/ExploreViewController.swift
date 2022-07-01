@@ -4,20 +4,22 @@ class ExploreViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     
     
-    // MARK: - Lifecycle
+    // MARK: - ConfigureViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
         viewHierarchy()
     }
     
-    
-    // MARK: - ConfigureViewController
     func viewSettings() {
         navigationItem.title = "Explore"
     }
     
-    func viewHierarchy() {}
+    
+    // MARK: - Methods
+    func viewHierarchy() {
+        
+    }
     
     
 }

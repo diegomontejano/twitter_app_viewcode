@@ -21,21 +21,23 @@ class FeedViewController: UIViewController, ConfigureViewController {
     }
         
     
-    // MARK: - Lifecycle
+    // MARK: - ConfigureViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
         viewHierarchy()
     }
     
-    
-    // MARK: - ConfigureViewController
     func viewSettings() {
         let logoImageView = Components().imageView(imageName: "twitter-logo")
         navigationItem.titleView = logoImageView
     }
     
-    func viewHierarchy() {}
+    
+    // MARK: - Methods
+    func viewHierarchy() {
+        
+    }
     
     
 }

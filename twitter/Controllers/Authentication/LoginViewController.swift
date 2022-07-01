@@ -41,15 +41,13 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }()
     
     
-    // MARK: - Lifecycle
+    // MARK: - ConfigureViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
         viewHierarchy()
     }
     
-    
-    // MARK: - ConfigureViewController
     func viewSettings() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black

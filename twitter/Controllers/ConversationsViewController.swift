@@ -4,20 +4,22 @@ class ConversationsViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     
     
-    // MARK: - Lifecycle
+    // MARK: - ConfigureViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
         viewHierarchy()
     }
     
-    
-    // MARK: - ConfigureViewController
     func viewSettings() {
         navigationItem.title = "Messages"
     }
     
-    func viewHierarchy() {}
+    
+    // MARK: - Methods
+    func viewHierarchy() {
+        
+    }
     
     
 }

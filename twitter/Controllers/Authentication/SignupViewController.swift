@@ -71,15 +71,13 @@ class SignupViewController: UIViewController, ConfigureViewController {
         return alreadyHaveAccountButton
     }()
         
-    // MARK: - Lifecycle
+    // MARK: - ConfigureViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
         viewHierarchy()
     }
     
-    
-    // MARK: - ConfigureViewController
     func viewSettings() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.isHidden = true

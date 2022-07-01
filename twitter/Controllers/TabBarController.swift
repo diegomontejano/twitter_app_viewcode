@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         tweetButton.tintColor = .white
         tweetButton.backgroundColor = .twitterBlue
         tweetButton.layer.cornerRadius = 56/2
-        tweetButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        tweetButton.addTarget(self, action: #selector(tweetButtonPressed), for: .touchUpInside)
         return tweetButton
     }()
     
@@ -86,8 +86,10 @@ class TabBarController: UITabBarController {
         ])
     }
     
-    @objc func buttonPressed() {
-        print("DEBUG: button pressed.")
+    @objc func tweetButtonPressed() {
+        let nav = UINavigationController(rootViewController: UploadTweetViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
 
     
