@@ -10,7 +10,8 @@ class MainTabBarController: UITabBarController {
             feed.user = user
         }
     }
-    private let tweetButton: UIButton = {
+    
+    private lazy var tweetButton: UIButton = {
         let tweetButton = Components().roundedButton(title: "plus", fontSize: 40, width: 56, hight: 56, iconMode: true)
         tweetButton.addTarget(self, action: #selector(tweetButtonPressed), for: .touchUpInside)
         return tweetButton
@@ -22,6 +23,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         authenticateUser()
     }
+    
     
     // MARK: - Methods
     func authenticateUser() {

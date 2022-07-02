@@ -4,7 +4,7 @@ import UIKit
 
 class UploadTweetViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
-    private let addTweetButton: UIButton = {
+    private lazy var addTweetButton: UIButton = {
         let addTweetButton = Components().roundedButton(title: "Tweet", width: 65, hight: 32)
         addTweetButton.addTarget(self, action: #selector(addTweetButtonPressed), for: .touchUpInside)
         return addTweetButton
