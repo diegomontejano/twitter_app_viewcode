@@ -6,19 +6,21 @@ class FeedViewController: UIViewController, ConfigureViewController {
     var user: User? {
         didSet {
             guard let user = user else { return }
-            
-            let profileImageView = UIImageView()
-            profileImageView.translatesAutoresizingMaskIntoConstraints = false
             profileImageView.sd_setImage(with: URL(string: user.profileImageURL))
-            profileImageView.layer.masksToBounds =  true
-            profileImageView.layer.cornerRadius = 32 / 2
-            NSLayoutConstraint.activate([
-                profileImageView.widthAnchor.constraint(equalToConstant: 32),
-                profileImageView.heightAnchor.constraint(equalToConstant: 32)
-            ])
-            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         }
     }
+    
+    private lazy var profileImageView: UIImageView = {
+        let profileImageView = UIImageView()
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.layer.masksToBounds =  true
+        profileImageView.layer.cornerRadius = 32 / 2
+        NSLayoutConstraint.activate([
+            profileImageView.widthAnchor.constraint(equalToConstant: 32),
+            profileImageView.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        return profileImageView
+    }()
         
     
     // MARK: - ConfigureViewController
@@ -29,8 +31,8 @@ class FeedViewController: UIViewController, ConfigureViewController {
     }
     
     func viewSettings() {
-        let logoImageView = Components().imageView(imageName: "twitter-logo")
-        navigationItem.titleView = logoImageView
+        navigationItem.titleView = Components().imageView(imageName: "twitter-logo")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
     
     
