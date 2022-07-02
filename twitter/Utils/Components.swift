@@ -70,14 +70,19 @@ class Components {
         return textFieldContainerView
     }
     
-    func roundedButton(title: String) -> UIButton {
+    func roundedButton(title: String, fontSize: CGFloat = 16, width: CGFloat = 80, hight: CGFloat = 50, blueMode: Bool = true, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
-        roundedButton.setTitle(title, for: .normal)
-        roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        roundedButton.setTitleColor(.twitterBlue, for: .normal)
-        roundedButton.backgroundColor = .white
-        roundedButton.layer.cornerRadius = 15
+        iconMode ? roundedButton.setImage(UIImage(systemName: title), for: .normal) : roundedButton.setTitle(title, for: .normal)
+        roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        roundedButton.tintColor = blueMode ? .white : .twitterBlue
+        roundedButton.setTitleColor(blueMode ? .white : .twitterBlue, for: .normal)
+        roundedButton.backgroundColor = blueMode ? .twitterBlue : .white
+        roundedButton.layer.cornerRadius = hight / 2
+        NSLayoutConstraint.activate([
+            roundedButton.widthAnchor.constraint(equalToConstant: width),
+            roundedButton.heightAnchor.constraint(equalToConstant: hight)
+        ])
         return roundedButton
     }
         
@@ -87,7 +92,6 @@ class Components {
         
         let titleStyle = NSMutableAttributedString(string: normalTitle, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.white])
         titleStyle.append(NSMutableAttributedString(string: boldTitle, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]))
-        
         titleButton.setAttributedTitle(titleStyle, for: .normal)
         return titleButton
     }

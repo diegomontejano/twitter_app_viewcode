@@ -10,14 +10,8 @@ class TabBarController: UITabBarController {
             feed.user = user
         }
     }
-    
-    let tweetButton: UIButton = {
-        let tweetButton = UIButton(type: .system)
-        tweetButton.translatesAutoresizingMaskIntoConstraints = false
-        tweetButton.setImage(UIImage(systemName: "plus"), for: .normal)
-        tweetButton.tintColor = .white
-        tweetButton.backgroundColor = .twitterBlue
-        tweetButton.layer.cornerRadius = 56/2
+    private let tweetButton: UIButton = {
+        let tweetButton = Components().roundedButton(title: "plus", fontSize: 40, width: 56, hight: 56, iconMode: true)
         tweetButton.addTarget(self, action: #selector(tweetButtonPressed), for: .touchUpInside)
         return tweetButton
     }()
@@ -79,8 +73,6 @@ class TabBarController: UITabBarController {
     func viewHierarchy() {
         view.addSubview(tweetButton)
         NSLayoutConstraint.activate([
-            tweetButton.widthAnchor.constraint(equalToConstant: 56),
-            tweetButton.heightAnchor.constraint(equalToConstant: 56),
             tweetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             tweetButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -64),
         ])

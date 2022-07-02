@@ -136,10 +136,10 @@
 				79683BF728512D9100913421 /* Authentication */,
 				793A1C4E28429E3400E67585 /* TabBarController.swift */,
 				7973765B28483F720047B0FA /* FeedViewController.swift */,
+				7934B099286F4A0E008C1D0D /* UploadTweetController.swift */,
 				7973765D284840270047B0FA /* ExploreViewController.swift */,
 				7973765F284840540047B0FA /* NotificationViewController.swift */,
 				79737661284840710047B0FA /* ConversationsViewController.swift */,
-				7934B099286F4A0E008C1D0D /* UploadTweetController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

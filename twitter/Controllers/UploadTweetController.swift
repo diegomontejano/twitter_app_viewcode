@@ -4,6 +4,11 @@ import UIKit
 
 class UploadTweetViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
+    private let addTweetButton: UIButton = {
+        let addTweetButton = Components().roundedButton(title: "Tweet", width: 65, hight: 32)
+        addTweetButton.addTarget(self, action: #selector(addTweetButtonPressed), for: .touchUpInside)
+        return addTweetButton
+    }()
     
     
     // MARK: - ConfigureViewController
@@ -18,8 +23,10 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .systemBlue
         
+        // cancel button
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed))
-        
+        // tweet button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addTweetButton)
     }
     
     func viewHierarchy() {
@@ -31,4 +38,10 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
     @objc func cancelButtonPressed() {
         dismiss(animated: true)
     }
+    
+    @objc func addTweetButtonPressed() {
+        print("DEBUG: addTweetButtonPressed")
+    }
+    
+    
 }

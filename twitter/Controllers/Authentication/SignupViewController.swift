@@ -60,7 +60,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var signupButton: UIButton = {
-        let loginButton = Components().roundedButton(title: "Sign Up")
+        let loginButton = Components().roundedButton(title: "Sign Up", fontSize: 20, blueMode: false)
         loginButton.addTarget(self, action: #selector(pressSignupButton), for: .touchUpInside)
         return loginButton
     }()
@@ -124,7 +124,6 @@ class SignupViewController: UIViewController, ConfigureViewController {
         
         view.addSubview(signupButton)
         NSLayoutConstraint.activate([
-            signupButton.heightAnchor.constraint(equalToConstant: 50),
             signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             signupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             signupButton.topAnchor.constraint(equalTo: passwordContainerView.bottomAnchor, constant: 20),

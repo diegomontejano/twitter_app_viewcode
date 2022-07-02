@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var loginButton: UIButton = {
-        let loginButton = Components().roundedButton(title: "Log In")
+        let loginButton = Components().roundedButton(title: "Log In", fontSize: 20, blueMode: false)
         loginButton.addTarget(self, action: #selector(pressLoginButton), for: .touchUpInside)
         return loginButton
     }()
@@ -77,7 +77,6 @@ class LoginViewController: UIViewController, ConfigureViewController {
         
         view.addSubview(loginButton)
         NSLayoutConstraint.activate([
-            loginButton.heightAnchor.constraint(equalToConstant: 50),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.topAnchor.constraint(equalTo: passwordContainerView.bottomAnchor, constant: 20),
