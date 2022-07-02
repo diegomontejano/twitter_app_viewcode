@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseAuth
 
-class TabBarController: UITabBarController {
+class MainTabBarController: UITabBarController {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -43,16 +43,7 @@ class TabBarController: UITabBarController {
             self.user = user
         }
     }
-    
-//    func logOutUser() {
-//        do {
-//            try Auth.auth().signOut()
-//            print("DEBUG: log out successfully")
-//        } catch let error {
-//            print("DEBUG: \(error.localizedDescription)")
-//        }
-//    }
-    
+        
     func navigationController() {
         let nav1 = configureNavigationController(iconName: "house", viewController: FeedViewController())
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreViewController())

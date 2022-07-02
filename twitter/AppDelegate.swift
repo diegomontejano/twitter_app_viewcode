@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = MainTabBarController()
         window?.tintColor = .twitterBlue
         window?.backgroundColor = .white
         return true
