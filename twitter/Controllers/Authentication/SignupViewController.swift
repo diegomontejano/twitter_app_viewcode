@@ -6,14 +6,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     private var profileImage: UIImage?
     
     private lazy var profileImageButton: UIButton = {
-        let profileImageButton = UIButton(type: .system)
-        profileImageButton.translatesAutoresizingMaskIntoConstraints = false
-        profileImageButton.setImage(UIImage(named: "add-photo"), for: .normal)
-        profileImageButton.imageView?.contentMode = .scaleAspectFill
-        profileImageButton.imageView?.clipsToBounds = true
-        profileImageButton.tintColor = .white
-        profileImageButton.layer.cornerRadius = 140 / 2
-        profileImageButton.layer.masksToBounds = true
+        let profileImageButton = Components().roundedButton(title: "add photo", width: 140, hight: 140, blueMode: false)
         profileImageButton.addTarget(self, action: #selector(pressProfileImageButton), for: .touchUpInside)
         return profileImageButton
     }()
@@ -90,8 +83,6 @@ class SignupViewController: UIViewController, ConfigureViewController {
         NSLayoutConstraint.activate([
             profileImageButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             profileImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profileImageButton.widthAnchor.constraint(equalToConstant: 140),
-            profileImageButton.heightAnchor.constraint(equalToConstant: 140)
         ])
         
         view.addSubview(usernameContainerView)
