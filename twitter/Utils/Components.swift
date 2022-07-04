@@ -23,9 +23,9 @@ class Components {
         roundedButton.tintColor = blueMode ? .white : .twitterBlue
         roundedButton.setTitleColor(blueMode ? .white : .twitterBlue, for: .normal)
         roundedButton.backgroundColor = blueMode ? .twitterBlue : .white
+        roundedButton.imageView?.contentMode = .scaleAspectFit
         roundedButton.layer.masksToBounds = true
         roundedButton.layer.cornerRadius = hight / 2
-        roundedButton.imageView?.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             roundedButton.widthAnchor.constraint(equalToConstant: width),
             roundedButton.heightAnchor.constraint(equalToConstant: hight)
