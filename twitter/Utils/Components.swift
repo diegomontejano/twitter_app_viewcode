@@ -7,7 +7,7 @@ class Components {
         roundedImageView.image = UIImage(named: imageName)
         roundedImageView.contentMode = .scaleAspectFit
         roundedImageView.layer.masksToBounds =  true
-        roundedImageView.layer.cornerRadius = width / 2
+        roundedImageView.layer.cornerRadius = height / 2
         NSLayoutConstraint.activate([
             roundedImageView.widthAnchor.constraint(equalToConstant: width),
             roundedImageView.heightAnchor.constraint(equalToConstant: height)
@@ -15,7 +15,7 @@ class Components {
         return roundedImageView
     }
     
-    func roundedButton(title: String, fontSize: CGFloat = 16, width: CGFloat = 80, hight: CGFloat = 50, blueMode: Bool = true, iconMode: Bool = false) -> UIButton {
+    func roundedButton(title: String, fontSize: CGFloat = 16, width: CGFloat = 80, height: CGFloat = 50, blueMode: Bool = true, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
         iconMode ? roundedButton.setImage(UIImage(systemName: title), for: .normal) : roundedButton.setTitle(title, for: .normal)
@@ -25,10 +25,10 @@ class Components {
         roundedButton.backgroundColor = blueMode ? .twitterBlue : .white
         roundedButton.imageView?.contentMode = .scaleAspectFit
         roundedButton.layer.masksToBounds = true
-        roundedButton.layer.cornerRadius = hight / 2
+        roundedButton.layer.cornerRadius = height / 2
         NSLayoutConstraint.activate([
             roundedButton.widthAnchor.constraint(equalToConstant: width),
-            roundedButton.heightAnchor.constraint(equalToConstant: hight)
+            roundedButton.heightAnchor.constraint(equalToConstant: height)
         ])
         return roundedButton
     }

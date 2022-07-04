@@ -6,7 +6,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     private var profileImage: UIImage?
     
     private lazy var profileImageButton: UIButton = {
-        let profileImageButton = Components().roundedButton(title: "add photo", width: 140, hight: 140, blueMode: false)
+        let profileImageButton = Components().roundedButton(title: "add photo", width: 140, height: 140, blueMode: false)
         profileImageButton.addTarget(self, action: #selector(pressProfileImageButton), for: .touchUpInside)
         return profileImageButton
     }()

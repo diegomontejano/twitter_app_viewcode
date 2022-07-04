@@ -12,7 +12,7 @@ class MainTabBarController: UITabBarController {
     }
     
     private lazy var tweetButton: UIButton = {
-        let tweetButton = Components().roundedButton(title: "plus", fontSize: 40, width: 56, hight: 56, iconMode: true)
+        let tweetButton = Components().roundedButton(title: "plus", fontSize: 40, width: 56, height: 56, iconMode: true)
         tweetButton.addTarget(self, action: #selector(tweetButtonPressed), for: .touchUpInside)
         return tweetButton
     }()
@@ -72,7 +72,8 @@ class MainTabBarController: UITabBarController {
     }
     
     @objc func tweetButtonPressed() {
-        let nav = UINavigationController(rootViewController: UploadTweetViewController())
+        guard let user = user else { return }
+        let nav = UINavigationController(rootViewController: UploadTweetViewController(user: user))
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
