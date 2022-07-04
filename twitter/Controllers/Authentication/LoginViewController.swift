@@ -3,7 +3,7 @@ import UIKit
 class LoginViewController: UIViewController, ConfigureViewController {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
-        let logoImageView = Components().imageView(imageName: "twitter-logo-square", width: 150, height: 150)
+        let logoImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 150, height: 150)
         return logoImageView
     }()
     

@@ -12,17 +12,10 @@ class FeedViewController: UIViewController, ConfigureViewController {
     }
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = UIImageView()
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        profileImageView.layer.masksToBounds =  true
-        profileImageView.layer.cornerRadius = 32 / 2
-        NSLayoutConstraint.activate([
-            profileImageView.widthAnchor.constraint(equalToConstant: 32),
-            profileImageView.heightAnchor.constraint(equalToConstant: 32)
-        ])
+        let profileImageView = Components().roundedImageView(width: 32, height: 32)
         return profileImageView
     }()
-    
+        
     
     // MARK: - ConfigureViewController
     override func viewDidLoad() {
@@ -32,7 +25,7 @@ class FeedViewController: UIViewController, ConfigureViewController {
     }
     
     func viewSettings() {
-        navigationItem.titleView = Components().imageView(imageName: "twitter-logo")
+        navigationItem.titleView = Components().roundedImageView(imageName: "twitter-logo", width: 44, height: 44)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         // log out button
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutUser))

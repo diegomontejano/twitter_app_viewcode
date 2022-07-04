@@ -1,16 +1,18 @@
 import UIKit
 
 class Components {
-    func imageView(imageName: String, width: CGFloat = 44, height: CGFloat = 44) -> UIImageView {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: imageName)
-        imageView.contentMode = .scaleAspectFit
+    func roundedImageView(imageName: String = "", width: CGFloat, height: CGFloat) -> UIImageView {
+        let roundedImageView = UIImageView()
+        roundedImageView.translatesAutoresizingMaskIntoConstraints = false
+        roundedImageView.image = UIImage(named: imageName)
+        roundedImageView.contentMode = .scaleAspectFit
+        roundedImageView.layer.masksToBounds =  true
+        roundedImageView.layer.cornerRadius = width / 2
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: width),
-            imageView.heightAnchor.constraint(equalToConstant: height)
+            roundedImageView.widthAnchor.constraint(equalToConstant: width),
+            roundedImageView.heightAnchor.constraint(equalToConstant: height)
         ])
-        return imageView
+        return roundedImageView
     }
         
     func textField(placeholder: String) -> UITextField {

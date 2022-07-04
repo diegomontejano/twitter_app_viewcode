@@ -19,7 +19,7 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
     }
     
     func viewSettings() {
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .systemBlue
         
