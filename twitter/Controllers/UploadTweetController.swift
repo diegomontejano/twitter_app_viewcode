@@ -10,6 +10,11 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
         return addTweetButton
     }()
     
+    private lazy var profileImageView: UIImageView = {
+        let profileImageView = Components().roundedImageView(width: 48, height: 48)
+        return profileImageView
+    }()
+    
     
     // MARK: - ConfigureViewController
     override func viewDidLoad() {

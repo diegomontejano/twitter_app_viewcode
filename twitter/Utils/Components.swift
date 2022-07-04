@@ -33,14 +33,14 @@ class Components {
         return roundedButton
     }
         
-    func titleButton(normalTitle: String, boldTitle: String) -> UIButton {
-        let titleButton = UIButton(type: .system)
-        titleButton.translatesAutoresizingMaskIntoConstraints = false
+    func textButton(normalText: String, boldText: String) -> UIButton {
+        let textButton = UIButton(type: .system)
+        textButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let titleStyle = NSMutableAttributedString(string: normalTitle, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.white])
-        titleStyle.append(NSMutableAttributedString(string: boldTitle, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]))
-        titleButton.setAttributedTitle(titleStyle, for: .normal)
-        return titleButton
+        let textStyle = NSMutableAttributedString(string: normalText, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.white])
+        textStyle.append(NSMutableAttributedString(string: boldText, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]))
+        textButton.setAttributedTitle(textStyle, for: .normal)
+        return textButton
     }
     
     func textField(placeholder: String) -> UITextField {

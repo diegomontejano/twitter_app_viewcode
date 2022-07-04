@@ -59,7 +59,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var alreadyHaveAccountButton: UIButton = {
-        let alreadyHaveAccountButton = Components().titleButton(normalTitle: "Allready have an account? ", boldTitle: "Log In")
+        let alreadyHaveAccountButton = Components().textButton(normalText: "Allready have an account? ", boldText: "Log In")
         alreadyHaveAccountButton.addTarget(self, action: #selector(pressAlreadyHaveAccountButton), for: .touchUpInside)
         return alreadyHaveAccountButton
     }()

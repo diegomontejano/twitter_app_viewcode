@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var dontHaveAccountButton: UIButton = {
-        let dontHaveAccountButton = Components().titleButton(normalTitle: "Don't have an account? ", boldTitle: "Sign Up")
+        let dontHaveAccountButton = Components().textButton(normalText: "Don't have an account? ", boldText: "Sign Up")
         dontHaveAccountButton.addTarget(self, action: #selector(pressDontHaveAccountButton), for: .touchUpInside)
         return dontHaveAccountButton
     }()
