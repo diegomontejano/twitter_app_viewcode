@@ -29,6 +29,8 @@ class FeedViewController: UIViewController, ConfigureViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         // log out button
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutUser))
+        
+        fetchTweets()
     }
     
     func viewHierarchy() {
@@ -47,6 +49,12 @@ class FeedViewController: UIViewController, ConfigureViewController {
             }
         } catch let error {
             print("DEBUG: \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchTweets(){
+        TweetService.instance.fetchTweets { tweets in
+            print("DEBUG: tweets are: \(tweets)")
         }
     }
     

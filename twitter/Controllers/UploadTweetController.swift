@@ -77,7 +77,7 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
     @objc func addTweetButtonPressed() {
         guard let tweetTextField = tweetTextField.text else { return }
        
-        TweetService.instance.uploadTweet(tweet: tweetTextField) { (error, ref) in
+        TweetService.instance.uploadTweet(tweetCaption: tweetTextField) { (error, ref) in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return
