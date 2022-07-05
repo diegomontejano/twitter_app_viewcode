@@ -15,14 +15,14 @@ class Components {
         return roundedImageView
     }
     
-    func roundedButton(title: String, fontSize: CGFloat = 16, width: CGFloat = 80, height: CGFloat = 50, blueMode: Bool = true, iconMode: Bool = false) -> UIButton {
+    func roundedButton(title: String, fontSize: CGFloat = 16, width: CGFloat = 80, height: CGFloat = 50, whiteMode: Bool = false, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
         iconMode ? roundedButton.setImage(UIImage(systemName: title), for: .normal) : roundedButton.setTitle(title, for: .normal)
         roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
-        roundedButton.tintColor = blueMode ? .white : .twitterBlue
-        roundedButton.setTitleColor(blueMode ? .white : .twitterBlue, for: .normal)
-        roundedButton.backgroundColor = blueMode ? .twitterBlue : .white
+        roundedButton.tintColor = whiteMode ? .twitterBlue : .white
+        roundedButton.setTitleColor(whiteMode ? .twitterBlue : .white, for: .normal)
+        roundedButton.backgroundColor = whiteMode ? .white : .twitterBlue
         roundedButton.imageView?.contentMode = .scaleAspectFit
         roundedButton.layer.masksToBounds = true
         roundedButton.layer.cornerRadius = height / 2

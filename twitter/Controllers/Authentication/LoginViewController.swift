@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var loginButton: UIButton = {
-        let loginButton = Components().roundedButton(title: "Log In", fontSize: 20, blueMode: false)
+        let loginButton = Components().roundedButton(title: "Log In", fontSize: 20, whiteMode: true)
         loginButton.addTarget(self, action: #selector(pressLoginButton), for: .touchUpInside)
         return loginButton
     }()

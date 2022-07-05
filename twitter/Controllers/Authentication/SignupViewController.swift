@@ -6,7 +6,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     private var profileImage: UIImage?
     
     private lazy var profileImageButton: UIButton = {
-        let profileImageButton = Components().roundedButton(title: "add photo", width: 140, height: 140, blueMode: false)
+        let profileImageButton = Components().roundedButton(title: "add photo", width: 140, height: 140, whiteMode: true)
         profileImageButton.addTarget(self, action: #selector(pressProfileImageButton), for: .touchUpInside)
         return profileImageButton
     }()
@@ -53,7 +53,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var signupButton: UIButton = {
-        let loginButton = Components().roundedButton(title: "Sign Up", fontSize: 20, blueMode: false)
+        let loginButton = Components().roundedButton(title: "Sign Up", fontSize: 20, whiteMode: true)
         loginButton.addTarget(self, action: #selector(pressSignupButton), for: .touchUpInside)
         return loginButton
     }()
