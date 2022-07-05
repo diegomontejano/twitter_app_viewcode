@@ -19,6 +19,12 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
         return profileImageView
     }()
     
+    private lazy var tweetTextField: UITextField = {
+        let tweetTextField = Components().textField(placeholder: "What's happening?")
+        tweetTextField.becomeFirstResponder()
+        return tweetTextField
+    }()
+    
     
     // MARK: - ConfigureViewController
     override func viewDidLoad() {
@@ -53,6 +59,12 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
             profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
+        
+        view.addSubview(tweetTextField)
+        NSLayoutConstraint.activate([
+            tweetTextField.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 20),
+            tweetTextField.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
+        ])
     }
     
     
@@ -63,6 +75,7 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
     
     @objc func addTweetButtonPressed() {
         print("DEBUG: addTweetButtonPressed")
+        //guard let tweetTextField = emailTextField.text else { return }
     }
     
     

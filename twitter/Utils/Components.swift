@@ -43,14 +43,14 @@ class Components {
         return textButton
     }
     
-    func textField(placeholder: String) -> UITextField {
+    func textField(placeholder: String, whiteMode: Bool = false) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.textColor = .white
-        textField.tintColor = .white
+        textField.textColor = whiteMode ? .white : .darkGray
+        textField.tintColor = whiteMode ? .white : .darkGray
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+            attributes: [NSAttributedString.Key.foregroundColor: whiteMode ? UIColor.lightGray : UIColor.darkGray]
         )
         return textField
     }

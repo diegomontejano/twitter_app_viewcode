@@ -17,7 +17,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var usernameTextField: UITextField = {
-        let usernameTextField = Components().textField(placeholder: "Username")
+        let usernameTextField = Components().textField(placeholder: "Username", whiteMode: true)
         return usernameTextField
     }()
     
@@ -27,7 +27,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private let fullNameTextField: UITextField = {
-        let fullNameTextField = Components().textField(placeholder: "Full Name")
+        let fullNameTextField = Components().textField(placeholder: "Full Name", whiteMode: true)
         return fullNameTextField
     }()
     
@@ -37,7 +37,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var emailTextField: UITextField = {
-        let emailTextField = Components().textField(placeholder: "Email")
+        let emailTextField = Components().textField(placeholder: "Email", whiteMode: true)
         return emailTextField
     }()
     
@@ -47,7 +47,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var passwordTextField: UITextField = {
-        let passwordTextField = Components().textField(placeholder: "Password")
+        let passwordTextField = Components().textField(placeholder: "Password", whiteMode: true)
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
     }()

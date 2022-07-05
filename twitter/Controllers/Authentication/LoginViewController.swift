@@ -18,12 +18,12 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }()
     
     private lazy var emailTextField: UITextField = {
-        let emailTextField = Components().textField(placeholder: "Email")
+        let emailTextField = Components().textField(placeholder: "Email", whiteMode: true)
         return emailTextField
     }()
     
     private lazy var passwordTextField: UITextField = {
-        let passwordTextField = Components().textField(placeholder: "Password")
+        let passwordTextField = Components().textField(placeholder: "Password", whiteMode: true)
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
     }()
