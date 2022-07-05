@@ -63,6 +63,7 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
         view.addSubview(tweetTextField)
         NSLayoutConstraint.activate([
             tweetTextField.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 20),
+            tweetTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             tweetTextField.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
         ])
     }
@@ -74,8 +75,15 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
     }
     
     @objc func addTweetButtonPressed() {
-        print("DEBUG: addTweetButtonPressed")
-        //guard let tweetTextField = emailTextField.text else { return }
+        guard let tweetTextField = tweetTextField.text else { return }
+       
+        TweetService.instance.uploadTweet(tweet: tweetTextField) { (error, ref) in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true)
+        }
     }
     
     

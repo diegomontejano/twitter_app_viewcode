@@ -24,13 +24,13 @@ struct AuthService {
                         return
                     }
                     guard let uid = result?.user.uid else { return }
-                    let userValues = [
+                    let values = [
                         "username": username,
                         "fullName": fullName,
                         "email": email,
                         "profileImageURL": profileImageURL
                     ]
-                    REF_DB_USERS.child(uid).updateChildValues(userValues, withCompletionBlock: completion)
+                    REF_DB_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
                 }
             }
         }
