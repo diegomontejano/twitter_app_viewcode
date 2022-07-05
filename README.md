@@ -1,6 +1,6 @@
 # Twitter App (under development)
 
-My Twitter clone app for training View Code skills. Technologies and knowledge used:
+My Twitter clone app. Technologies and knowledge used:
 * Swift,
 * View Code,
 * Clean Code,
