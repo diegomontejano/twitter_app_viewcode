@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 
-class FeedCollectionViewController: UICollectionViewController, ConfigureViewController {
+class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -17,7 +17,7 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureViewCon
     }()
         
     
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()

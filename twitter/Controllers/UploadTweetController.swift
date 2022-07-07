@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class UploadTweetViewController: UIViewController, ConfigureViewController {
+class UploadTweetViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     private let user: User
         
@@ -26,7 +26,7 @@ class UploadTweetViewController: UIViewController, ConfigureViewController {
     }()
     
     
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()

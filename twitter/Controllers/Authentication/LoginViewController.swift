@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController, ConfigureViewController {
+class LoginViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 150, height: 150)
@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, ConfigureViewController {
     }()
     
     
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()

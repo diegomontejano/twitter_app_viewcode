@@ -55,6 +55,16 @@ class Components {
         return textField
     }
     
+    func dividerLine(color: UIColor) -> UIView {
+            let dividerLine = UIView()
+            dividerLine.translatesAutoresizingMaskIntoConstraints = false
+            dividerLine.backgroundColor = color
+        NSLayoutConstraint.activate([
+            dividerLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
+            return dividerLine
+    }
+    
     func textFieldContainerView(iconName: String, textField: UITextField) -> UIView {
         let textFieldContainerView = UIView()
         textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,9 +76,7 @@ class Components {
         iconImageView.image = UIImage(systemName: iconName)
         iconImageView.tintColor = .white
         
-        let dividerLine = UIView()
-        dividerLine.translatesAutoresizingMaskIntoConstraints = false
-        dividerLine.backgroundColor = .white
+        let dividerLine = self.dividerLine(color: .white)
         
         NSLayoutConstraint.activate([
             textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
@@ -91,7 +99,6 @@ class Components {
         
         textFieldContainerView.addSubview(dividerLine)
         NSLayoutConstraint.activate([
-            dividerLine.heightAnchor.constraint(equalToConstant: 1),
             dividerLine.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor),
             dividerLine.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor),
             dividerLine.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 6)

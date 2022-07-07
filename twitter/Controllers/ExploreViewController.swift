@@ -1,10 +1,10 @@
 import UIKit
 
-class ExploreViewController: UIViewController, ConfigureViewController {
+class ExploreViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     
     
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()

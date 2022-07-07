@@ -1,4 +1,4 @@
-protocol ConfigureViewController {
+protocol ConfigureView {
     func viewSettings()
     func viewHierarchy()
 }

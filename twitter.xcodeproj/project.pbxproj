@@ -129,9 +129,9 @@
 				79E744172840541C0029C0E2 /* AppDelegate.swift */,
 				79E7442B2840547F0029C0E2 /* Utils */,
 				79F3F58128660B3B00EB7C5D /* Services */,
-				794817BF28764E0D00FEBF9A /* Views */,
 				795F7FBB286A724800AC3342 /* Models */,
 				79E7442D284054A80029C0E2 /* Controllers */,
+				794817BF28764E0D00FEBF9A /* Views */,
 			);
 			path = twitter;
 			sourceTree = "<group>";

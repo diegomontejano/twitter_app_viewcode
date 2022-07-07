@@ -1,10 +1,10 @@
 import UIKit
 
-class NotificationViewController: UIViewController, ConfigureViewController {
+class NotificationViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     
     
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()

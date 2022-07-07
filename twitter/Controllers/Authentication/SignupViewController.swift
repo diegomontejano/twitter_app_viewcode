@@ -1,6 +1,6 @@
 import UIKit
 
-class SignupViewController: UIViewController, ConfigureViewController {
+class SignupViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     let imagePicker = UIImagePickerController()
     private var profileImage: UIImage?
@@ -64,7 +64,7 @@ class SignupViewController: UIViewController, ConfigureViewController {
         return alreadyHaveAccountButton
     }()
         
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()

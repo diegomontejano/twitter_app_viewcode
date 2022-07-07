@@ -1,10 +1,10 @@
 import UIKit
 
-class ConversationsViewController: UIViewController, ConfigureViewController {
+class ConversationsViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     
     
-    // MARK: - ConfigureViewController
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
