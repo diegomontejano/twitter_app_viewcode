@@ -6,7 +6,7 @@ class MainTabBarController: UITabBarController {
     var user: User? {
         didSet {
             guard let nav = viewControllers?[0] as? UINavigationController else { return }
-            guard let feed = nav.viewControllers[0] as? FeedViewController else { return }
+            guard let feed = nav.viewControllers[0] as? FeedCollectionViewController else { return }
             feed.user = user
         }
     }
@@ -47,7 +47,7 @@ class MainTabBarController: UITabBarController {
     }
         
     func navigationController() {
-        let nav1 = configureNavigationController(iconName: "house", viewController: FeedViewController())
+        let nav1 = configureNavigationController(iconName: "house", viewController: FeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreViewController())
         let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationViewController())
         let nav4 = configureNavigationController(iconName: "envelope", viewController: ConversationsViewController())
