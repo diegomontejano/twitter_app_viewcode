@@ -12,7 +12,7 @@ class MainTabBarController: UITabBarController {
     }
     
     private lazy var tweetButton: UIButton = {
-        let tweetButton = Components().roundedButton(title: "plus", width: 56, height: 56, iconMode: true)
+        let tweetButton = Components().roundedButton(buttonName: "plus", width: 56, height: 56, iconMode: true)
         tweetButton.addTarget(self, action: #selector(tweetButtonPressed), for: .touchUpInside)
         return tweetButton
     }()

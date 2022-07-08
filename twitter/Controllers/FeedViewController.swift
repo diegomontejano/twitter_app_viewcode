@@ -27,7 +27,7 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     func viewSettings() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         navigationItem.titleView = Components().roundedImageView(imageName: "twitter-logo", width: 44, height: 44)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutUser))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
                 
         // register TweetCell()
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: "TweetCell")
@@ -40,7 +40,7 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     
     
     // MARK: - Methods
-    @objc func logOutUser() {
+    @objc func logOutButtonPressed() {
         do {
             try Auth.auth().signOut()
             DispatchQueue.main.async {
@@ -78,6 +78,6 @@ extension FeedCollectionViewController {
 // send the size of this view to TweetCell()
 extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        return CGSize(width: view.frame.width, height: 110)
     }
 }

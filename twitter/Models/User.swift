@@ -15,5 +15,3 @@ struct User {
         self.profileImageURL = dictionary["profileImageURL"] as? String ?? ""
     }
 }
-
-

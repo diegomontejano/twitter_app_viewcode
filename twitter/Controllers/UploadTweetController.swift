@@ -8,7 +8,7 @@ class UploadTweetViewController: UIViewController, ConfigureView {
     private let user: User
         
     private lazy var addTweetButton: UIButton = {
-        let addTweetButton = Components().roundedButton(title: "Tweet", width: 65, height: 32)
+        let addTweetButton = Components().roundedButton(buttonName: "Tweet", width: 65, height: 32)
         addTweetButton.addTarget(self, action: #selector(addTweetButtonPressed), for: .touchUpInside)
         return addTweetButton
     }()

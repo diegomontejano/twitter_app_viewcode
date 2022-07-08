@@ -1,6 +1,16 @@
 import UIKit
 
 class Components {
+    func dividerLine(color: UIColor = .lightGray) -> UIView {
+        let dividerLine = UIView()
+        dividerLine.translatesAutoresizingMaskIntoConstraints = false
+        dividerLine.backgroundColor = color
+        NSLayoutConstraint.activate([
+            dividerLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        return dividerLine
+    }
+    
     func roundedImageView(imageName: String = "", width: CGFloat, height: CGFloat) -> UIImageView {
         let roundedImageView = UIImageView()
         roundedImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -15,10 +25,10 @@ class Components {
         return roundedImageView
     }
     
-    func roundedButton(title: String, fontSize: CGFloat = 16, width: CGFloat = 80, height: CGFloat = 50, whiteMode: Bool = false, iconMode: Bool = false) -> UIButton {
+    func roundedButton(buttonName: String, fontSize: CGFloat = 16, width: CGFloat = 80, height: CGFloat = 50, whiteMode: Bool = false, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
-        iconMode ? roundedButton.setImage(UIImage(systemName: title), for: .normal) : roundedButton.setTitle(title, for: .normal)
+        iconMode ? roundedButton.setImage(UIImage(systemName: buttonName), for: .normal) : roundedButton.setTitle(buttonName, for: .normal)
         roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
         roundedButton.tintColor = whiteMode ? .twitterBlue : .white
         roundedButton.setTitleColor(whiteMode ? .twitterBlue : .white, for: .normal)
@@ -32,7 +42,20 @@ class Components {
         ])
         return roundedButton
     }
-        
+    
+    func iconButton(iconName: String, size: CGFloat = 20, color: UIColor = .darkGray) -> UIButton {
+        let iconButton = UIButton(type: .system)
+        iconButton.translatesAutoresizingMaskIntoConstraints = false
+        iconButton.setImage(UIImage(systemName: iconName), for: .normal)
+        iconButton.imageView?.contentMode = .scaleAspectFit
+        iconButton.tintColor = color
+        NSLayoutConstraint.activate([
+            iconButton.widthAnchor.constraint(equalToConstant: size),
+            iconButton.heightAnchor.constraint(equalToConstant: size)
+        ])
+        return iconButton
+    }
+    
     func textButton(normalText: String, boldText: String) -> UIButton {
         let textButton = UIButton(type: .system)
         textButton.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +64,16 @@ class Components {
         textStyle.append(NSMutableAttributedString(string: boldText, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]))
         textButton.setAttributedTitle(textStyle, for: .normal)
         return textButton
+    }
+    
+    func textLabel(text: String, fontSize: CGFloat = 16, weight: UIFont.Weight = .regular, color: UIColor = .darkGray, numberOfLines: Int = 1) -> UILabel {
+        let textLabel = UILabel()
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        textLabel.textColor = color
+        textLabel.numberOfLines = numberOfLines
+        textLabel.text = text
+        return textLabel
     }
     
     func textField(placeholder: String, whiteMode: Bool = false) -> UITextField {
@@ -53,16 +86,6 @@ class Components {
             attributes: [NSAttributedString.Key.foregroundColor: whiteMode ? UIColor.lightGray : UIColor.darkGray]
         )
         return textField
-    }
-    
-    func dividerLine(color: UIColor) -> UIView {
-            let dividerLine = UIView()
-            dividerLine.translatesAutoresizingMaskIntoConstraints = false
-            dividerLine.backgroundColor = color
-        NSLayoutConstraint.activate([
-            dividerLine.heightAnchor.constraint(equalToConstant: 1)
-        ])
-            return dividerLine
     }
     
     func textFieldContainerView(iconName: String, textField: UITextField) -> UIView {
@@ -81,13 +104,13 @@ class Components {
         NSLayoutConstraint.activate([
             textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
         ])
-
+        
         textFieldContainerView.addSubview(iconImageView)
         NSLayoutConstraint.activate([
-            iconImageView.widthAnchor.constraint(equalToConstant: 28),
-            iconImageView.heightAnchor.constraint(equalToConstant: 28),
             iconImageView.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor, constant: 5),
-            iconImageView.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
+            iconImageView.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor),
+            iconImageView.widthAnchor.constraint(equalToConstant: 28),
+            iconImageView.heightAnchor.constraint(equalToConstant: 28)
         ])
         
         textFieldContainerView.addSubview(textField)
@@ -103,11 +126,11 @@ class Components {
             dividerLine.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor),
             dividerLine.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 6)
         ])
-
+        
         return textFieldContainerView
     }
     
-
+    
 }
 
 //class ComponentAsClass: UIView {

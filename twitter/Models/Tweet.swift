@@ -18,5 +18,4 @@ struct Tweet {
         self.likes = dictionary["likes"] as? Int ?? 0
         self.retweets = dictionary["retweets"] as? Int ?? 0
     }
-    
 }

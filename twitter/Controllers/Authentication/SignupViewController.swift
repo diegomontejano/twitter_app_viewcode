@@ -6,8 +6,8 @@ class SignupViewController: UIViewController, ConfigureView {
     private var profileImage: UIImage?
     
     private lazy var profileImageButton: UIButton = {
-        let profileImageButton = Components().roundedButton(title: "add photo", width: 140, height: 140, whiteMode: true)
-        profileImageButton.addTarget(self, action: #selector(pressProfileImageButton), for: .touchUpInside)
+        let profileImageButton = Components().roundedButton(buttonName: "add photo", width: 140, height: 140, whiteMode: true)
+        profileImageButton.addTarget(self, action: #selector(profileImageButtonPressed), for: .touchUpInside)
         return profileImageButton
     }()
     
@@ -53,14 +53,14 @@ class SignupViewController: UIViewController, ConfigureView {
     }()
     
     private lazy var signupButton: UIButton = {
-        let loginButton = Components().roundedButton(title: "Sign Up", fontSize: 20, whiteMode: true)
-        loginButton.addTarget(self, action: #selector(pressSignupButton), for: .touchUpInside)
+        let loginButton = Components().roundedButton(buttonName: "Sign Up", fontSize: 20, whiteMode: true)
+        loginButton.addTarget(self, action: #selector(signupButtonPressed), for: .touchUpInside)
         return loginButton
     }()
     
     private lazy var alreadyHaveAccountButton: UIButton = {
         let alreadyHaveAccountButton = Components().textButton(normalText: "Allready have an account? ", boldText: "Log In")
-        alreadyHaveAccountButton.addTarget(self, action: #selector(pressAlreadyHaveAccountButton), for: .touchUpInside)
+        alreadyHaveAccountButton.addTarget(self, action: #selector(alreadyHaveAccountButtonPressed), for: .touchUpInside)
         return alreadyHaveAccountButton
     }()
         
@@ -130,11 +130,11 @@ class SignupViewController: UIViewController, ConfigureView {
     
     
     // MARK: - Methods
-    @objc func pressProfileImageButton() {
+    @objc func profileImageButtonPressed() {
         present(imagePicker, animated: true)
     }
     
-    @objc func pressSignupButton() {
+    @objc func signupButtonPressed() {
         guard let profileImage = profileImage else {
             print("DEBUG: no profile image selected.")
             return
@@ -155,7 +155,7 @@ class SignupViewController: UIViewController, ConfigureView {
         }
     }
     
-    @objc func pressAlreadyHaveAccountButton() {
+    @objc func alreadyHaveAccountButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
     

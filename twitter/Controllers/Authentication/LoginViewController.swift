@@ -29,14 +29,14 @@ class LoginViewController: UIViewController, ConfigureView {
     }()
     
     private lazy var loginButton: UIButton = {
-        let loginButton = Components().roundedButton(title: "Log In", fontSize: 20, whiteMode: true)
-        loginButton.addTarget(self, action: #selector(pressLoginButton), for: .touchUpInside)
+        let loginButton = Components().roundedButton(buttonName: "Log In", fontSize: 20, whiteMode: true)
+        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return loginButton
     }()
     
     private lazy var dontHaveAccountButton: UIButton = {
         let dontHaveAccountButton = Components().textButton(normalText: "Don't have an account? ", boldText: "Sign Up")
-        dontHaveAccountButton.addTarget(self, action: #selector(pressDontHaveAccountButton), for: .touchUpInside)
+        dontHaveAccountButton.addTarget(self, action: #selector(dontHaveAccountButtonPressed), for: .touchUpInside)
         return dontHaveAccountButton
     }()
     
@@ -92,7 +92,7 @@ class LoginViewController: UIViewController, ConfigureView {
     
     
     // MARK: - Methods
-    @objc func pressLoginButton() {
+    @objc func loginButtonPressed() {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
@@ -107,7 +107,7 @@ class LoginViewController: UIViewController, ConfigureView {
         }
     }
     
-    @objc func pressDontHaveAccountButton() {
+    @objc func dontHaveAccountButtonPressed() {
         navigationController?.pushViewController(SignupViewController(), animated: true)
     }
     
