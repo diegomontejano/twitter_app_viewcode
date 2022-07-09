@@ -3,6 +3,13 @@ import UIKit
 
 class TweetCell: UICollectionViewCell, ConfigureView {
     // MARK: - Properties
+    var tweet: Tweet? {
+        didSet {
+            guard let tweet = tweet else { return }
+            tweetTextLabel.text = tweet.tweetText
+        }
+    }
+    
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 48, height: 48)
         profileImageView.backgroundColor = .twitterBlue

@@ -18,14 +18,12 @@ class MainTabBarController: UITabBarController {
     }()
     
     
-    // MARK: - viewDidLoad
+    // MARK: - ConfigureView
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticateUser()
     }
     
-    
-    // MARK: - Methods
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -34,12 +32,12 @@ class MainTabBarController: UITabBarController {
                 self.present(nav, animated: true)
             }
         } else {
-            fetchUser()
+            fetchUserFromUserService()
             navigationController()
         }
     }
         
-    func fetchUser() {
+    func fetchUserFromUserService() {
         UserService.instance.fetchUser { user in
             self.user = user
         }
@@ -68,7 +66,9 @@ class MainTabBarController: UITabBarController {
         nav.navigationBar.backgroundColor = .white
         return nav
     }
-        
+    
+    
+    // MARK: - Methods
     @objc func tweetButtonPressed() {
         guard let user = user else { return }
         let nav = UINavigationController(rootViewController: UploadTweetViewController(user: user))

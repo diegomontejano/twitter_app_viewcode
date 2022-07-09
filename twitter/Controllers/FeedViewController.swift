@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 
-class FeedCollectionViewController: UICollectionViewController, ConfigureView {
+class FeedCollectionViewController: UICollectionViewController {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -13,7 +13,8 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     
     var tweets = [Tweet]() {
         didSet {
-            // as this data will be stored after the view appear, we need to reload after that to see it
+            /* as tweets are fetched in viewDidLoad(), we need
+             to reload this collection to update these data */
             collectionView.reloadData()
         }
     }
@@ -33,7 +34,6 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
-        viewHierarchy()
     }
     
     func viewSettings() {
@@ -41,25 +41,23 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
         navigationItem.titleView = logoImageView
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
                 
-        // register TweetCell()
-        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: "TweetCell")
-        collectionView.backgroundColor = .white
-        
-        fetchTweets()
+        fetchTweetsFromTweetService()
+        registerTweetCell()
     }
     
-    func viewHierarchy() {
-        
-    }
-    
-    
-    // MARK: - Methods
-    func fetchTweets(){
+    func fetchTweetsFromTweetService(){
         TweetService.instance.fetchTweets { tweets in
             self.tweets = tweets
         }
     }
     
+    func registerTweetCell() {
+        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: "TweetCell")
+        collectionView.backgroundColor = .white
+    }
+    
+    
+    // MARK: - Methods
     @objc func logOutButtonPressed() {
         do {
             try Auth.auth().signOut()
@@ -74,21 +72,25 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     }
 }
 
+
+// MARK: - Extensions
 extension FeedCollectionViewController {
-    // show TweetCell() as cell
+    // configure cell as TweetCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        
+        cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
         return cell
     }
     
-    // quantity of cells
+    // configure number of cells
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tweets.count
     }
 }
 
-// send the size of this view to TweetCell()
+// configure cell size
 extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 120)
