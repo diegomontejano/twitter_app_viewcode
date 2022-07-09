@@ -11,9 +11,21 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
         }
     }
     
+    var tweets = [Tweet]() {
+        didSet {
+            // as this data will be stored after the view appear, we need to reload after that to see it
+            collectionView.reloadData()
+        }
+    }
+        
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 32, height: 32)
         return profileImageView
+    }()
+    
+    private lazy var logoImageView: UIImageView = {
+        let logoImageView = Components().roundedImageView(imageName: "twitter-logo", width: 44, height: 44)
+        return logoImageView
     }()
         
     
@@ -26,12 +38,14 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     
     func viewSettings() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
-        navigationItem.titleView = Components().roundedImageView(imageName: "twitter-logo", width: 44, height: 44)
+        navigationItem.titleView = logoImageView
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
                 
         // register TweetCell()
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: "TweetCell")
         collectionView.backgroundColor = .white
+        
+        fetchTweets()
     }
     
     func viewHierarchy() {
@@ -40,6 +54,12 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
     
     
     // MARK: - Methods
+    func fetchTweets(){
+        TweetService.instance.fetchTweets { tweets in
+            self.tweets = tweets
+        }
+    }
+    
     @objc func logOutButtonPressed() {
         do {
             try Auth.auth().signOut()
@@ -52,13 +72,6 @@ class FeedCollectionViewController: UICollectionViewController, ConfigureView {
             print("DEBUG: \(error.localizedDescription)")
         }
     }
-    
-    func fetchTweets(){
-        TweetService.instance.fetchTweets { tweets in
-            print("DEBUG: tweets are: \(tweets)")
-        }
-    }
-    
 }
 
 extension FeedCollectionViewController {
@@ -71,13 +84,13 @@ extension FeedCollectionViewController {
     
     // quantity of cells
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return tweets.count
     }
 }
 
 // send the size of this view to TweetCell()
 extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 110)
+        return CGSize(width: view.frame.width, height: 120)
     }
 }

@@ -5,15 +5,15 @@ import FirebaseDatabase
 struct TweetService {
     static let instance = TweetService()
     
-    func uploadTweet(tweetCaption: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
+    func uploadTweet(tweetText: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let values = [
             "uid": uid,
             "tweetID": "",
-            "tweetCaption": tweetCaption,
-            "timestamp": Int(NSDate().timeIntervalSince1970),
-            "likes":0,
-            "retweets": 0
+            "tweetText": tweetText,
+            "tweetTime": Int(NSDate().timeIntervalSince1970),
+            "tweetLikes": 0,
+            "tweetRetweets": 0
             ] as [String: Any]
         
         REF_DB_TWEETS.childByAutoId().updateChildValues(values, withCompletionBlock: completion)

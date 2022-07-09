@@ -25,11 +25,11 @@ class TweetCell: UICollectionViewCell, ConfigureView {
         return timestampLabel
     }()
     
-    private let tweetCaptionLabel: UILabel = {
-        let tweetCaptionLabel = Components().textLabel(text: "tweet caption label test", fontSize: 14, numberOfLines: 0)
-        return tweetCaptionLabel
+    private let tweetTextLabel: UILabel = {
+        let tweetTextLabel = Components().textLabel(text: "tweet text label test", fontSize: 14, numberOfLines: 0)
+        return tweetTextLabel
     }()
-        
+    
     private lazy var commentButton: UIButton = {
         let commentButton = Components().iconButton(iconName: "message")
         commentButton.addTarget(self, action: #selector(commentButtonPressed), for: .touchUpInside)
@@ -70,7 +70,7 @@ class TweetCell: UICollectionViewCell, ConfigureView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func viewSettings() {
         backgroundColor = .white
     }
@@ -100,10 +100,10 @@ class TweetCell: UICollectionViewCell, ConfigureView {
             timestampLabel.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor)
         ])
         
-        addSubview(tweetCaptionLabel)
+        addSubview(tweetTextLabel)
         NSLayoutConstraint.activate([
-            tweetCaptionLabel.leadingAnchor.constraint(equalTo: fullnameLabel.leadingAnchor),
-            tweetCaptionLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 7)
+            tweetTextLabel.leadingAnchor.constraint(equalTo: fullnameLabel.leadingAnchor),
+            tweetTextLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 7)
         ])
         
         addSubview(dividerLine)
@@ -122,8 +122,6 @@ class TweetCell: UICollectionViewCell, ConfigureView {
             actionsButtonsStack.bottomAnchor.constraint(equalTo: dividerLine.topAnchor, constant: -10),
             actionsButtonsStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
-        
-
     }
     
     
