@@ -6,6 +6,9 @@ class TweetCell: UICollectionViewCell, ConfigureView {
     var tweet: Tweet? {
         didSet {
             guard let tweet = tweet else { return }
+            profileImageView.sd_setImage(with: URL(string: tweet.user.profileImageURL))
+            fullNameLabel.text = tweet.user.fullName
+            usernameLabel.text = tweet.user.username
             tweetTextLabel.text = tweet.tweetText
         }
     }
@@ -13,13 +16,12 @@ class TweetCell: UICollectionViewCell, ConfigureView {
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 48, height: 48)
         profileImageView.backgroundColor = .twitterBlue
-        //profileImageView.sd_setImage(with: URL(string: " "))
         return profileImageView
     }()
     
-    private let fullnameLabel: UILabel = {
-        let fullnameLabel = Components().textLabel(text: "Diego", weight: .bold)
-        return fullnameLabel
+    private let fullNameLabel: UILabel = {
+        let fullNameLabel = Components().textLabel(text: "Diego", weight: .bold)
+        return fullNameLabel
     }()
     
     private let usernameLabel: UILabel = {
@@ -89,16 +91,16 @@ class TweetCell: UICollectionViewCell, ConfigureView {
             profileImageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
         
-        addSubview(fullnameLabel)
+        addSubview(fullNameLabel)
         NSLayoutConstraint.activate([
-            fullnameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10),
-            fullnameLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor)
+            fullNameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10),
+            fullNameLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor)
         ])
         
         addSubview(usernameLabel)
         NSLayoutConstraint.activate([
-            usernameLabel.leadingAnchor.constraint(equalTo: fullnameLabel.trailingAnchor, constant: 5),
-            usernameLabel.centerYAnchor.constraint(equalTo: fullnameLabel.centerYAnchor)
+            usernameLabel.leadingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor, constant: 5),
+            usernameLabel.centerYAnchor.constraint(equalTo: fullNameLabel.centerYAnchor)
         ])
         
         addSubview(timestampLabel)
@@ -109,8 +111,8 @@ class TweetCell: UICollectionViewCell, ConfigureView {
         
         addSubview(tweetTextLabel)
         NSLayoutConstraint.activate([
-            tweetTextLabel.leadingAnchor.constraint(equalTo: fullnameLabel.leadingAnchor),
-            tweetTextLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 7)
+            tweetTextLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
+            tweetTextLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 7)
         ])
         
         addSubview(dividerLine)
