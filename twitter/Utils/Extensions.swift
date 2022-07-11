@@ -8,6 +8,17 @@ extension UIColor {
     static let lightGray = UIColor.setRGB(red: 240, green: 240, blue: 240)
 }
 
+extension String {
+    static func timestampFormatter(timestamp: Date) -> String {
+        let timestampFormatter = DateComponentsFormatter()
+        timestampFormatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        timestampFormatter.maximumUnitCount = 1
+        timestampFormatter.unitsStyle = .abbreviated
+        let now = Date()
+        return timestampFormatter.string(from: timestamp, to: now) ?? "timestamp error"
+    }
+}
+
 //extension UIView {
 //    func setConstraints(
 //        width: CGFloat? = nil,

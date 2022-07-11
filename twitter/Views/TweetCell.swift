@@ -8,7 +8,8 @@ class TweetCell: UICollectionViewCell, ConfigureView {
             guard let tweet = tweet else { return }
             profileImageView.sd_setImage(with: URL(string: tweet.user.profileImageURL))
             fullNameLabel.text = tweet.user.fullName
-            usernameLabel.text = tweet.user.username
+            usernameLabel.text = "@\(tweet.user.username)"
+            tweetTimeLabel.text = String.timestampFormatter(timestamp: tweet.tweetTime)
             tweetTextLabel.text = tweet.tweetText
         }
     }
@@ -29,9 +30,9 @@ class TweetCell: UICollectionViewCell, ConfigureView {
         return usernameLabel
     }()
     
-    private let timestampLabel: UILabel = {
-        let timestampLabel = Components().textLabel(text: "• 3h", fontSize: 14, color: UIColor.systemGray2)
-        return timestampLabel
+    private let tweetTimeLabel: UILabel = {
+        let tweetTimeLabel = Components().textLabel(text: "• 3h", fontSize: 14, color: UIColor.systemGray2)
+        return tweetTimeLabel
     }()
     
     private let tweetTextLabel: UILabel = {
@@ -103,10 +104,10 @@ class TweetCell: UICollectionViewCell, ConfigureView {
             usernameLabel.centerYAnchor.constraint(equalTo: fullNameLabel.centerYAnchor)
         ])
         
-        addSubview(timestampLabel)
+        addSubview(tweetTimeLabel)
         NSLayoutConstraint.activate([
-            timestampLabel.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: 5),
-            timestampLabel.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor)
+            tweetTimeLabel.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: 5),
+            tweetTimeLabel.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor)
         ])
         
         addSubview(tweetTextLabel)
