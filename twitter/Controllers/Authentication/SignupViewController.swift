@@ -139,7 +139,7 @@ class SignupViewController: UIViewController, ConfigureView {
             print("DEBUG: no profile image selected.")
             return
         }
-        guard let username = usernameTextField.text?.lowercased() else { return }
+        guard let username = usernameTextField.text else { return }
         guard let fullName = fullNameTextField.text else { return }
         guard let email = emailTextField.text?.lowercased() else { return }
         guard let password = passwordTextField.text else { return }

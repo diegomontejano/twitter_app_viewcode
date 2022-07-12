@@ -15,11 +15,12 @@ class NotificationViewController: UIViewController, ConfigureView {
         navigationItem.title = "Notifications"
     }
     
-    
-    // MARK: - Methods
     func viewHierarchy() {
         
     }
     
+    
+    // MARK: - Methods
+
     
 }

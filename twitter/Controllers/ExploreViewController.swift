@@ -15,11 +15,12 @@ class ExploreViewController: UIViewController, ConfigureView {
         navigationItem.title = "Explore"
     }
     
-    
-    // MARK: - Methods
     func viewHierarchy() {
         
     }
+    
+    
+    // MARK: - Methods
     
     
 }

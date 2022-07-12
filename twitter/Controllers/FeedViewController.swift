@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 
-class FeedCollectionViewController: UICollectionViewController {
+class FeedCollectionViewController: UIViewController, ConfigureView {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -13,11 +13,24 @@ class FeedCollectionViewController: UICollectionViewController {
     
     var tweets = [Tweet]() {
         didSet {
-            /* as tweets are fetched in viewDidLoad(), we need
-             to reload this collection to update these data */
-            collectionView.reloadData()
+            /* as tweets are fetched in viewDidLoad(), we
+             need to reload this data to update tableView */
+            tableView.reloadData()
         }
     }
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.allowsSelection = false
+        tableView.isScrollEnabled = true
+        tableView.separatorStyle = .singleLine
+        tableView.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TweetCell.self, forCellReuseIdentifier: TweetCell.identifier)
+        return tableView
+    }()
         
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 32, height: 32)
@@ -34,6 +47,7 @@ class FeedCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSettings()
+        viewHierarchy()
     }
     
     func viewSettings() {
@@ -42,7 +56,16 @@ class FeedCollectionViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
                 
         fetchTweetsFromTweetService()
-        registerTweetCell()
+    }
+    
+    func viewHierarchy() {
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func fetchTweetsFromTweetService(){
@@ -50,12 +73,7 @@ class FeedCollectionViewController: UICollectionViewController {
             self.tweets = tweets
         }
     }
-    
-    func registerTweetCell() {
-        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: "TweetCell")
-        collectionView.backgroundColor = .white
-    }
-    
+        
     
     // MARK: - Methods
     @objc func logOutButtonPressed() {
@@ -73,26 +91,22 @@ class FeedCollectionViewController: UICollectionViewController {
 }
 
 
-// MARK: - Extensions
-extension FeedCollectionViewController {
-    // configure cell as TweetCell()
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        
+// MARK: - Extension
+extension FeedCollectionViewController: UITableViewDelegate, UITableViewDataSource {
+    // number of cells
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    // cell as TweetCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
         return cell
     }
     
-    // configure number of cells
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tweets.count
-    }
-}
-
-// configure cell size
-extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+    // cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }

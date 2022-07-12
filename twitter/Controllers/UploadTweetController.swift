@@ -47,9 +47,7 @@ class UploadTweetViewController: UIViewController, ConfigureView {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .systemBlue
         
-        // cancel button
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed))
-        // tweet button
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addTweetButton)
     }
     

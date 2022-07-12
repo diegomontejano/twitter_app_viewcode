@@ -45,7 +45,7 @@ class MainTabBarController: UITabBarController {
     }
 
     func navigationController() {
-        let nav1 = configureNavigationController(iconName: "house", viewController: FeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let nav1 = configureNavigationController(iconName: "house", viewController: FeedCollectionViewController())
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreViewController())
         let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationViewController())
         let nav4 = configureNavigationController(iconName: "envelope", viewController: ConversationsViewController())

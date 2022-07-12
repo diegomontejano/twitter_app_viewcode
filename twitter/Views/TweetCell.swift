@@ -1,22 +1,30 @@
 import Foundation
 import UIKit
 
-class TweetCell: UICollectionViewCell, ConfigureView {
+class TweetCell: UITableViewCell, ConfigureView {
     // MARK: - Properties
+    static let identifier: String = "TweetCell"
+    
     var tweet: Tweet? {
         didSet {
             guard let tweet = tweet else { return }
-            profileImageView.sd_setImage(with: URL(string: tweet.user.profileImageURL))
-            fullNameLabel.text = tweet.user.fullName
-            usernameLabel.text = "@\(tweet.user.username)"
-            tweetTimeLabel.text = String.timestampFormatter(timestamp: tweet.tweetTime)
-            tweetTextLabel.text = tweet.tweetText
+            let tweetViewModel = TweetViewModel(tweet: tweet)
+            
+            profileImageView.sd_setImage(with: tweetViewModel.profileImageView)
+            fullNameLabel.text = tweetViewModel.fullName
+            usernameLabel.text = tweetViewModel.username
+            tweetTimeLabel.text = tweetViewModel.tweetTime
+            tweetTextLabel.text = tweetViewModel.tweetText
         }
     }
     
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 48, height: 48)
         profileImageView.backgroundColor = .twitterBlue
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileImageViewPressed))
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
         return profileImageView
     }()
     
@@ -59,20 +67,15 @@ class TweetCell: UICollectionViewCell, ConfigureView {
     }()
     
     private lazy var shareButton: UIButton = {
-        let shareButton = Components().iconButton(iconName: "arrowshape.turn.up.right")
+        let shareButton = Components().iconButton(iconName: "square.and.arrow.up")
         shareButton.addTarget(self, action: #selector(shareButtonPressed), for: .touchUpInside)
         return shareButton
     }()
     
-    private let dividerLine: UIView = {
-        let dividerLine = Components().dividerLine()
-        return dividerLine
-    }()
-    
     
     // MARK: - ConfigureView
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         viewSettings()
         viewHierarchy()
     }
@@ -86,41 +89,34 @@ class TweetCell: UICollectionViewCell, ConfigureView {
     }
     
     func viewHierarchy() {
-        addSubview(profileImageView)
+        contentView.addSubview(profileImageView)
         NSLayoutConstraint.activate([
             profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             profileImageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
         
-        addSubview(fullNameLabel)
+        contentView.addSubview(fullNameLabel)
         NSLayoutConstraint.activate([
             fullNameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10),
             fullNameLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor)
         ])
         
-        addSubview(usernameLabel)
+        contentView.addSubview(usernameLabel)
         NSLayoutConstraint.activate([
             usernameLabel.leadingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor, constant: 5),
             usernameLabel.centerYAnchor.constraint(equalTo: fullNameLabel.centerYAnchor)
         ])
         
-        addSubview(tweetTimeLabel)
+        contentView.addSubview(tweetTimeLabel)
         NSLayoutConstraint.activate([
             tweetTimeLabel.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: 5),
             tweetTimeLabel.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor)
         ])
         
-        addSubview(tweetTextLabel)
+        contentView.addSubview(tweetTextLabel)
         NSLayoutConstraint.activate([
             tweetTextLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
             tweetTextLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 7)
-        ])
-        
-        addSubview(dividerLine)
-        NSLayoutConstraint.activate([
-            dividerLine.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            dividerLine.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            dividerLine.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
         
         let actionsButtonsStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
@@ -129,27 +125,31 @@ class TweetCell: UICollectionViewCell, ConfigureView {
         actionsButtonsStack.spacing = 60
         addSubview(actionsButtonsStack)
         NSLayoutConstraint.activate([
-            actionsButtonsStack.bottomAnchor.constraint(equalTo: dividerLine.topAnchor, constant: -10),
+            actionsButtonsStack.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 50),
             actionsButtonsStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
     
     
     // MARK: - Methods
+    @objc func profileImageViewPressed() {
+        print("DEBUG: profileImageViewPressed")
+    }
+
     @objc func commentButtonPressed(){
-        
+        print("DEBUG: commentButtonPressed")
     }
     
     @objc func retweetButtonPressed(){
-        
+        print("DEBUG: retweetButtonPressed")
     }
     
     @objc func likeButtonPressed(){
-        
+        print("DEBUG: likeButtonPressed")
     }
     
     @objc func shareButtonPressed() {
-        
+        print("DEBUG: shareButtonPressed")
     }
     
     

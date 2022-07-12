@@ -15,11 +15,12 @@ class ConversationsViewController: UIViewController, ConfigureView {
         navigationItem.title = "Messages"
     }
     
-    
-    // MARK: - Methods
     func viewHierarchy() {
         
     }
     
+    
+    // MARK: - Methods
+
     
 }
