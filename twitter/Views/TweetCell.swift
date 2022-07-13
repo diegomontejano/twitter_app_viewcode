@@ -1,9 +1,15 @@
 import Foundation
 import UIKit
 
+protocol TweetCellDelegate: class {
+    func profileImageViewPressed()
+}
+
 class TweetCell: UITableViewCell, ConfigureView {
     // MARK: - Properties
     static let identifier: String = "TweetCell"
+    
+    weak var delegate: TweetCellDelegate?
     
     var tweet: Tweet? {
         didSet {
@@ -133,7 +139,7 @@ class TweetCell: UITableViewCell, ConfigureView {
     
     // MARK: - Methods
     @objc func profileImageViewPressed() {
-        print("DEBUG: profileImageViewPressed")
+        delegate?.profileImageViewPressed()
     }
 
     @objc func commentButtonPressed(){

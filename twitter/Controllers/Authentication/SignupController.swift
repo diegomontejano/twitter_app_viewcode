@@ -1,6 +1,6 @@
 import UIKit
 
-class SignupViewController: UIViewController, ConfigureView {
+class SignupController: UIViewController, ConfigureView {
     // MARK: - Properties
     let imagePicker = UIImagePickerController()
     private var profileImage: UIImage?
@@ -149,8 +149,8 @@ class SignupViewController: UIViewController, ConfigureView {
                 print("DEBUG: \(error.localizedDescription)")
                 return
             }
-            guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
-            tabBarController.authenticateUser()
+            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarController.authenticateUser()
             self.dismiss(animated: true)
         }
     }
@@ -162,7 +162,7 @@ class SignupViewController: UIViewController, ConfigureView {
     
 }
 
-extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SignupController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}
         self.profileImage = profileImage

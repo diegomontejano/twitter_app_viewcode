@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController, ConfigureView {
+class LoginController: UIViewController, ConfigureView {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 150, height: 150)
@@ -101,14 +101,14 @@ class LoginViewController: UIViewController, ConfigureView {
                 print("DEBUG: \(error.localizedDescription)")
                 return
             }
-            guard let tabBarViewController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
-            tabBarViewController.authenticateUser()
+            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarController.authenticateUser()
             self.dismiss(animated: true)
         }
     }
     
     @objc func dontHaveAccountButtonPressed() {
-        navigationController?.pushViewController(SignupViewController(), animated: true)
+        navigationController?.pushViewController(SignupController(), animated: true)
     }
     
     

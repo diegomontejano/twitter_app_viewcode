@@ -1,6 +1,7 @@
+import Foundation
 import UIKit
 
-class ExploreViewController: UIViewController, ConfigureView {
+class ProfileController: UITableViewController, ConfigureView {
     // MARK: - Properties
     
     
@@ -12,7 +13,8 @@ class ExploreViewController: UIViewController, ConfigureView {
     }
     
     func viewSettings() {
-        navigationItem.title = "Explore"
+        navigationItem.title = "Profile"
+        view.backgroundColor = .systemPink
     }
     
     func viewHierarchy() {

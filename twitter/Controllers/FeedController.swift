@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 
-class FeedCollectionViewController: UIViewController, ConfigureView {
+class FeedController: UIViewController, ConfigureView {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -22,7 +22,7 @@ class FeedCollectionViewController: UIViewController, ConfigureView {
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.allowsSelection = false
+       // tableView.allowsSelection = false
         tableView.isScrollEnabled = true
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = .white
@@ -80,7 +80,7 @@ class FeedCollectionViewController: UIViewController, ConfigureView {
         do {
             try Auth.auth().signOut()
             DispatchQueue.main.async {
-                let nav = UINavigationController.init(rootViewController: LoginViewController())
+                let nav = UINavigationController.init(rootViewController: LoginController())
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
             }
@@ -92,21 +92,35 @@ class FeedCollectionViewController: UIViewController, ConfigureView {
 
 
 // MARK: - Extension
-extension FeedCollectionViewController: UITableViewDelegate, UITableViewDataSource {
-    // number of cells
+extension FeedController: UITableViewDelegate, UITableViewDataSource, TweetCellDelegate {
+    // configure number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
     
-    // cell as TweetCell()
+    // configure cell as TweetCell()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
+        
+        cell.delegate = self
         cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
         return cell
     }
     
-    // cell height
+    // configure cell height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    // when selecting the cell, navigate to TweetController()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tweetController = TweetController()
+        navigationController?.pushViewController(tweetController, animated: true)
+    }
+    
+    // TweetCellDelegate: when profileImageViewPressed on the cell, navigate to TweetController()
+    func profileImageViewPressed() {
+        let profileController = ProfileController()
+        navigationController?.pushViewController(profileController, animated: true)
     }
 }

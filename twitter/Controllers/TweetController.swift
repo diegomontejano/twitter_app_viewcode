@@ -1,6 +1,7 @@
+import Foundation
 import UIKit
 
-class NotificationViewController: UIViewController, ConfigureView {
+class TweetController: UITableViewController {
     // MARK: - Properties
     
     
@@ -12,7 +13,8 @@ class NotificationViewController: UIViewController, ConfigureView {
     }
     
     func viewSettings() {
-        navigationItem.title = "Notifications"
+        navigationItem.title = "Tweet"
+        view.backgroundColor = .systemOrange
     }
     
     func viewHierarchy() {
@@ -21,6 +23,6 @@ class NotificationViewController: UIViewController, ConfigureView {
     
     
     // MARK: - Methods
-
+    
     
 }

@@ -1,9 +1,8 @@
-//  Created by Diego Montejano on 01/07/22.
 import Foundation
 import UIKit
 import SDWebImage
 
-class UploadTweetViewController: UIViewController, ConfigureView {
+class UploadTweetController: UIViewController, ConfigureView {
     // MARK: - Properties
     private let user: User
         
