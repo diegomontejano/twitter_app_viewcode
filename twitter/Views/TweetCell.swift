@@ -27,7 +27,7 @@ class TweetCell: UITableViewCell, ConfigureView {
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 48, height: 48)
         profileImageView.backgroundColor = .twitterBlue
-
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileImageViewPressed))
         profileImageView.addGestureRecognizer(tapGesture)
         profileImageView.isUserInteractionEnabled = true
@@ -78,6 +78,14 @@ class TweetCell: UITableViewCell, ConfigureView {
         return shareButton
     }()
     
+    private lazy var actionsButtonsStack: UIStackView = {
+        let actionsButtonsStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
+        actionsButtonsStack.translatesAutoresizingMaskIntoConstraints = false
+        actionsButtonsStack.axis = .horizontal
+        actionsButtonsStack.spacing = 60
+        return actionsButtonsStack
+    }()
+    
     
     // MARK: - ConfigureView
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -125,10 +133,6 @@ class TweetCell: UITableViewCell, ConfigureView {
             tweetTextLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 7)
         ])
         
-        let actionsButtonsStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
-        actionsButtonsStack.translatesAutoresizingMaskIntoConstraints = false
-        actionsButtonsStack.axis = .horizontal
-        actionsButtonsStack.spacing = 60
         addSubview(actionsButtonsStack)
         NSLayoutConstraint.activate([
             actionsButtonsStack.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 50),
@@ -141,7 +145,7 @@ class TweetCell: UITableViewCell, ConfigureView {
     @objc func profileImageViewPressed() {
         delegate?.profileImageViewPressed()
     }
-
+    
     @objc func commentButtonPressed(){
         print("DEBUG: commentButtonPressed")
     }
