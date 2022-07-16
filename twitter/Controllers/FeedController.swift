@@ -118,8 +118,8 @@ extension FeedController: UITableViewDelegate, UITableViewDataSource, TweetCellD
         navigationController?.pushViewController(tweetController, animated: true)
     }
     
-    // TweetCellDelegate: when profileImageViewPressed on the cell, navigate to TweetController()
-    func profileImageViewPressed() {
+    // TweetCellDelegate: when profileImageViewPressed on the cell, run this method
+    func navigateToProfileController() {
         let profileController = ProfileController()
         navigationController?.pushViewController(profileController, animated: true)
     }
