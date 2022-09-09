@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticateUser()
-    }
+    }  
     
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
@@ -48,7 +48,7 @@ class MainTabBarController: UITabBarController {
         let nav1 = configureNavigationController(iconName: "house", viewController: FeedController())
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreController())
         let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationController())
-        let nav4 = configureNavigationController(iconName: "envelope", viewController: ConversationsController())
+        let nav4 = configureNavigationController(iconName: "envelope", viewController: MessagesController())
         viewControllers = [nav1, nav2, nav3, nav4]
         
         // tweetButton
