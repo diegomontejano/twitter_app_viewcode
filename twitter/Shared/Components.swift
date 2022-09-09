@@ -11,9 +11,10 @@ class Components {
         return dividerLine
     }
     
-    func roundedImageView(imageName: String = "", width: CGFloat, height: CGFloat) -> UIImageView {
+    func roundedImageView(imageName: String = "", width: CGFloat, height: CGFloat, backgroundColor: UIColor = .clear) -> UIImageView {
         let roundedImageView = UIImageView()
         roundedImageView.translatesAutoresizingMaskIntoConstraints = false
+        roundedImageView.backgroundColor = backgroundColor
         roundedImageView.image = UIImage(named: imageName)
         roundedImageView.contentMode = .scaleAspectFit
         roundedImageView.layer.masksToBounds =  true

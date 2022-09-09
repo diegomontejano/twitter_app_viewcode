@@ -1,6 +1,6 @@
 import UIKit
 
-class ConversationsController: UIViewController, ConfigureView {
+class MessagesController: UIViewController, ConfigureView {
     // MARK: - Properties
     
     

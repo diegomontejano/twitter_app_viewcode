@@ -25,8 +25,7 @@ class TweetCell: UITableViewCell, ConfigureView {
     }
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().roundedImageView(width: 48, height: 48)
-        profileImageView.backgroundColor = .twitterBlue
+        let profileImageView = Components().roundedImageView(width: 48, height: 48, backgroundColor: .twitterBlue)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileImageViewPressed))
         profileImageView.addGestureRecognizer(tapGesture)
