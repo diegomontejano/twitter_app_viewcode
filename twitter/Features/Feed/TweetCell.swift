@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-protocol TweetCellDelegate {
+protocol TweetCellDelegate: AnyObject {
     func navigateToProfileController()
 }
 
@@ -9,8 +8,8 @@ class TweetCell: UITableViewCell, ConfigureView {
     // MARK: - Properties
     static let identifier: String = "TweetCell"
     
-    var delegate: TweetCellDelegate?
-    
+    weak var delegate: TweetCellDelegate?
+
     var tweet: Tweet? {
         didSet {
             guard let tweet = tweet else { return }

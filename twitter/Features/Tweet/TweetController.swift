@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-class TweetController: UITableViewController {
+class TweetController: UITableViewController, ConfigureView {
     // MARK: - Properties
     
     
