@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 
-class FeedController: UIViewController, ConfigureView {
+class FeedController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -13,25 +13,12 @@ class FeedController: UIViewController, ConfigureView {
     
     var tweets = [Tweet]() {
         didSet {
-            /* as tweets are fetched in viewDidLoad(), we
-             need to reload this data to update tableView */
-            tableView.reloadData()
+            /* as tweets are fetched in viewDidLoad(), and this var is populated
+             AFTER that, we need to reload collectionView to show these data */
+            collectionView.reloadData()
         }
     }
     
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-       // tableView.allowsSelection = false
-        tableView.isScrollEnabled = true
-        tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = .white
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(TweetCell.self, forCellReuseIdentifier: TweetCell.identifier)
-        return tableView
-    }()
-        
     private lazy var profileImageView: UIImageView = {
         let profileImageView = Components().roundedImageView(width: 32, height: 32)
         return profileImageView
@@ -43,39 +30,33 @@ class FeedController: UIViewController, ConfigureView {
     }()
         
     
-    // MARK: - ConfigureView
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewSettings()
-        viewHierarchy()
-    }
-    
-    func viewSettings() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
-        navigationItem.titleView = logoImageView
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
-                
+        configureNavigationItem()
+        configureCollectionView()
         fetchTweetsFromTweetService()
     }
     
-    func viewHierarchy() {
-        view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+
+    // MARK: - Methods
+    func configureNavigationItem() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
+        navigationItem.titleView = logoImageView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
     }
     
-    func fetchTweetsFromTweetService(){
+    func configureCollectionView() {
+        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: TweetCell.identifier)
+        collectionView.backgroundColor = .white
+    }
+    
+    func fetchTweetsFromTweetService() {
         TweetService.instance.fetchTweets { tweets in
             self.tweets = tweets
         }
     }
-        
     
-    // MARK: - Methods
     @objc func logOutButtonPressed() {
         do {
             try Auth.auth().signOut()
@@ -92,35 +73,41 @@ class FeedController: UIViewController, ConfigureView {
 
 
 // MARK: - Extension
-extension FeedController: UITableViewDelegate, UITableViewDataSource, TweetCellDelegate {
+extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate {
     // configure number of cells
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tweets.count
     }
     
+    // configure cell size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 120)
+    }
+    
     // configure cell as TweetCell()
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // send selected tweet in this collection to TweetCell().tweet
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
         
-        cell.delegate = self
+        
+        cell.delegate = self // configure TweetCellDelegate
         cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
         return cell
     }
     
-    // configure cell height
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-    
-    // when selecting the cell, navigate to TweetController()
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tweetController = TweetController()
+    // when tap on the cell, navigate to TweetController()
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tweetController = TweetController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(tweetController, animated: true)
     }
-    
-    // TweetCellDelegate: when profileImageViewPressed on the cell, run this method
+
+    // when profileImageViewPressed on the cell, run the method from TweetCellDelegate
     func navigateToProfileController() {
-        let profileController = ProfileController()
+        let profileController = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(profileController, animated: true)
     }
+
+    
 }
+
+

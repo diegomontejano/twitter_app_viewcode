@@ -1,7 +1,9 @@
 import Foundation
 
 struct TweetViewModel {
+    // MARK: - Properties
     let tweet: Tweet
+    let user: User
     
     var profileImageView: URL? {
         return URL(string: tweet.user.profileImageURL)
@@ -19,6 +21,12 @@ struct TweetViewModel {
         return tweet.tweetText
     }
     
+    
+    // MARK: - Constructor
+    init(tweet: Tweet) {
+        self.tweet = tweet
+        self.user = tweet.user
+    }
     
     
 }

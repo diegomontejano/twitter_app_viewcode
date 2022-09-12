@@ -153,7 +153,7 @@ class Components {
 //    }()
 //
 //
-//    // MARK: - Lifecycle
+//    // MARK: - LifeCycle
 //    // viewcode init method
 //    override init(frame: CGRect) {
 //        super.init(frame: frame)

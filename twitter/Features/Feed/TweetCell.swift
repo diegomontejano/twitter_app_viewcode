@@ -4,12 +4,12 @@ protocol TweetCellDelegate: AnyObject {
     func navigateToProfileController()
 }
 
-class TweetCell: UITableViewCell, ConfigureView {
+class TweetCell: UICollectionViewCell, DMConfigureView {
     // MARK: - Properties
     static let identifier: String = "TweetCell"
     
     weak var delegate: TweetCellDelegate?
-
+    
     var tweet: Tweet? {
         didSet {
             guard let tweet = tweet else { return }
@@ -85,52 +85,55 @@ class TweetCell: UITableViewCell, ConfigureView {
     }()
     
     
-    // MARK: - ConfigureView
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        viewSettings()
-        viewHierarchy()
+    // MARK: - Constructor
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+        configureViewConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func viewSettings() {
+    
+    
+    // MARK: - Methods
+    func configureView() {
         backgroundColor = .white
     }
     
-    func viewHierarchy() {
+    func configureViewConstraints() {
         contentView.addSubview(profileImageView)
         NSLayoutConstraint.activate([
             profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             profileImageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
-        
+
         contentView.addSubview(fullNameLabel)
         NSLayoutConstraint.activate([
             fullNameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10),
             fullNameLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor)
         ])
-        
+
         contentView.addSubview(usernameLabel)
         NSLayoutConstraint.activate([
             usernameLabel.leadingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor, constant: 5),
             usernameLabel.centerYAnchor.constraint(equalTo: fullNameLabel.centerYAnchor)
         ])
-        
+
         contentView.addSubview(tweetTimeLabel)
         NSLayoutConstraint.activate([
             tweetTimeLabel.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: 5),
             tweetTimeLabel.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor)
         ])
-        
+
         contentView.addSubview(tweetTextLabel)
         NSLayoutConstraint.activate([
             tweetTextLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
             tweetTextLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 7)
         ])
-        
+
         addSubview(actionsButtonsStack)
         NSLayoutConstraint.activate([
             actionsButtonsStack.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 50),
@@ -138,8 +141,6 @@ class TweetCell: UITableViewCell, ConfigureView {
         ])
     }
     
-    
-    // MARK: - Methods
     @objc func profileImageViewPressed() {
         delegate?.navigateToProfileController()
     }

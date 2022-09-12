@@ -1,7 +1,7 @@
 import UIKit
 import SDWebImage
 
-class UploadTweetController: UIViewController, ConfigureView {
+class UploadTweetController: UIViewController, DMConfigureView {
     // MARK: - Properties
     private let user: User
         
@@ -24,13 +24,7 @@ class UploadTweetController: UIViewController, ConfigureView {
     }()
     
     
-    // MARK: - ConfigureView
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewSettings()
-        viewHierarchy()
-    }
-    
+    // MARK: - Constructor
     init(user: User){
         self.user = user
         super.init(nibName: nil, bundle: nil)
@@ -40,7 +34,17 @@ class UploadTweetController: UIViewController, ConfigureView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func viewSettings() {
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        configureViewConstraints()
+    }
+    
+    
+    // MARK: - Methods
+    func configureView() {
         view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .systemBlue
@@ -49,7 +53,7 @@ class UploadTweetController: UIViewController, ConfigureView {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addTweetButton)
     }
     
-    func viewHierarchy() {
+    func configureViewConstraints() {
         view.addSubview(profileImageView)
         NSLayoutConstraint.activate([
             profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -64,8 +68,6 @@ class UploadTweetController: UIViewController, ConfigureView {
         ])
     }
     
-    
-    // MARK: - Methods
     @objc func cancelButtonPressed() {
         dismiss(animated: true)
     }

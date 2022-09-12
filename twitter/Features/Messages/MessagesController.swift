@@ -1,26 +1,25 @@
 import UIKit
 
-class MessagesController: UIViewController, ConfigureView {
+class MessagesController: UIViewController, DMConfigureView {
     // MARK: - Properties
     
     
-    // MARK: - ConfigureView
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewSettings()
-        viewHierarchy()
+        configureView()
+        configureViewConstraints()
     }
+
     
-    func viewSettings() {
+    // MARK: - Methods
+    func configureView() {
         navigationItem.title = "Messages"
     }
     
-    func viewHierarchy() {
+    func configureViewConstraints() {
         
     }
     
-    
-    // MARK: - Methods
-
     
 }

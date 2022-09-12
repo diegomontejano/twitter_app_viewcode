@@ -1,4 +1,8 @@
-protocol ConfigureView {
-    func viewSettings()
-    func viewHierarchy()
+protocol DMConfigureView {
+    func configureView()
+    func configureViewConstraints()
+}
+
+protocol DMConfigureCollectionView {
+    func configureCollectionView()
 }

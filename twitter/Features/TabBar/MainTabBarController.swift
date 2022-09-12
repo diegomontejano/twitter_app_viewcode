@@ -18,12 +18,14 @@ class MainTabBarController: UITabBarController {
     }()
     
     
-    // MARK: - ConfigureView
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticateUser()
-    }  
-    
+    }
+        
+
+    // MARK: - Methods
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -36,7 +38,7 @@ class MainTabBarController: UITabBarController {
             navigationController()
         }
     }
-        
+    
     func fetchUserFromUserService() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         UserService.instance.fetchUser(uid: uid) { user in
@@ -45,9 +47,9 @@ class MainTabBarController: UITabBarController {
     }
 
     func navigationController() {
-        let nav1 = configureNavigationController(iconName: "house", viewController: FeedController())
+        let nav1 = configureNavigationController(iconName: "house", viewController: FeedController(collectionViewLayout: UICollectionViewFlowLayout()))
         let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreController())
-        let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationController())
+        let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationsController())
         let nav4 = configureNavigationController(iconName: "envelope", viewController: MessagesController())
         viewControllers = [nav1, nav2, nav3, nav4]
         
@@ -68,8 +70,6 @@ class MainTabBarController: UITabBarController {
         return nav
     }
     
-    
-    // MARK: - Methods
     @objc func tweetButtonPressed() {
         guard let user = user else { return }
         let nav = UINavigationController(rootViewController: UploadTweetController(user: user))

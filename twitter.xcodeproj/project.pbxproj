@@ -20,12 +20,12 @@
 		79052CC128CB92E9001B1809 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CAE28CB92E9001B1809 /* TweetCell.swift */; };
 		79052CC228CB92E9001B1809 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB028CB92E9001B1809 /* LoginController.swift */; };
 		79052CC328CB92E9001B1809 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB128CB92E9001B1809 /* SignupController.swift */; };
-		79052CC428CB92E9001B1809 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB328CB92E9001B1809 /* NotificationController.swift */; };
+		79052CC428CB92E9001B1809 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB328CB92E9001B1809 /* NotificationsController.swift */; };
 		79052CC528CB92E9001B1809 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB528CB92E9001B1809 /* Constants.swift */; };
 		79052CC628CB92E9001B1809 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB728CB92E9001B1809 /* Extensions.swift */; };
 		79052CC728CB92E9001B1809 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB828CB92E9001B1809 /* Protocols.swift */; };
 		79052CC828CB92E9001B1809 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB928CB92E9001B1809 /* Components.swift */; };
-		79052CCA28CBAE88001B1809 /* TweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CC928CBAE88001B1809 /* TweetController.swift */; };
+		7963FFFA28CFBF0D00C06EA8 /* TweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7963FFF928CFBF0D00C06EA8 /* TweetController.swift */; };
 		796F288F286A72B400F63B47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F288E286A72B400F63B47 /* User.swift */; };
 		79E719B5287CE8AF002838B4 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E719B4287CE8AF002838B4 /* TweetViewModel.swift */; };
 		79E744182840541C0029C0E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E744172840541C0029C0E2 /* AppDelegate.swift */; };
@@ -49,12 +49,12 @@
 		79052CAE28CB92E9001B1809 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		79052CB028CB92E9001B1809 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		79052CB128CB92E9001B1809 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		79052CB328CB92E9001B1809 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		79052CB328CB92E9001B1809 /* NotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		79052CB528CB92E9001B1809 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		79052CB728CB92E9001B1809 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		79052CB828CB92E9001B1809 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		79052CB928CB92E9001B1809 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
-		79052CC928CBAE88001B1809 /* TweetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetController.swift; sourceTree = "<group>"; };
+		7963FFF928CFBF0D00C06EA8 /* TweetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetController.swift; sourceTree = "<group>"; };
 		796F288E286A72B400F63B47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		79E719B4287CE8AF002838B4 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		79E744142840541C0029C0E2 /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +156,7 @@
 		79052CB228CB92E9001B1809 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				79052CB328CB92E9001B1809 /* NotificationController.swift */,
+				79052CB328CB92E9001B1809 /* NotificationsController.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 		79052CCB28CBAEB3001B1809 /* Tweet */ = {
 			isa = PBXGroup;
 			children = (
-				79052CC928CBAE88001B1809 /* TweetController.swift */,
+				7963FFF928CFBF0D00C06EA8 /* TweetController.swift */,
 				79052CA228CB92E9001B1809 /* UploadTweetController.swift */,
 			);
 			path = Tweet;
@@ -373,8 +373,8 @@
 				79052CBD28CB92E9001B1809 /* MainTabBarController.swift in Sources */,
 				7902B4B32874E72C00C6862C /* Tweet.swift in Sources */,
 				79052CBF28CB92E9001B1809 /* ProfileController.swift in Sources */,
-				79052CC428CB92E9001B1809 /* NotificationController.swift in Sources */,
-				79052CCA28CBAE88001B1809 /* TweetController.swift in Sources */,
+				79052CC428CB92E9001B1809 /* NotificationsController.swift in Sources */,
+				7963FFFA28CFBF0D00C06EA8 /* TweetController.swift in Sources */,
 				79052CBE28CB92E9001B1809 /* ExploreController.swift in Sources */,
 				79052CC728CB92E9001B1809 /* Protocols.swift in Sources */,
 				79E744182840541C0029C0E2 /* AppDelegate.swift in Sources */,

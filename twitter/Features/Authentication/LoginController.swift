@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginController: UIViewController, ConfigureView {
+class LoginController: UIViewController, DMConfigureView {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 150, height: 150)
@@ -43,20 +43,22 @@ class LoginController: UIViewController, ConfigureView {
     }()
     
     
-    // MARK: - ConfigureView
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewSettings()
-        viewHierarchy()
+        configureView()
+        configureViewConstraints()
     }
     
-    func viewSettings() {
+    
+    // MARK: - Methods
+    func configureView() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
     }
     
-    func viewHierarchy() {
+    func configureViewConstraints() {
         view.addSubview(logoImageView)
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -92,8 +94,6 @@ class LoginController: UIViewController, ConfigureView {
         ])
     }
     
-    
-    // MARK: - Methods
     @objc func loginButtonPressed() {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }

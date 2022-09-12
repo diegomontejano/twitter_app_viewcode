@@ -1,27 +1,21 @@
 import UIKit
 
-class TweetController: UITableViewController, ConfigureView {
+class TweetController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Properties
-    
-    
-    // MARK: - ConfigureView
+
+
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewSettings()
-        viewHierarchy()
+        configureCollectionView()
     }
-    
-    func viewSettings() {
-        navigationItem.title = "Tweet"
-        view.backgroundColor = .systemOrange
-    }
-    
-    func viewHierarchy() {
-        
-    }
-    
-    
+
+
     // MARK: - Methods
-    
-    
+    func configureCollectionView() {
+        navigationItem.title = "Tweet"
+        collectionView.backgroundColor = .systemOrange
+    }
+
+
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class SignupController: UIViewController, ConfigureView {
+class SignupController: UIViewController, DMConfigureView {
     // MARK: - Properties
     let imagePicker = UIImagePickerController()
     private var profileImage: UIImage?
@@ -64,21 +64,24 @@ class SignupController: UIViewController, ConfigureView {
         return alreadyHaveAccountButton
     }()
         
-    // MARK: - ConfigureView
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewSettings()
-        viewHierarchy()
+        configureView()
+        configureViewConstraints()
     }
+        
     
-    func viewSettings() {
+    // MARK: - Methods
+    func configureView() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.isHidden = true
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
     }
     
-    func viewHierarchy() {
+    func configureViewConstraints() {
         view.addSubview(profileImageButton)
         NSLayoutConstraint.activate([
             profileImageButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -128,8 +131,6 @@ class SignupController: UIViewController, ConfigureView {
         ])
     }
     
-    
-    // MARK: - Methods
     @objc func profileImageButtonPressed() {
         present(imagePicker, animated: true)
     }
