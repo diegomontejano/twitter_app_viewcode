@@ -144,21 +144,19 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
         delegate?.navigateToProfileController()
     }
     
-    @objc func commentButtonPressed(){
+    @objc func commentButtonPressed() {
         print("DEBUG: commentButtonPressed")
     }
     
-    @objc func retweetButtonPressed(){
+    @objc func retweetButtonPressed() {
         print("DEBUG: retweetButtonPressed")
     }
     
-    @objc func likeButtonPressed(){
+    @objc func likeButtonPressed() {
         print("DEBUG: likeButtonPressed")
     }
     
     @objc func shareButtonPressed() {
         print("DEBUG: shareButtonPressed")
     }
-    
-    
 }

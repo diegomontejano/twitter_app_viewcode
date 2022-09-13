@@ -13,8 +13,8 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
     
     var tweets = [Tweet]() {
         didSet {
-            /* as tweets are fetched in viewDidLoad(), and this var is populated
-             AFTER that, we need to reload collectionView to show these data */
+            /* as this var is populated AFTER the view appear,
+            we need to reload collectionView to show these data */
             collectionView.reloadData()
         }
     }
@@ -31,11 +31,15 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
         
     
     // MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTweetsFromTweetService()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
         configureCollectionView()
-        fetchTweetsFromTweetService()
     }
     
 
@@ -76,9 +80,7 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
 extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate {
     // configure cell as TweetCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // send selected tweet in this collection to TweetCell().tweet
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
-        
         
         cell.delegate = self // configure TweetCellDelegate
         cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
@@ -101,11 +103,9 @@ extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate 
         navigationController?.pushViewController(tweetController, animated: true)
     }
 
-    // when profileImageViewPressed on the cell, run the method from TweetCellDelegate
+    // when ProfileController().profileImageViewPressed(), run this method from TweetCellDelegate
     func navigateToProfileController() {
         let profileController = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(profileController, animated: true)
     }
 }
-
-

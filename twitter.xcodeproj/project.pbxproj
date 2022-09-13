@@ -132,8 +132,8 @@
 		79052CAA28CB92E9001B1809 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				79052CAB28CB92E9001B1809 /* ProfileController.swift */,
 				79A49FEC28D104E500692955 /* ProfileHeader.swift */,
+				79052CAB28CB92E9001B1809 /* ProfileController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
