@@ -83,6 +83,4 @@ class UploadTweetController: UIViewController, DMConfigureView {
             self.dismiss(animated: true)
         }
     }
-    
-    
 }

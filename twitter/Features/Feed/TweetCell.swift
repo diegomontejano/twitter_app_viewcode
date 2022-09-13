@@ -97,7 +97,6 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     }
     
     
-    
     // MARK: - Methods
     func configureView() {
         backgroundColor = .white

@@ -20,6 +20,4 @@ class NotificationsController: UIViewController, DMConfigureView {
     func configureViewConstraints() {
         
     }
-    
-    
 }

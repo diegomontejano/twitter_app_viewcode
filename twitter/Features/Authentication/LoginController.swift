@@ -112,6 +112,4 @@ class LoginController: UIViewController, DMConfigureView {
     @objc func dontHaveAccountButtonPressed() {
         navigationController?.pushViewController(SignupController(), animated: true)
     }
-    
-    
 }

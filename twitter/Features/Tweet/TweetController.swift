@@ -16,6 +16,4 @@ class TweetController: UICollectionViewController, DMConfigureCollectionView {
         navigationItem.title = "Tweet"
         collectionView.backgroundColor = .systemOrange
     }
-
-
 }

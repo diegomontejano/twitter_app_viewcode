@@ -47,8 +47,8 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
     }
     
     func configureCollectionView() {
-        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: TweetCell.identifier)
         collectionView.backgroundColor = .white
+        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: TweetCell.identifier)
     }
     
     func fetchTweetsFromTweetService() {
@@ -72,18 +72,8 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
 }
 
 
-// MARK: - Extension
+// MARK: - Extension for TweetCell()
 extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate {
-    // configure number of cells
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tweets.count
-    }
-    
-    // configure cell size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
-    }
-    
     // configure cell as TweetCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // send selected tweet in this collection to TweetCell().tweet
@@ -93,6 +83,16 @@ extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate 
         cell.delegate = self // configure TweetCellDelegate
         cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
         return cell
+    }
+    
+    // configure number of cells
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    // configure cell size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 120)
     }
     
     // when tap on the cell, navigate to TweetController()
@@ -106,8 +106,6 @@ extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate 
         let profileController = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(profileController, animated: true)
     }
-
-    
 }
 
 

@@ -20,6 +20,4 @@ class ExploreController: UIViewController, DMConfigureView {
     func configureViewConstraints() {
         
     }
-    
-    
 }

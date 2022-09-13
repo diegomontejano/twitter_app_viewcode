@@ -20,6 +20,4 @@ class MessagesController: UIViewController, DMConfigureView {
     func configureViewConstraints() {
         
     }
-    
-    
 }

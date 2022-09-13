@@ -130,8 +130,6 @@ class Components {
         
         return textFieldContainerView
     }
-    
-    
 }
 
 //class ComponentAsClass: UIView {

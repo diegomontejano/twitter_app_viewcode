@@ -159,10 +159,10 @@ class SignupController: UIViewController, DMConfigureView {
     @objc func alreadyHaveAccountButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
+
+// MARK: - Extension for ImagePickerController
 extension SignupController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}

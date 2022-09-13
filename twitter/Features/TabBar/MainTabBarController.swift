@@ -76,6 +76,4 @@ class MainTabBarController: UITabBarController {
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
-
-    
 }

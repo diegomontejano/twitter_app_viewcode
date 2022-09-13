@@ -27,6 +27,4 @@ struct TweetViewModel {
         self.tweet = tweet
         self.user = tweet.user
     }
-    
-    
 }
