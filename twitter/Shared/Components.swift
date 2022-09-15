@@ -26,14 +26,14 @@ class Components {
         return roundedImageView
     }
     
-    func roundedButton(buttonName: String, fontSize: CGFloat = 16, width: CGFloat = 80, height: CGFloat = 50, whiteMode: Bool = false, iconMode: Bool = false) -> UIButton {
+    func roundedButton(buttonName: String, fontSize: CGFloat = 16, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, width: CGFloat = 80, height: CGFloat = 50, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
         iconMode ? roundedButton.setImage(UIImage(systemName: buttonName), for: .normal) : roundedButton.setTitle(buttonName, for: .normal)
         roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
-        roundedButton.tintColor = whiteMode ? .twitterBlue : .white
-        roundedButton.setTitleColor(whiteMode ? .twitterBlue : .white, for: .normal)
-        roundedButton.backgroundColor = whiteMode ? .white : .twitterBlue
+        roundedButton.tintColor = foregroundColor
+        roundedButton.setTitleColor(foregroundColor, for: .normal)
+        roundedButton.backgroundColor = backgroundColor
         roundedButton.imageView?.contentMode = .scaleAspectFit
         roundedButton.layer.masksToBounds = true
         roundedButton.layer.cornerRadius = height / 2
@@ -67,10 +67,10 @@ class Components {
         return textButton
     }
     
-    func textLabel(text: String, fontSize: CGFloat = 16, weight: UIFont.Weight = .regular, color: UIColor = .darkGray, numberOfLines: Int = 1) -> UILabel {
+    func textLabel(text: String, fontSize: CGFloat = 16, fontWeight: UIFont.Weight = .regular, color: UIColor = .darkGray, numberOfLines: Int = 1) -> UILabel {
         let textLabel = UILabel()
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        textLabel.font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
         textLabel.textColor = color
         textLabel.numberOfLines = numberOfLines
         textLabel.text = text

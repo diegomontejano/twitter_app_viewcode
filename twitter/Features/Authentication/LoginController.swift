@@ -31,7 +31,7 @@ class LoginController: UIViewController, DMConfigureView {
     }()
     
     private lazy var loginButton: UIButton = {
-        let loginButton = Components().roundedButton(buttonName: "Log In", fontSize: 20, whiteMode: true)
+        let loginButton = Components().roundedButton(buttonName: "Log In", fontSize: 20, foregroundColor: .twitterBlue, backgroundColor: .white)
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return loginButton
     }()

@@ -33,12 +33,12 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     }()
     
     private let fullNameLabel: UILabel = {
-        let fullNameLabel = Components().textLabel(text: "Diego", weight: .bold)
+        let fullNameLabel = Components().textLabel(text: "User", fontWeight: .bold)
         return fullNameLabel
     }()
     
     private let usernameLabel: UILabel = {
-        let usernameLabel = Components().textLabel(text: "@diego", fontSize: 14, color: UIColor.systemGray2)
+        let usernameLabel = Components().textLabel(text: "@user", fontSize: 14, color: UIColor.systemGray2)
         return usernameLabel
     }()
     
@@ -48,7 +48,7 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     }()
     
     private let tweetTextLabel: UILabel = {
-        let tweetTextLabel = Components().textLabel(text: "tweet text label test", fontSize: 14, numberOfLines: 0)
+        let tweetTextLabel = Components().textLabel(text: "tweet example", fontSize: 14, numberOfLines: 0)
         return tweetTextLabel
     }()
     

@@ -19,6 +19,9 @@ class ProfileController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Methods
     func configureCollectionView() {
         navigationItem.title = "Profile"
+        // invert the color of the top icons (time, signal, wifi, battery)
+        navigationController?.navigationBar.barStyle = .black
+        
         collectionView.backgroundColor = .white
         // ignore safe area
         collectionView.contentInsetAdjustmentBehavior = .never
