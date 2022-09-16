@@ -20,7 +20,7 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
     }
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().roundedImageView(width: 32, height: 32)
+        let profileImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 32, height: 32)
         return profileImageView
     }()
     
@@ -76,8 +76,8 @@ class FeedController: UICollectionViewController, DMConfigureCollectionView {
 }
 
 
-// MARK: - Extension for TweetCell()
-extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate {
+// MARK: - Extension UICollectionViewDelegateFlowLayout
+extension FeedController: UICollectionViewDelegateFlowLayout {
     // configure cell as TweetCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
@@ -97,13 +97,17 @@ extension FeedController: UICollectionViewDelegateFlowLayout, TweetCellDelegate 
         return CGSize(width: view.frame.width, height: 120)
     }
     
-    // when tap on the cell, navigate to TweetController()
+    // when tap on the cell body, navigate to TweetController()
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let tweetController = TweetController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(tweetController, animated: true)
     }
+}
 
-    // when ProfileController().profileImageViewPressed(), run this method from TweetCellDelegate
+
+// MARK: - Extension TweetCellDelegate
+extension FeedController: TweetCellDelegate {
+    // when tap on the cell image, navigate to ProfileController()
     func navigateToProfileController() {
         let profileController = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(profileController, animated: true)

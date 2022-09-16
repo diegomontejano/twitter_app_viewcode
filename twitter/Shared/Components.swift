@@ -11,7 +11,7 @@ class Components {
         return dividerLine
     }
     
-    func roundedImageView(imageName: String = "", width: CGFloat, height: CGFloat, backgroundColor: UIColor = .clear) -> UIImageView {
+    func roundedImageView(imageName: String, width: CGFloat, height: CGFloat, backgroundColor: UIColor = .clear) -> UIImageView {
         let roundedImageView = UIImageView()
         roundedImageView.translatesAutoresizingMaskIntoConstraints = false
         roundedImageView.backgroundColor = backgroundColor
@@ -29,7 +29,9 @@ class Components {
     func roundedButton(buttonName: String, fontSize: CGFloat = 16, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, width: CGFloat = 80, height: CGFloat = 50, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
-        iconMode ? roundedButton.setImage(UIImage(systemName: buttonName), for: .normal) : roundedButton.setTitle(buttonName, for: .normal)
+        iconMode
+        ? roundedButton.setImage(UIImage(systemName: buttonName), for: .normal)
+        : roundedButton.setTitle(buttonName, for: .normal)
         roundedButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
         roundedButton.tintColor = foregroundColor
         roundedButton.setTitleColor(foregroundColor, for: .normal)
@@ -80,11 +82,19 @@ class Components {
     func textField(placeholder: String, whiteMode: Bool = false) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.textColor = whiteMode ? .white : .darkGray
-        textField.tintColor = whiteMode ? .white : .darkGray
+        textField.textColor = whiteMode
+        ? .white
+        : .darkGray
+        textField.tintColor = whiteMode
+        ? .white
+        : .darkGray
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: whiteMode ? UIColor.lightGray : UIColor.darkGray]
+            attributes: [
+                NSAttributedString.Key.foregroundColor: whiteMode
+                    ? UIColor.lightGray
+                    : UIColor.darkGray
+            ]
         )
         return textField
     }

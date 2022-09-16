@@ -66,7 +66,6 @@ class MainTabBarController: UITabBarController {
         
         let nav = UINavigationController(rootViewController: viewController)
         nav.tabBarItem.image = UIImage(systemName: iconName)
-        //nav.navigationBar.backgroundColor = .white
         return nav
     }
     

@@ -36,13 +36,12 @@ class ProfileController: UICollectionViewController, DMConfigureCollectionView {
 }
 
 
-// MARK: - Extension for TweetCell
+// MARK: - Extension UICollectionViewDelegateFlowLayout
 extension ProfileController: UICollectionViewDelegateFlowLayout {
     // configure cell as TweetCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // send selected tweet in this collection to TweetCell().tweet
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
-
         return cell
     }
     
@@ -58,17 +57,16 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 }
 
 
-// MARK: - Extension for ProfileHeader
+// MARK: - Extension ProfileHeader
 extension ProfileController {
     // configure header as ProfileHeader()
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
-        
         return profileHeader
     }
     
     // configure header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 300)
+        return CGSize(width: view.frame.width, height: 350)
     }
 }

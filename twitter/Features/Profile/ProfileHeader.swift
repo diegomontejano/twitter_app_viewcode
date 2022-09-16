@@ -18,7 +18,7 @@ class ProfileHeader: UICollectionReusableView, DMConfigureView {
     }()
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().roundedImageView(width: 80, height: 80, backgroundColor: .twitterBlue)
+        let profileImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 80, height: 80, backgroundColor: .twitterBlue)
         profileImageView.layer.borderColor = UIColor.white.cgColor
         profileImageView.layer.borderWidth = 4
         return profileImageView
@@ -46,6 +46,8 @@ class ProfileHeader: UICollectionReusableView, DMConfigureView {
         let usernameLabel = Components().textLabel(text: "bio example", numberOfLines: 3)
         return usernameLabel
     }()
+    
+    private let profileFilter = ProfileFilter()
     
         
     // MARK: - Constructor
@@ -107,9 +109,17 @@ class ProfileHeader: UICollectionReusableView, DMConfigureView {
         addSubview(bioLabel)
         NSLayoutConstraint.activate([
             bioLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            bioLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 3)
+            bioLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 3),
         ])
         
+        addSubview(profileFilter)
+        profileFilter.translatesAutoresizingMaskIntoConstraints =  false
+        NSLayoutConstraint.activate([
+            profileFilter.leadingAnchor.constraint(equalTo: leadingAnchor),
+            profileFilter.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileFilter.bottomAnchor.constraint(equalTo: bottomAnchor),
+            profileFilter.heightAnchor.constraint(equalToConstant: 50),
+        ])
     }
     
     @objc func backButtonPressed() {

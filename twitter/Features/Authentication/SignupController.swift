@@ -162,7 +162,7 @@ class SignupController: UIViewController, DMConfigureView {
 }
 
 
-// MARK: - Extension for ImagePickerController
+// MARK: - Extension UIImagePickerControllerDelegate
 extension SignupController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}

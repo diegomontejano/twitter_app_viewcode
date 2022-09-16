@@ -12,7 +12,7 @@ class UploadTweetController: UIViewController, DMConfigureView {
     }()
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().roundedImageView(width: 48, height: 48)
+        let profileImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 48, height: 48)
         profileImageView.sd_setImage(with: URL(string: user.profileImageURL))
         return profileImageView
     }()
