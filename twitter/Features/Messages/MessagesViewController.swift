@@ -1,6 +1,6 @@
 import UIKit
 
-class MessagesController: UIViewController, DMConfigureView {
+class MessagesViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     
     
@@ -20,6 +20,4 @@ class MessagesController: UIViewController, DMConfigureView {
     func configureViewConstraints() {
         
     }
-    
-    
 }

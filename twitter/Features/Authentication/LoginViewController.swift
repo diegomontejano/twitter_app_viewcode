@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginController: UIViewController, DMConfigureView {
+class LoginViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 150, height: 150)
@@ -31,7 +31,7 @@ class LoginController: UIViewController, DMConfigureView {
     }()
     
     private lazy var loginButton: UIButton = {
-        let loginButton = Components().roundedButton(buttonName: "Log In", fontSize: 20, whiteMode: true)
+        let loginButton = Components().roundedButton(buttonName: "Log In", fontSize: 20, foregroundColor: .twitterBlue, backgroundColor: .white)
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return loginButton
     }()
@@ -110,8 +110,6 @@ class LoginController: UIViewController, DMConfigureView {
     }
     
     @objc func dontHaveAccountButtonPressed() {
-        navigationController?.pushViewController(SignupController(), animated: true)
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
-    
-    
 }

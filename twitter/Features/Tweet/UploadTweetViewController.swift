@@ -1,7 +1,7 @@
 import UIKit
 import SDWebImage
 
-class UploadTweetController: UIViewController, DMConfigureView {
+class UploadTweetViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     private let user: User
         
@@ -12,7 +12,7 @@ class UploadTweetController: UIViewController, DMConfigureView {
     }()
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().roundedImageView(width: 48, height: 48)
+        let profileImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 48, height: 48)
         profileImageView.sd_setImage(with: URL(string: user.profileImageURL))
         return profileImageView
     }()
@@ -83,6 +83,4 @@ class UploadTweetController: UIViewController, DMConfigureView {
             self.dismiss(animated: true)
         }
     }
-    
-    
 }

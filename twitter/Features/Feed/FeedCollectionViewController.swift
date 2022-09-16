@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 
-class FeedCollectionController: UICollectionViewController, DMConfigureCollectionView {
+class FeedCollectionViewController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Properties
     var user: User? {
         didSet {
@@ -52,7 +52,7 @@ class FeedCollectionController: UICollectionViewController, DMConfigureCollectio
     
     func configureCollectionView() {
         collectionView.backgroundColor = .white
-        collectionView.register(TweetCollectionCell.self, forCellWithReuseIdentifier: TweetCollectionCell.identifier)
+        collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: TweetCollectionViewCell.identifier)
     }
     
     func fetchTweetsFromTweetService() {
@@ -65,7 +65,7 @@ class FeedCollectionController: UICollectionViewController, DMConfigureCollectio
         do {
             try Auth.auth().signOut()
             DispatchQueue.main.async {
-                let nav = UINavigationController.init(rootViewController: LoginController())
+                let nav = UINavigationController.init(rootViewController: LoginViewController())
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
             }
@@ -77,12 +77,12 @@ class FeedCollectionController: UICollectionViewController, DMConfigureCollectio
 
 
 // MARK: - Extension UICollectionViewDelegateFlowLayout
-extension FeedController: UICollectionViewDelegateFlowLayout {
-    // configure cell as TweetCollectionCell()
+extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
+    // configure cell as TweetCollectionViewCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCollectionCell.identifier, for: indexPath) as! TweetCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCollectionViewCell.identifier, for: indexPath) as! TweetCollectionViewCell
         
-        cell.delegate = self // configure TweetCellDelegate
+        cell.delegate = self // configure TweetCollectionViewCellDelegate
         cell.tweet = tweets[indexPath.row] // tweets[0], tweets[1], tweets[2]...
         return cell
     }
@@ -97,19 +97,19 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width, height: 120)
     }
     
-    // when tap on the cell body, navigate to TweetController()
+    // when tap on the cell body, navigate to TweetCollectionViewController()
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let tweetController = TweetController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationController?.pushViewController(tweetController, animated: true)
+        let tweetCollectionViewController = TweetCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(tweetCollectionViewController, animated: true)
     }
 }
 
 
-// MARK: - Extension TweetCellDelegate
-extension FeedController: TweetCellDelegate {
-    // when tap on the cell image, navigate to ProfileController()
+// MARK: - Extension TweetCollectionViewCellDelegate
+extension FeedCollectionViewController: TweetCollectionViewCellDelegate {
+    // when tap on the cell image, navigate to ProfileCollectionViewController()
     func navigateToProfileController() {
-        let profileController = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationController?.pushViewController(profileController, animated: true)
+        let profileCollectionViewController = ProfileCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(profileCollectionViewController, animated: true)
     }
 }

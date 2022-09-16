@@ -6,7 +6,7 @@ class MainTabBarController: UITabBarController {
     var user: User? {
         didSet {
             guard let nav = viewControllers?[0] as? UINavigationController else { return }
-            guard let feed = nav.viewControllers[0] as? FeedController else { return }
+            guard let feed = nav.viewControllers[0] as? FeedCollectionViewController else { return }
             feed.user = user
         }
     }
@@ -29,7 +29,7 @@ class MainTabBarController: UITabBarController {
     func authenticateUser() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
-                let nav = UINavigationController.init(rootViewController: LoginController())
+                let nav = UINavigationController.init(rootViewController: LoginViewController())
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
             }
@@ -47,10 +47,10 @@ class MainTabBarController: UITabBarController {
     }
 
     func navigationController() {
-        let nav1 = configureNavigationController(iconName: "house", viewController: FeedController(collectionViewLayout: UICollectionViewFlowLayout()))
-        let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreController())
-        let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationsController())
-        let nav4 = configureNavigationController(iconName: "envelope", viewController: MessagesController())
+        let nav1 = configureNavigationController(iconName: "house", viewController: FeedCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let nav2 = configureNavigationController(iconName: "magnifyingglass", viewController: ExploreViewController())
+        let nav3 = configureNavigationController(iconName: "suit.heart", viewController: NotificationsViewController())
+        let nav4 = configureNavigationController(iconName: "envelope", viewController: ExploreViewController())
         viewControllers = [nav1, nav2, nav3, nav4]
         
         // tweetButton
@@ -66,16 +66,13 @@ class MainTabBarController: UITabBarController {
         
         let nav = UINavigationController(rootViewController: viewController)
         nav.tabBarItem.image = UIImage(systemName: iconName)
-        //nav.navigationBar.backgroundColor = .white
         return nav
     }
     
     @objc func tweetButtonPressed() {
         guard let user = user else { return }
-        let nav = UINavigationController(rootViewController: UploadTweetController(user: user))
+        let nav = UINavigationController(rootViewController: UploadTweetViewController(user: user))
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
-
-    
 }

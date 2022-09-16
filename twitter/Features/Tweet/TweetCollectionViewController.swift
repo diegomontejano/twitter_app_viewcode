@@ -1,6 +1,6 @@
 import UIKit
 
-class TweetController: UICollectionViewController, DMConfigureCollectionView {
+class TweetCollectionViewController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Properties
 
 
@@ -16,6 +16,4 @@ class TweetController: UICollectionViewController, DMConfigureCollectionView {
         navigationItem.title = "Tweet"
         collectionView.backgroundColor = .systemOrange
     }
-
-
 }

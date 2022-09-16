@@ -33,6 +33,4 @@ struct TweetService {
             }
         }
     }
-    
-    
 }

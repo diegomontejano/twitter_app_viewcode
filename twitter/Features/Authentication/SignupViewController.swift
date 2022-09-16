@@ -1,12 +1,12 @@
 import UIKit
 
-class SignupController: UIViewController, DMConfigureView {
+class SignupViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     let imagePicker = UIImagePickerController()
     private var profileImage: UIImage?
     
     private lazy var profileImageButton: UIButton = {
-        let profileImageButton = Components().roundedButton(buttonName: "add photo", width: 140, height: 140, whiteMode: true)
+        let profileImageButton = Components().roundedButton(buttonName: "add photo", foregroundColor: .twitterBlue, backgroundColor: .white, width: 140, height: 140)
         profileImageButton.addTarget(self, action: #selector(profileImageButtonPressed), for: .touchUpInside)
         return profileImageButton
     }()
@@ -53,7 +53,7 @@ class SignupController: UIViewController, DMConfigureView {
     }()
     
     private lazy var signupButton: UIButton = {
-        let loginButton = Components().roundedButton(buttonName: "Sign Up", fontSize: 20, whiteMode: true)
+        let loginButton = Components().roundedButton(buttonName: "Sign Up", fontSize: 20, foregroundColor: .twitterBlue, backgroundColor: .twitterBlue)
         loginButton.addTarget(self, action: #selector(signupButtonPressed), for: .touchUpInside)
         return loginButton
     }()
@@ -159,11 +159,11 @@ class SignupController: UIViewController, DMConfigureView {
     @objc func alreadyHaveAccountButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
-extension SignupController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+// MARK: - Extension UIImagePickerControllerDelegate
+extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}
         self.profileImage = profileImage

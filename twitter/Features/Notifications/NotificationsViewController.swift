@@ -1,6 +1,6 @@
 import UIKit
 
-class NotificationsController: UIViewController, DMConfigureView {
+class NotificationsViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     
     
@@ -20,6 +20,4 @@ class NotificationsController: UIViewController, DMConfigureView {
     func configureViewConstraints() {
         
     }
-    
-    
 }

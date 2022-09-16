@@ -1,14 +1,14 @@
 import UIKit
 
-protocol TweetCellDelegate: AnyObject {
+protocol TweetCollectionViewCellDelegate: AnyObject {
     func navigateToProfileController()
 }
 
-class TweetCell: UICollectionViewCell, DMConfigureView {
+class TweetCollectionViewCell: UICollectionViewCell, DMConfigureView {
     // MARK: - Properties
-    static let identifier: String = "TweetCell"
+    static let identifier: String = "TweetCollectionViewCell"
     
-    weak var delegate: TweetCellDelegate?
+    weak var delegate: TweetCollectionViewCellDelegate?
     
     var tweet: Tweet? {
         didSet {
@@ -24,7 +24,7 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     }
     
     private lazy var profileImageView: UIImageView = {
-        let profileImageView = Components().roundedImageView(width: 48, height: 48, backgroundColor: .twitterBlue)
+        let profileImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 48, height: 48, backgroundColor: .twitterBlue)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileImageViewPressed))
         profileImageView.addGestureRecognizer(tapGesture)
@@ -33,12 +33,12 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     }()
     
     private let fullNameLabel: UILabel = {
-        let fullNameLabel = Components().textLabel(text: "Diego", weight: .bold)
+        let fullNameLabel = Components().textLabel(text: "User", fontWeight: .bold)
         return fullNameLabel
     }()
     
     private let usernameLabel: UILabel = {
-        let usernameLabel = Components().textLabel(text: "@diego", fontSize: 14, color: UIColor.systemGray2)
+        let usernameLabel = Components().textLabel(text: "@user", fontSize: 14, color: UIColor.systemGray2)
         return usernameLabel
     }()
     
@@ -48,7 +48,7 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     }()
     
     private let tweetTextLabel: UILabel = {
-        let tweetTextLabel = Components().textLabel(text: "tweet text label test", fontSize: 14, numberOfLines: 0)
+        let tweetTextLabel = Components().textLabel(text: "tweet example", fontSize: 14, numberOfLines: 0)
         return tweetTextLabel
     }()
     
@@ -95,7 +95,6 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     
     // MARK: - Methods
@@ -145,21 +144,19 @@ class TweetCell: UICollectionViewCell, DMConfigureView {
         delegate?.navigateToProfileController()
     }
     
-    @objc func commentButtonPressed(){
+    @objc func commentButtonPressed() {
         print("DEBUG: commentButtonPressed")
     }
     
-    @objc func retweetButtonPressed(){
+    @objc func retweetButtonPressed() {
         print("DEBUG: retweetButtonPressed")
     }
     
-    @objc func likeButtonPressed(){
+    @objc func likeButtonPressed() {
         print("DEBUG: likeButtonPressed")
     }
     
     @objc func shareButtonPressed() {
         print("DEBUG: shareButtonPressed")
     }
-    
-    
 }

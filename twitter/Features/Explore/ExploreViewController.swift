@@ -1,6 +1,6 @@
 import UIKit
 
-class ExploreController: UIViewController, DMConfigureView {
+class ExploreViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     
     
@@ -20,6 +20,4 @@ class ExploreController: UIViewController, DMConfigureView {
     func configureViewConstraints() {
         
     }
-    
-    
 }
