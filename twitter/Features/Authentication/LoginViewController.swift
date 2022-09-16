@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginController: UIViewController, DMConfigureView {
+class LoginViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     private lazy var logoImageView: UIView = {
         let logoImageView = Components().roundedImageView(imageName: "twitter-logo-square", width: 150, height: 150)
@@ -110,6 +110,6 @@ class LoginController: UIViewController, DMConfigureView {
     }
     
     @objc func dontHaveAccountButtonPressed() {
-        navigationController?.pushViewController(SignupController(), animated: true)
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
 }

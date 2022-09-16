@@ -1,8 +1,8 @@
 import UIKit
 
-class ProfileFilterCell: UICollectionViewCell, DMConfigureView {
+class ProfileFilterCollectionViewCell: UICollectionViewCell, DMConfigureView {
     // MARK: - Properties
-    static let identifier: String = "ProfileFilterCell"
+    static let identifier: String = "ProfileFilterCollectionViewCell"
     
     let filterLabel: UILabel = {
         let filterLabel = Components().textLabel(text: "filterLabel", fontSize: 14, color: UIColor.systemGray2)

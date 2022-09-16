@@ -1,6 +1,6 @@
 import UIKit
 
-class SignupController: UIViewController, DMConfigureView {
+class SignupViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     let imagePicker = UIImagePickerController()
     private var profileImage: UIImage?
@@ -163,7 +163,7 @@ class SignupController: UIViewController, DMConfigureView {
 
 
 // MARK: - Extension UIImagePickerControllerDelegate
-extension SignupController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}
         self.profileImage = profileImage

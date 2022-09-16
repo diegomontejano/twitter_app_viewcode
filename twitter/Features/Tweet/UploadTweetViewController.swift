@@ -1,7 +1,7 @@
 import UIKit
 import SDWebImage
 
-class UploadTweetController: UIViewController, DMConfigureView {
+class UploadTweetViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     private let user: User
         

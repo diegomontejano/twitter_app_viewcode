@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileFilter: UIView, DMConfigureView {
+class ProfileFilterView: UIView, DMConfigureView {
     // MARK: - Properties
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -26,7 +26,7 @@ class ProfileFilter: UIView, DMConfigureView {
     
     // MARK: - Methods
     func configureView() {
-        collectionView.register(ProfileFilterCell.self, forCellWithReuseIdentifier: ProfileFilterCell.identifier)
+        collectionView.register(ProfileFilterCollectionViewCell.self, forCellWithReuseIdentifier: ProfileFilterCollectionViewCell.identifier)
     }
     
     func configureViewConstraints() {
@@ -42,10 +42,10 @@ class ProfileFilter: UIView, DMConfigureView {
 
 
 // MARK: - Extension UICollectionViewDataSource
-extension ProfileFilter: UICollectionViewDataSource {
-    // configure cell as ProfileFilterCell()
+extension ProfileFilterView: UICollectionViewDataSource {
+    // configure cell as ProfileFilterCollectionViewCell()
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileFilterCell.identifier, for: indexPath) as! ProfileFilterCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileFilterCollectionViewCell.identifier, for: indexPath) as! ProfileFilterCollectionViewCell
         return cell
     }
     
@@ -57,13 +57,13 @@ extension ProfileFilter: UICollectionViewDataSource {
 
 
 // MARK: - Extension UICollectionViewDelegate
-extension ProfileFilter: UICollectionViewDelegate {
+extension ProfileFilterView: UICollectionViewDelegate {
     
 }
 
 
 // MARK: - Extension UICollectionViewDelegateFlowLayout
-extension ProfileFilter: UICollectionViewDelegateFlowLayout {
+extension ProfileFilterView: UICollectionViewDelegateFlowLayout {
     // configure cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width / 3, height: frame.height)

@@ -1,8 +1,8 @@
 import UIKit
 
-class ProfileHeader: UICollectionReusableView, DMConfigureView {
+class ProfileCollectionViewHeader: UICollectionReusableView, DMConfigureView {
     // MARK: - Properties
-    static let identifier: String = "ProfileHeader"
+    static let identifier: String = "ProfileCollectionViewHeader"
     
     private lazy var blueContainerView: UIView = {
         let blueContainerView = UIView()
@@ -47,7 +47,7 @@ class ProfileHeader: UICollectionReusableView, DMConfigureView {
         return usernameLabel
     }()
     
-    private let profileFilter = ProfileFilter()
+    private let profileFilterView = ProfileFilterView()
     
         
     // MARK: - Constructor
@@ -112,13 +112,13 @@ class ProfileHeader: UICollectionReusableView, DMConfigureView {
             bioLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 3),
         ])
         
-        addSubview(profileFilter)
-        profileFilter.translatesAutoresizingMaskIntoConstraints =  false
+        addSubview(profileFilterView)
+        profileFilterView.translatesAutoresizingMaskIntoConstraints =  false
         NSLayoutConstraint.activate([
-            profileFilter.leadingAnchor.constraint(equalTo: leadingAnchor),
-            profileFilter.trailingAnchor.constraint(equalTo: trailingAnchor),
-            profileFilter.bottomAnchor.constraint(equalTo: bottomAnchor),
-            profileFilter.heightAnchor.constraint(equalToConstant: 50),
+            profileFilterView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            profileFilterView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileFilterView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            profileFilterView.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

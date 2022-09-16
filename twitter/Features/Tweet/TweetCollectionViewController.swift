@@ -1,6 +1,6 @@
 import UIKit
 
-class TweetController: UICollectionViewController, DMConfigureCollectionView {
+class TweetCollectionViewController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Properties
 
 

@@ -1,6 +1,6 @@
 import UIKit
 
-class MessagesController: UIViewController, DMConfigureView {
+class ExploreViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     
     
@@ -10,11 +10,11 @@ class MessagesController: UIViewController, DMConfigureView {
         configureView()
         configureViewConstraints()
     }
-
     
+
     // MARK: - Methods
     func configureView() {
-        navigationItem.title = "Messages"
+        navigationItem.title = "Explore"
     }
     
     func configureViewConstraints() {

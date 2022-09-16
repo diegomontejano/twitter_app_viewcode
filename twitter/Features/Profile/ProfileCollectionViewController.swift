@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileController: UICollectionViewController, DMConfigureCollectionView {
+class ProfileCollectionViewController: UICollectionViewController, DMConfigureCollectionView {
     // MARK: - Properties
     
     
@@ -25,9 +25,9 @@ class ProfileController: UICollectionViewController, DMConfigureCollectionView {
         collectionView.backgroundColor = .white
         // ignore safe area
         collectionView.contentInsetAdjustmentBehavior = .never
-        // register TweetCell() and ProfileHeader()
-        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: TweetCell.identifier)
-        collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileHeader.identifier)
+        // register TweetCollectionViewCell() and ProfileCollectionViewHeader()
+        collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: TweetCollectionViewCell.identifier)
+        collectionView.register(ProfileCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileCollectionViewHeader.identifier)
     }
     
     func configureNavigationItem() {
@@ -37,11 +37,11 @@ class ProfileController: UICollectionViewController, DMConfigureCollectionView {
 
 
 // MARK: - Extension UICollectionViewDelegateFlowLayout
-extension ProfileController: UICollectionViewDelegateFlowLayout {
-    // configure cell as TweetCell()
+extension ProfileCollectionViewController: UICollectionViewDelegateFlowLayout {
+    // configure cell as TweetCollectionViewCell()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // send selected tweet in this collection to TweetCell().tweet
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.identifier, for: indexPath) as! TweetCell
+        // send selected tweet in this collection to TweetCollectionViewCell().tweet
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCollectionViewCell.identifier, for: indexPath) as! TweetCollectionViewCell
         return cell
     }
     
@@ -57,12 +57,12 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 }
 
 
-// MARK: - Extension ProfileHeader
-extension ProfileController {
-    // configure header as ProfileHeader()
+// MARK: - Extension ProfileCollectionViewHeader
+extension ProfileCollectionViewController {
+    // configure header as ProfileCollectionViewHeader()
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
-        return profileHeader
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileCollectionViewHeader.identifier, for: indexPath) as! ProfileCollectionViewHeader
+        return header
     }
     
     // configure header size

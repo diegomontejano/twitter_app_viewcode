@@ -1,14 +1,14 @@
 import UIKit
 
-protocol TweetCellDelegate: AnyObject {
+protocol TweetCollectionViewCellDelegate: AnyObject {
     func navigateToProfileController()
 }
 
-class TweetCell: UICollectionViewCell, DMConfigureView {
+class TweetCollectionViewCell: UICollectionViewCell, DMConfigureView {
     // MARK: - Properties
-    static let identifier: String = "TweetCell"
+    static let identifier: String = "TweetCollectionViewCell"
     
-    weak var delegate: TweetCellDelegate?
+    weak var delegate: TweetCollectionViewCellDelegate?
     
     var tweet: Tweet? {
         didSet {

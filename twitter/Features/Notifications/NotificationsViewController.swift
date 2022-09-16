@@ -1,6 +1,6 @@
 import UIKit
 
-class ExploreController: UIViewController, DMConfigureView {
+class NotificationsViewController: UIViewController, DMConfigureView {
     // MARK: - Properties
     
     
@@ -10,11 +10,11 @@ class ExploreController: UIViewController, DMConfigureView {
         configureView()
         configureViewConstraints()
     }
+        
     
-
     // MARK: - Methods
     func configureView() {
-        navigationItem.title = "Explore"
+        navigationItem.title = "Notifications"
     }
     
     func configureViewConstraints() {
