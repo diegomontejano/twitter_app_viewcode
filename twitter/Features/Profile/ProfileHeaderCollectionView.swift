@@ -1,8 +1,8 @@
 import UIKit
 
-class ProfileCollectionViewHeader: UICollectionReusableView, DMConfigureView {
+class ProfileHeaderCollectionView: UICollectionReusableView, DMConfigureView {
     // MARK: - Properties
-    static let identifier: String = "ProfileCollectionViewHeader"
+    static let identifier: String = "ProfileHeaderCollectionView"
     
     private lazy var blueContainerView: UIView = {
         let blueContainerView = UIView()

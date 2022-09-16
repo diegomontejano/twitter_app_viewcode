@@ -25,9 +25,9 @@ class ProfileCollectionViewController: UICollectionViewController, DMConfigureCo
         collectionView.backgroundColor = .white
         // ignore safe area
         collectionView.contentInsetAdjustmentBehavior = .never
-        // register TweetCollectionViewCell() and ProfileCollectionViewHeader()
+        // register TweetCollectionViewCell() and ProfileHeaderCollectionView()
         collectionView.register(TweetCollectionViewCell.self, forCellWithReuseIdentifier: TweetCollectionViewCell.identifier)
-        collectionView.register(ProfileCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileCollectionViewHeader.identifier)
+        collectionView.register(ProfileHeaderCollectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileHeaderCollectionView.identifier)
     }
     
     func configureNavigationItem() {
@@ -59,9 +59,9 @@ extension ProfileCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Extension ProfileCollectionViewHeader
 extension ProfileCollectionViewController {
-    // configure header as ProfileCollectionViewHeader()
+    // configure header as ProfileHeaderCollectionView()
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileCollectionViewHeader.identifier, for: indexPath) as! ProfileCollectionViewHeader
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeaderCollectionView.identifier, for: indexPath) as! ProfileHeaderCollectionView
         return header
     }
     
