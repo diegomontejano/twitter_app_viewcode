@@ -56,12 +56,6 @@ extension ProfileFilterView: UICollectionViewDataSource {
 }
 
 
-// MARK: - Extension UICollectionViewDelegate
-extension ProfileFilterView: UICollectionViewDelegate {
-    
-}
-
-
 // MARK: - Extension UICollectionViewDelegateFlowLayout
 extension ProfileFilterView: UICollectionViewDelegateFlowLayout {
     // configure cell size
@@ -69,7 +63,7 @@ extension ProfileFilterView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: frame.width / 3, height: frame.height)
     }
     
-    // configure space between items in cell
+    // configure space between the cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
