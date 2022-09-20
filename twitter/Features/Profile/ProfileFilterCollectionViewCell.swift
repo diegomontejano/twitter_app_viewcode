@@ -9,15 +9,22 @@ class ProfileFilterCollectionViewCell: UICollectionViewCell, DMConfigureView {
         return filterLabel
     }()
     
+    private let dividerLine: UIView = {
+        let dividerLine = Components().dividerLine(height: 2, color: .clear)
+        return dividerLine
+    }()
+    
     override var isSelected: Bool {
         didSet {
-            filterLabel.font = isSelected
-            ? UIFont.systemFont(ofSize: 16, weight: .bold)
-            : UIFont.systemFont(ofSize: 14, weight: .regular)
-            
-            filterLabel.textColor = isSelected
-            ? .twitterBlue
-            : .systemGray2
+            if isSelected {
+                filterLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+                filterLabel.textColor = .twitterBlue
+                dividerLine.backgroundColor = .twitterBlue
+            } else {
+                filterLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+                filterLabel.textColor = .systemGray2
+                dividerLine.backgroundColor = .clear
+            }
         }
     }
     
@@ -44,6 +51,13 @@ class ProfileFilterCollectionViewCell: UICollectionViewCell, DMConfigureView {
         NSLayoutConstraint.activate([
             filterLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             filterLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+        ])
+        
+        addSubview(dividerLine)
+        NSLayoutConstraint.activate([
+            dividerLine.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dividerLine.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dividerLine.topAnchor.constraint(equalTo: filterLabel.bottomAnchor, constant: 8),
         ])
     }
 }

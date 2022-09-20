@@ -1,12 +1,13 @@
 import UIKit
 
 class Components {
-    func dividerLine(color: UIColor = .lightGray) -> UIView {
+    func dividerLine(width: CGFloat = 0, height: CGFloat = 1, color: UIColor = .lightGray) -> UIView {
         let dividerLine = UIView()
         dividerLine.translatesAutoresizingMaskIntoConstraints = false
         dividerLine.backgroundColor = color
         NSLayoutConstraint.activate([
-            dividerLine.heightAnchor.constraint(equalToConstant: 1)
+            dividerLine.widthAnchor.constraint(equalToConstant: width),
+            dividerLine.heightAnchor.constraint(equalToConstant: height),
         ])
         return dividerLine
     }
