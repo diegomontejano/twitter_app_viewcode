@@ -27,6 +27,9 @@ class ProfileFilterView: UIView, DMConfigureView {
     // MARK: - Methods
     func configureView() {
         collectionView.register(ProfileFilterCollectionViewCell.self, forCellWithReuseIdentifier: ProfileFilterCollectionViewCell.identifier)
+        
+        let initProfileFilter = IndexPath(row: 0, section: 0)
+        collectionView.selectItem(at: initProfileFilter, animated: true, scrollPosition: .left)
     }
     
     func configureViewConstraints() {
@@ -46,12 +49,16 @@ extension ProfileFilterView: UICollectionViewDataSource {
     // configure cell as ProfileFilterCollectionViewCell()
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileFilterCollectionViewCell.identifier, for: indexPath) as! ProfileFilterCollectionViewCell
+        
+        // update cell.profileFilter
+        let profileFilter = ProfileFilter(rawValue: indexPath.row)
+        cell.profileFilter = profileFilter
         return cell
     }
     
     // configure number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return ProfileFilter.allCases.count
     }
 }
 
@@ -60,7 +67,9 @@ extension ProfileFilterView: UICollectionViewDataSource {
 extension ProfileFilterView: UICollectionViewDelegateFlowLayout {
     // configure cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 3, height: frame.height)
+        
+        let profileFilterCount = CGFloat(ProfileFilter.allCases.count)
+        return CGSize(width: frame.width / profileFilterCount, height: frame.height)
     }
     
     // configure space between the cells

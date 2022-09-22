@@ -4,6 +4,10 @@ class ProfileFilterCollectionViewCell: UICollectionViewCell, DMConfigureView {
     // MARK: - Properties
     static let identifier: String = "ProfileFilterCollectionViewCell"
     
+    var profileFilter: ProfileFilter! {
+        didSet { filterLabel.text = profileFilter.description }
+    }
+    
     let filterLabel: UILabel = {
         let filterLabel = Components().textLabel(text: "filterLabel", fontSize: 14, color: UIColor.systemGray2)
         return filterLabel
