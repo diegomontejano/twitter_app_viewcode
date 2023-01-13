@@ -12,7 +12,7 @@ class Components {
         return dividerLine
     }
     
-    func roundedImageView(imageName: String, width: CGFloat, height: CGFloat, backgroundColor: UIColor = .clear) -> UIImageView {
+    func roundedImageView(imageName: String = "twitter-logo-square", width: CGFloat = 48, height: CGFloat = 48, backgroundColor: UIColor = .clear) -> UIImageView {
         let roundedImageView = UIImageView()
         roundedImageView.translatesAutoresizingMaskIntoConstraints = false
         roundedImageView.backgroundColor = backgroundColor
@@ -25,6 +25,21 @@ class Components {
             roundedImageView.heightAnchor.constraint(equalToConstant: height)
         ])
         return roundedImageView
+    }
+    
+    func authButton(buttonName: String, fontSize: CGFloat = 20, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, height: CGFloat = 50) -> UIButton {
+        let authButton = UIButton(type: .system)
+        authButton.translatesAutoresizingMaskIntoConstraints = false
+        authButton.setTitle(buttonName, for: .normal)
+        authButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        authButton.setTitleColor(foregroundColor, for: .normal)
+        authButton.backgroundColor = backgroundColor
+        authButton.layer.masksToBounds = true
+        authButton.layer.cornerRadius = height / 2
+        NSLayoutConstraint.activate([
+            authButton.heightAnchor.constraint(equalToConstant: height)
+        ])
+        return authButton
     }
     
     func roundedButton(buttonName: String, fontSize: CGFloat = 16, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, width: CGFloat = 80, height: CGFloat = 50, iconMode: Bool = false) -> UIButton {
@@ -138,7 +153,6 @@ class Components {
             dividerLine.trailingAnchor.constraint(equalTo: textFieldContainerView.trailingAnchor),
             dividerLine.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 6)
         ])
-        
         return textFieldContainerView
     }
 }
@@ -161,7 +175,6 @@ class Components {
 //        return iconImageView
 //    }()
 //
-//
 //    // MARK: - LifeCycle
 //    // viewcode init method
 //    override init(frame: CGRect) {
@@ -174,7 +187,6 @@ class Components {
 //    required init?(coder: NSCoder) {
 //        super.init(coder: coder)
 //    }
-//
 //
 //    // MARK: - Methods
 //    func viewSettings(imageName: String) {

@@ -11,12 +11,12 @@
 		7902B4B32874E72C00C6862C /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7902B4B22874E72C00C6862C /* Tweet.swift */; };
 		7902B4B52874E7EC00C6862C /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7902B4B42874E7EC00C6862C /* TweetService.swift */; };
 		7903EFD528AE6A9C00B9E85D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7903EFD428AE6A9C00B9E85D /* GoogleService-Info.plist */; };
-		79052CBA28CB92E9001B1809 /* UploadTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CA228CB92E9001B1809 /* UploadTweetViewController.swift */; };
+		79052CBA28CB92E9001B1809 /* AddTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CA228CB92E9001B1809 /* AddTweetViewController.swift */; };
 		79052CBC28CB92E9001B1809 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CA528CB92E9001B1809 /* MessagesViewController.swift */; };
 		79052CBD28CB92E9001B1809 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CA728CB92E9001B1809 /* MainTabBarController.swift */; };
 		79052CBE28CB92E9001B1809 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CA928CB92E9001B1809 /* ExploreViewController.swift */; };
 		79052CC028CB92E9001B1809 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CAD28CB92E9001B1809 /* FeedCollectionViewController.swift */; };
-		79052CC128CB92E9001B1809 /* TweetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CAE28CB92E9001B1809 /* TweetCollectionViewCell.swift */; };
+		79052CC128CB92E9001B1809 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CAE28CB92E9001B1809 /* FeedCollectionViewCell.swift */; };
 		79052CC228CB92E9001B1809 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB028CB92E9001B1809 /* LoginViewController.swift */; };
 		79052CC328CB92E9001B1809 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB128CB92E9001B1809 /* SignupViewController.swift */; };
 		79052CC428CB92E9001B1809 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79052CB328CB92E9001B1809 /* NotificationsViewController.swift */; };
@@ -44,12 +44,12 @@
 		7902B4B22874E72C00C6862C /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		7902B4B42874E7EC00C6862C /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		7903EFD428AE6A9C00B9E85D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		79052CA228CB92E9001B1809 /* UploadTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadTweetViewController.swift; sourceTree = "<group>"; };
+		79052CA228CB92E9001B1809 /* AddTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTweetViewController.swift; sourceTree = "<group>"; };
 		79052CA528CB92E9001B1809 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		79052CA728CB92E9001B1809 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		79052CA928CB92E9001B1809 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		79052CAD28CB92E9001B1809 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
-		79052CAE28CB92E9001B1809 /* TweetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCollectionViewCell.swift; sourceTree = "<group>"; };
+		79052CAE28CB92E9001B1809 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		79052CB028CB92E9001B1809 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79052CB128CB92E9001B1809 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		79052CB328CB92E9001B1809 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -96,19 +96,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		79052CA028CB92E9001B1809 /* Features */ = {
+		79052CA028CB92E9001B1809 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				79052CAF28CB92E9001B1809 /* Authentication */,
+				79052CAF28CB92E9001B1809 /* Auth */,
 				79052CA628CB92E9001B1809 /* TabBar */,
 				79052CAC28CB92E9001B1809 /* Feed */,
 				79BFE4D728DC985C00FA5255 /* Profile */,
-				79052CCB28CBAEB3001B1809 /* Tweet */,
-				79052CA428CB92E9001B1809 /* Messages */,
 				79052CA828CB92E9001B1809 /* Explore */,
 				79052CB228CB92E9001B1809 /* Notifications */,
+				79052CA428CB92E9001B1809 /* Messages */,
+				79052CCB28CBAEB3001B1809 /* Tweet */,
 			);
-			path = Features;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		79052CA428CB92E9001B1809 /* Messages */ = {
@@ -139,18 +139,18 @@
 			isa = PBXGroup;
 			children = (
 				79052CAD28CB92E9001B1809 /* FeedCollectionViewController.swift */,
-				79052CAE28CB92E9001B1809 /* TweetCollectionViewCell.swift */,
+				79052CAE28CB92E9001B1809 /* FeedCollectionViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		79052CAF28CB92E9001B1809 /* Authentication */ = {
+		79052CAF28CB92E9001B1809 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				79052CB028CB92E9001B1809 /* LoginViewController.swift */,
 				79052CB128CB92E9001B1809 /* SignupViewController.swift */,
 			);
-			path = Authentication;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		79052CB228CB92E9001B1809 /* Notifications */ = {
@@ -175,8 +175,8 @@
 		79052CCB28CBAEB3001B1809 /* Tweet */ = {
 			isa = PBXGroup;
 			children = (
+				79052CA228CB92E9001B1809 /* AddTweetViewController.swift */,
 				7963FFF928CFBF0D00C06EA8 /* TweetCollectionViewController.swift */,
-				79052CA228CB92E9001B1809 /* UploadTweetViewController.swift */,
 			);
 			path = Tweet;
 			sourceTree = "<group>";
@@ -205,16 +205,15 @@
 				79BFE4D928DC985C00FA5255 /* ProfileHeaderCollectionView.swift */,
 				79BFE4DA28DC985C00FA5255 /* ProfileFilter */,
 			);
-			name = Profile;
-			path = ../../../../../../../../../../../../../Users/diegomontejano/Desktop/Profile;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		79BFE4DA28DC985C00FA5255 /* ProfileFilter */ = {
 			isa = PBXGroup;
 			children = (
+				79BFE4DB28DC985C00FA5255 /* ProfileFilter.swift */,
 				79BFE4DD28DC985C00FA5255 /* ProfileFilterView.swift */,
 				79BFE4DC28DC985C00FA5255 /* ProfileFilterCollectionViewCell.swift */,
-				79BFE4DB28DC985C00FA5255 /* ProfileFilter.swift */,
 			);
 			path = ProfileFilter;
 			sourceTree = "<group>";
@@ -249,7 +248,7 @@
 				79F3F58128660B3B00EB7C5D /* Services */,
 				795F7FBB286A724800AC3342 /* Models */,
 				7966AAAE287CE88D0076C36C /* ViewModels */,
-				79052CA028CB92E9001B1809 /* Features */,
+				79052CA028CB92E9001B1809 /* Views */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -388,7 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79052CBA28CB92E9001B1809 /* UploadTweetViewController.swift in Sources */,
+				79052CBA28CB92E9001B1809 /* AddTweetViewController.swift in Sources */,
 				79052CC528CB92E9001B1809 /* Constants.swift in Sources */,
 				79F5AD732867DFB2000CD804 /* UserService.swift in Sources */,
 				79052CBD28CB92E9001B1809 /* MainTabBarController.swift in Sources */,
@@ -408,7 +407,7 @@
 				796F288F286A72B400F63B47 /* User.swift in Sources */,
 				79E719B5287CE8AF002838B4 /* TweetViewModel.swift in Sources */,
 				79052CC628CB92E9001B1809 /* Extensions.swift in Sources */,
-				79052CC128CB92E9001B1809 /* TweetCollectionViewCell.swift in Sources */,
+				79052CC128CB92E9001B1809 /* FeedCollectionViewCell.swift in Sources */,
 				79052CC228CB92E9001B1809 /* LoginViewController.swift in Sources */,
 				7902B4B52874E7EC00C6862C /* TweetService.swift in Sources */,
 				79BFE4E128DC985C00FA5255 /* ProfileFilterCollectionViewCell.swift in Sources */,
@@ -551,9 +550,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 73WHW284SL;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = twitter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -567,6 +566,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegomontejano.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -579,9 +579,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 73WHW284SL;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = twitter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -595,6 +595,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegomontejano.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

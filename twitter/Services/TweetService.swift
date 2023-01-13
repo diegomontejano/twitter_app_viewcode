@@ -3,8 +3,10 @@ import FirebaseAuth
 import FirebaseDatabase
 
 struct TweetService {
+    // MARK: - Properties
     static let instance = TweetService()
     
+    // MARK: - Methods
     func uploadTweet(tweetText: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let values = [

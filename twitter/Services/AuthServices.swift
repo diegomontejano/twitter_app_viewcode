@@ -3,8 +3,10 @@ import FirebaseAuth
 import FirebaseDatabase
 
 struct AuthService {
+    // MARK: - Properties
     static let instance = AuthService()
     
+    // MARK: - Methods
     func logIn(email: String, password: String, completion: @escaping(AuthDataResult?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }

@@ -1,6 +1,7 @@
 import Foundation
 
 struct Tweet {
+    // MARK: - Properties
     let tweetID: String
     let user: User
     let uid: String
@@ -9,6 +10,7 @@ struct Tweet {
     let tweetLikes: Int
     let tweetRetweets: Int
     
+    // MARK: - Constructor
     init(tweetID: String, user: User, dictionary: [String : Any]) {
         self.tweetID = tweetID
         self.user = user

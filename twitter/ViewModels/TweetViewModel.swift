@@ -21,7 +21,6 @@ struct TweetViewModel {
         return tweet.tweetText
     }
     
-    
     // MARK: - Constructor
     init(tweet: Tweet) {
         self.tweet = tweet

@@ -6,8 +6,13 @@ xcuserdata/
 .dSYM
 .DS_Store
 
-# Credentials
-GoogleService-Info.plist 
+# Pods
+.xcworkspace
+Podfile.lock
+Pods/*
 
-# Ignore
+# Credentials
+GoogleService-Info.plist
+
+# Assets
 assets/ignore/*
