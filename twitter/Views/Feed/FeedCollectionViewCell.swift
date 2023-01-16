@@ -1,7 +1,7 @@
 import UIKit
 
 protocol FeedCollectionViewCellDelegate: AnyObject {
-    func navigateToProfileController()
+    func navigateToProfileCollectionViewController()
 }
 
 class FeedCollectionViewCell: UICollectionViewCell, DMConfigureView {
@@ -139,7 +139,7 @@ class FeedCollectionViewCell: UICollectionViewCell, DMConfigureView {
     }
     
     @objc func profileImageViewPressed() {
-        delegate?.navigateToProfileController()
+        delegate?.navigateToProfileCollectionViewController()
     }
     
     @objc func commentButtonPressed() {

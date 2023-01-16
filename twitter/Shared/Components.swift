@@ -1,7 +1,7 @@
 import UIKit
 
-class Components {
-    func dividerLine(width: CGFloat = 0, height: CGFloat = 1, color: UIColor = .lightGray) -> UIView {
+final class Components {
+    final func dividerLine(width: CGFloat = 0, height: CGFloat = 1, color: UIColor = .lightGray) -> UIView {
         let dividerLine = UIView()
         dividerLine.translatesAutoresizingMaskIntoConstraints = false
         dividerLine.backgroundColor = color
@@ -12,7 +12,7 @@ class Components {
         return dividerLine
     }
     
-    func roundedImageView(imageName: String = "twitter-logo-square", width: CGFloat = 48, height: CGFloat = 48, backgroundColor: UIColor = .clear) -> UIImageView {
+    final func roundedImageView(imageName: String = "twitter-logo-square", width: CGFloat = 48, height: CGFloat = 48, backgroundColor: UIColor = .clear) -> UIImageView {
         let roundedImageView = UIImageView()
         roundedImageView.translatesAutoresizingMaskIntoConstraints = false
         roundedImageView.backgroundColor = backgroundColor
@@ -27,7 +27,7 @@ class Components {
         return roundedImageView
     }
     
-    func authButton(buttonName: String, fontSize: CGFloat = 20, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, height: CGFloat = 50) -> UIButton {
+    final func authButton(buttonName: String, fontSize: CGFloat = 20, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, height: CGFloat = 50) -> UIButton {
         let authButton = UIButton(type: .system)
         authButton.translatesAutoresizingMaskIntoConstraints = false
         authButton.setTitle(buttonName, for: .normal)
@@ -42,7 +42,7 @@ class Components {
         return authButton
     }
     
-    func roundedButton(buttonName: String, fontSize: CGFloat = 16, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, width: CGFloat = 80, height: CGFloat = 50, iconMode: Bool = false) -> UIButton {
+    final func roundedButton(buttonName: String, fontSize: CGFloat = 16, foregroundColor: UIColor = UIColor.white, backgroundColor: UIColor = UIColor.twitterBlue, width: CGFloat = 80, height: CGFloat = 50, iconMode: Bool = false) -> UIButton {
         let roundedButton = UIButton(type: .system)
         roundedButton.translatesAutoresizingMaskIntoConstraints = false
         iconMode
@@ -62,7 +62,7 @@ class Components {
         return roundedButton
     }
     
-    func iconButton(iconName: String, size: CGFloat = 20, color: UIColor = .darkGray) -> UIButton {
+    final func iconButton(iconName: String, size: CGFloat = 20, color: UIColor = .darkGray) -> UIButton {
         let iconButton = UIButton(type: .system)
         iconButton.translatesAutoresizingMaskIntoConstraints = false
         iconButton.setImage(UIImage(systemName: iconName), for: .normal)
@@ -75,7 +75,7 @@ class Components {
         return iconButton
     }
     
-    func textButton(normalText: String, boldText: String) -> UIButton {
+    final func textButton(normalText: String, boldText: String) -> UIButton {
         let textButton = UIButton(type: .system)
         textButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,7 +85,7 @@ class Components {
         return textButton
     }
     
-    func textLabel(text: String, fontSize: CGFloat = 16, fontWeight: UIFont.Weight = .regular, color: UIColor = .darkGray, numberOfLines: Int = 1) -> UILabel {
+    final func textLabel(text: String, fontSize: CGFloat = 16, fontWeight: UIFont.Weight = .regular, color: UIColor = .darkGray, numberOfLines: Int = 1) -> UILabel {
         let textLabel = UILabel()
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
@@ -95,7 +95,7 @@ class Components {
         return textLabel
     }
     
-    func textField(placeholder: String, whiteMode: Bool = false) -> UITextField {
+    final func textField(placeholder: String, whiteMode: Bool = false) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textColor = whiteMode
@@ -115,7 +115,7 @@ class Components {
         return textField
     }
     
-    func textFieldContainerView(iconName: String, textField: UITextField) -> UIView {
+    final func textFieldContainerView(iconName: String, textField: UITextField) -> UIView {
         let textFieldContainerView = UIView()
         textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
         textFieldContainerView.layer.masksToBounds = true
@@ -156,58 +156,3 @@ class Components {
         return textFieldContainerView
     }
 }
-
-//class ComponentAsClass: UIView {
-//    // MARK: - Properties
-//    let textFieldContainerView: UIView = {
-//        let textFieldContainerView = UIView()
-//        textFieldContainerView.translatesAutoresizingMaskIntoConstraints = false
-//        textFieldContainerView.backgroundColor = .white
-//        textFieldContainerView.layer.masksToBounds = true
-//        textFieldContainerView.layer.cornerRadius = 15
-//        return textFieldContainerView
-//    }()
-//
-//    let iconImageView: UIImageView = {
-//        let iconImageView = UIImageView()
-//        iconImageView.translatesAutoresizingMaskIntoConstraints = false
-//        iconImageView.tintColor = .twitterBlue
-//        return iconImageView
-//    }()
-//
-//    // MARK: - LifeCycle
-//    // viewcode init method
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        viewHierarchy()
-//    }
-//
-//    // xib/storyboard init method
-//    @available(*, unavailable)
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//    }
-//
-//    // MARK: - Methods
-//    func viewSettings(imageName: String) {
-//        iconImageView.image = UIImage(systemName: imageName)
-//    }
-//
-//    func viewHierarchy() {
-//        self.addSubview(textFieldContainerView)
-//        NSLayoutConstraint.activate([
-//            textFieldContainerView.heightAnchor.constraint(equalToConstant: 50),
-//            textFieldContainerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-//            textFieldContainerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-//            textFieldContainerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-//        ])
-//
-//        textFieldContainerView.addSubview(iconImageView)
-//        NSLayoutConstraint.activate([
-//            iconImageView.widthAnchor.constraint(equalToConstant: 28),
-//            iconImageView.heightAnchor.constraint(equalToConstant: 28),
-//            iconImageView.leadingAnchor.constraint(equalTo: textFieldContainerView.leadingAnchor, constant: 10),
-//            iconImageView.centerYAnchor.constraint(equalTo: textFieldContainerView.centerYAnchor)
-//        ])
-//    }
-//}

@@ -104,7 +104,7 @@ extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Extension FeedCollectionViewCellDelegate
 extension FeedCollectionViewController: FeedCollectionViewCellDelegate {
     // when tap on the cell image, navigate to ProfileCollectionViewController()
-    func navigateToProfileController() {
+    func navigateToProfileCollectionViewController() {
         let profileCollectionViewController = ProfileCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(profileCollectionViewController, animated: true)
     }
