@@ -24,9 +24,9 @@ struct TweetService {
         var tweets = [Tweet]()
         
         REF_DB_TWEETS.observe(.childAdded) { snapshot in
+            let tweetID = snapshot.key
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             guard let uid = dictionary["uid"] as? String else { return }
-            let tweetID = snapshot.key
             
             UserService.instance.fetchUser(uid: uid) { user in
                 let tweet = Tweet(tweetID: tweetID, dictionary: dictionary, user: user)
