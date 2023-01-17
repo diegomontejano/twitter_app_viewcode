@@ -198,11 +198,19 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		79AB5BD02976D0D800EB4300 /* ProfileHeader */ = {
+			isa = PBXGroup;
+			children = (
+				79BFE4D928DC985C00FA5255 /* ProfileHeaderCollectionView.swift */,
+			);
+			path = ProfileHeader;
+			sourceTree = "<group>";
+		};
 		79BFE4D728DC985C00FA5255 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				79BFE4D828DC985C00FA5255 /* ProfileCollectionViewController.swift */,
-				79BFE4D928DC985C00FA5255 /* ProfileHeaderCollectionView.swift */,
+				79AB5BD02976D0D800EB4300 /* ProfileHeader */,
 				79BFE4DA28DC985C00FA5255 /* ProfileFilter */,
 			);
 			path = Profile;

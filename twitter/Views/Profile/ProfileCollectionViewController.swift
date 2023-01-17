@@ -7,19 +7,11 @@ class ProfileCollectionViewController: UICollectionViewController, DMConfigureCo
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         configureNavigationItem()
     }
-    
+        
     // MARK: - Methods
     func configureCollectionView() {
-        navigationItem.title = "Profile"
-        // invert the color of the top icons (time, signal, wifi, battery)
-        navigationController?.navigationBar.barStyle = .black
-        
         collectionView.backgroundColor = .white
         // ignore safe area
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -29,6 +21,10 @@ class ProfileCollectionViewController: UICollectionViewController, DMConfigureCo
     }
     
     func configureNavigationItem() {
+        navigationItem.title = "Profile"
+        // invert navigationBar items colors (clock, wifi, battery)
+        navigationController?.navigationBar.barStyle = .black
+        // hide default navigationBar
         navigationController?.navigationBar.isHidden = true
     }
 }

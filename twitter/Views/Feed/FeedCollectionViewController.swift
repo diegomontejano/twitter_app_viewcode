@@ -30,21 +30,21 @@ class FeedCollectionViewController: UICollectionViewController, DMConfigureColle
     }()
         
     // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureCollectionView()
+        configureNavigationItem()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchTweetsFromTweetService()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureNavigationItem()
-        configureCollectionView()
-    }
-    
     // MARK: - Methods
     func configureNavigationItem() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         navigationItem.titleView = logoImageView
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(logOutButtonPressed))
     }
     
