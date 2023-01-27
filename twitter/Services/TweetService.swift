@@ -3,8 +3,10 @@ import FirebaseAuth
 import FirebaseDatabase
 
 struct TweetService {
+    // MARK: - Properties
     static let instance = TweetService()
     
+    // MARK: - Methods
     func uploadTweet(tweetText: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let values = [
@@ -21,15 +23,15 @@ struct TweetService {
     func fetchTweets(completion: @escaping([Tweet]) -> Void) {
         var tweets = [Tweet]()
         
-        REF_DB_TWEETS.observe(.childAdded) {snapshot in
+        REF_DB_TWEETS.observe(.childAdded) { snapshot in
+            let tweetID = snapshot.key
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             guard let uid = dictionary["uid"] as? String else { return }
-            let tweetID = snapshot.key
             
             UserService.instance.fetchUser(uid: uid) { user in
-                let tweet = Tweet(tweetID: tweetID, user: user, dictionary: dictionary)
+                let tweet = Tweet(tweetID: tweetID, dictionary: dictionary, user: user)
                 tweets.append(tweet)
-                completion(tweets)
+                completion(tweets.reversed())
             }
         }
     }
